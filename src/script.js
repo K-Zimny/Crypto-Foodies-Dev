@@ -15,20 +15,16 @@ animate();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
 
-  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 750);
-  perspectiveCamera.position.z = 200;
+  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1000);
+  perspectiveCamera.position.z = 250;
 
   //------------- world
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color("#1f1f1f");
-  scene.fog = new THREE.FogExp2("#1f1f1f", 0.002);
+  scene.fog = new THREE.FogExp2("#1f1f1f", 0.001);
 
   //------------- loaders
-
-  const protectedArea = 65;
-  const worldScaleDispersionFactor = 500;
-  const assetLoopCount = 200;
 
   //CF Center Building Asset
   new GLTFLoader().load("s2-building.glb", function (gltf) {
@@ -38,38 +34,57 @@ function init() {
     scene.add(gltf.scene);
   });
 
+  //ND Chinese Asset
+  new GLTFLoader().load("nice-day-chinese.glb", function (gltf) {
+    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+    gltf.scene.position.x = -60;
+    gltf.scene.position.y = 35;
+    gltf.scene.scale.set(8, 8, 8);
+    scene.add(gltf.scene);
+  });
+
+  const protectedArea = 85;
+  const worldScaleDispersionFactor = 600;
+  const assetLoopCount = 1500;
+
   //Burger Asset
   for (let i = 0; i < assetLoopCount; i++) {
     new GLTFLoader().load("burger.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 2.5);
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 0.5);
+    });
+  }
+
+  for (let i = 0; i < 10; i++) {
+    new GLTFLoader().load("burger.glb", function (gltf) {
+      randomPlacementAssetGenerator(gltf, 250, 6);
     });
   }
 
   //fries Asset
-  for (let i = 0; i < assetLoopCount; i++) {
+  for (let i = 0; i < 10; i++) {
     new GLTFLoader().load("fries.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 1.5);
+      randomPlacementAssetGenerator(gltf, 250, 4);
     });
   }
 
   //hotdog Asset
-  for (let i = 0; i < assetLoopCount; i++) {
+  for (let i = 0; i < 10; i++) {
     new GLTFLoader().load("hotdog.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 0.75);
+      randomPlacementAssetGenerator(gltf, 200, 3.5);
     });
   }
 
   //milkshake Asset
-  for (let i = 0; i < assetLoopCount; i++) {
+  for (let i = 0; i < 10; i++) {
     new GLTFLoader().load("milkshake.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 1.25);
+      randomPlacementAssetGenerator(gltf, 2750, 4);
     });
   }
 
   //taco Asset
-  for (let i = 0; i < assetLoopCount; i++) {
+  for (let i = 0; i < 10; i++) {
     new GLTFLoader().load("taco.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 3);
+      randomPlacementAssetGenerator(gltf, 225, 6);
     });
   }
 
@@ -120,6 +135,13 @@ function init() {
   dirLight2.position.set(-1, -1, -1);
   scene.add(dirLight2);
 
+  const dirLight3 = new THREE.DirectionalLight("#009999");
+  dirLight1.position.set(20, 20, 20);
+  scene.add(dirLight3);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  scene.add(directionalLight);
+
   const ambientLight = new THREE.AmbientLight(0x222222);
   scene.add(ambientLight);
 
@@ -145,7 +167,7 @@ function createControls(camera) {
   controls.zoomSpeed = 0.8;
   controls.panSpeed = 0.8;
   controls.maxDistance = 600;
-  controls.minDistance = 100;
+  controls.minDistance = 200;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
 }
