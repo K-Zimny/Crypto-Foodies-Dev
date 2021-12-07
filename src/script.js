@@ -5,6 +5,8 @@ import Stats from "three/examples/jsm/libs/stats.module.js";
 
 import { TrackballControls } from "three/examples/jsm/controls/TrackballControls.js";
 
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+
 let perspectiveCamera, controls, scene, renderer, stats;
 
 init();
@@ -13,32 +15,102 @@ animate();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
 
-  perspectiveCamera = new THREE.PerspectiveCamera(60, aspect, 1, 1000);
-  perspectiveCamera.position.z = 500;
+  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 750);
+  perspectiveCamera.position.z = 200;
 
-  // world
+  //------------- world
 
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xcccccc);
-  scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
+  scene.background = new THREE.Color("#1f1f1f");
+  scene.fog = new THREE.FogExp2("#1f1f1f", 0.002);
 
-  const geometry = new THREE.CylinderGeometry(0, 10, 30, 4, 1);
-  const material = new THREE.MeshPhongMaterial({
-    color: 0xffffff,
-    flatShading: true,
+  //------------- loaders
+
+  const protectedArea = 65;
+  const worldScaleDispersionFactor = 500;
+  const assetLoopCount = 200;
+
+  //CF Center Building Asset
+  new GLTFLoader().load("s2-building.glb", function (gltf) {
+    gltf.scene.rotation.y = 3 * (Math.PI / 2);
+    gltf.scene.position.y = -25;
+    gltf.scene.scale.set(8, 8, 8);
+    scene.add(gltf.scene);
   });
 
-  for (let i = 0; i < 500; i++) {
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.position.x = (Math.random() - 0.5) * 1000;
-    mesh.position.y = (Math.random() - 0.5) * 1000;
-    mesh.position.z = (Math.random() - 0.5) * 1000;
-    mesh.updateMatrix();
-    mesh.matrixAutoUpdate = false;
-    scene.add(mesh);
+  //Burger Asset
+  for (let i = 0; i < assetLoopCount; i++) {
+    new GLTFLoader().load("burger.glb", function (gltf) {
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 2.5);
+    });
   }
 
-  // lights
+  //fries Asset
+  for (let i = 0; i < assetLoopCount; i++) {
+    new GLTFLoader().load("fries.glb", function (gltf) {
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 1.5);
+    });
+  }
+
+  //hotdog Asset
+  for (let i = 0; i < assetLoopCount; i++) {
+    new GLTFLoader().load("hotdog.glb", function (gltf) {
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 0.75);
+    });
+  }
+
+  //milkshake Asset
+  for (let i = 0; i < assetLoopCount; i++) {
+    new GLTFLoader().load("milkshake.glb", function (gltf) {
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 1.25);
+    });
+  }
+
+  //taco Asset
+  for (let i = 0; i < assetLoopCount; i++) {
+    new GLTFLoader().load("taco.glb", function (gltf) {
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 3);
+    });
+  }
+
+  //Random Placement Asset Generation Function
+  function randomPlacementAssetGenerator(
+    gltf,
+    worldScaleFactor,
+    assetScaleFactor
+  ) {
+    gltf.scene.position.x = (Math.random() - 0.5) * worldScaleFactor;
+    gltf.scene.position.y = (Math.random() - 0.5) * worldScaleFactor;
+    gltf.scene.position.z = (Math.random() - 0.5) * worldScaleFactor;
+    gltf.scene.rotation.x = (Math.random() - 0.5) * worldScaleFactor;
+    gltf.scene.rotation.y = (Math.random() - 0.5) * worldScaleFactor;
+    gltf.scene.rotation.z = (Math.random() - 0.5) * worldScaleFactor;
+    gltf.scene.scale.set(assetScaleFactor, assetScaleFactor, assetScaleFactor);
+    gltf.scene.updateMatrix();
+    gltf.scene.matrixAutoUpdate = false;
+    if (
+      gltf.scene.position.z > protectedArea ||
+      gltf.scene.position.z < -protectedArea
+    ) {
+      scene.add(gltf.scene);
+    }
+
+    if (
+      gltf.scene.position.y > protectedArea ||
+      gltf.scene.position.y < -protectedArea
+    ) {
+      scene.add(gltf.scene);
+    }
+
+    if (
+      gltf.scene.position.x > protectedArea ||
+      gltf.scene.position.x < -protectedArea
+    ) {
+      scene.add(gltf.scene);
+    }
+  }
+
+  //-------------  lights
 
   const dirLight1 = new THREE.DirectionalLight(0xffffff);
   dirLight1.position.set(1, 1, 1);
@@ -51,7 +123,7 @@ function init() {
   const ambientLight = new THREE.AmbientLight(0x222222);
   scene.add(ambientLight);
 
-  // renderer
+  //------------- renderer
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -60,8 +132,6 @@ function init() {
 
   stats = new Stats();
   document.body.appendChild(stats.dom);
-
-  //
 
   window.addEventListener("resize", onWindowResize);
 
@@ -72,8 +142,10 @@ function createControls(camera) {
   controls = new TrackballControls(camera, renderer.domElement);
 
   controls.rotateSpeed = 1.0;
-  controls.zoomSpeed = 1.2;
+  controls.zoomSpeed = 0.8;
   controls.panSpeed = 0.8;
+  controls.maxDistance = 600;
+  controls.minDistance = 100;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
 }
