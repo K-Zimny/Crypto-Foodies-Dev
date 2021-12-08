@@ -27,33 +27,12 @@ function init() {
   //------------- loaders
 
   // CF Center Building Asset
-  new GLTFLoader().load("low_poly_building_1/scene.gltf", function (gltf) {
+  new GLTFLoader().load("s2-building.glb", function (gltf) {
     gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.y = -25;
     gltf.scene.scale.set(8, 8, 8);
     scene.add(gltf.scene);
   });
-  // new GLTFLoader().load("low_poly_building/scene.gltf", function (gltf) {
-  //   gltf.scene.rotation.y = 3 * (Math.PI / 2);
-  //   gltf.scene.position.y = -25;
-  //   gltf.scene.scale.set(8, 8, 8);
-  //   scene.add(gltf.scene);
-  // });
-  // new GLTFLoader().load("japanese_restaurant/scene.gltf", function (gltf) {
-  //   gltf.scene.rotation.y = 3 * (Math.PI / 2);
-  //   gltf.scene.position.y = -25;
-  //   gltf.scene.scale.set(8, 8, 8);
-  //   scene.add(gltf.scene);
-  // });
-  // new GLTFLoader().load(
-  //   "foodiesbld/crypto-foodies-building.gltf",
-  //   function (gltf) {
-  //     gltf.scene.rotation.y = 3 * (Math.PI / 2);
-  //     gltf.scene.position.y = -25;
-  //     gltf.scene.scale.set(8, 8, 8);
-  //     scene.add(gltf.scene);
-  //   }
-  // );
 
   //ND Chinese Asset
   new GLTFLoader().load("nice-day-chinese.glb", function (gltf) {
