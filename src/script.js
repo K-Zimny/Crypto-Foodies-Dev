@@ -26,7 +26,7 @@ function init() {
   //------------- loaders
 
   // CF Center Building Asset
-  new GLTFLoader().load("building-glass.glb", function (gltf) {
+  new GLTFLoader().load("crypto-foodies/building-glass.glb", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.y = -25;
     gltf.scene.scale.set(4, 4, 4);
@@ -34,16 +34,13 @@ function init() {
   });
 
   //HB stan Asset
-  new GLTFLoader().load(
-    "hamburger-stan-smaller-backdrop-glass.glb",
-    function (gltf) {
-      // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-      gltf.scene.position.x = -60;
-      gltf.scene.position.y = 35;
-      gltf.scene.scale.set(8, 8, 8);
-      scene.add(gltf.scene);
-    }
-  );
+  new GLTFLoader().load("brands/hamburger-stan.glb", function (gltf) {
+    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+    gltf.scene.position.x = -60;
+    gltf.scene.position.y = 35;
+    gltf.scene.scale.set(8, 8, 8);
+    scene.add(gltf.scene);
+  });
 
   const protectedArea = 85;
   const worldScaleDispersionFactor = 500;
@@ -51,45 +48,45 @@ function init() {
 
   //Burger Asset
   for (let i = 0; i < assetLoopCount; i++) {
-    new GLTFLoader().load("burger.glb", function (gltf) {
+    new GLTFLoader().load("bg-assets/burger.glb", function (gltf) {
       randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 6);
     });
   }
 
-  new GLTFLoader().load("burger.glb", function (gltf) {
+  new GLTFLoader().load("bg-assets/burger.glb", function (gltf) {
     gltf.scene.scale.set(100, 100, 100);
-    gltf.scene.position.x = -100;
+    gltf.scene.position.x = -80;
     gltf.scene.position.z = -500;
     scene.add(gltf.scene);
   });
 
   //fries Asset
   for (let i = 0; i < assetLoopCount; i++) {
-    new GLTFLoader().load("fries.glb", function (gltf) {
+    new GLTFLoader().load("bg-assets/fries.glb", function (gltf) {
       randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 4);
     });
   }
 
-  new GLTFLoader().load("fries.glb", function (gltf) {
-    gltf.scene.scale.set(65, 65, 65);
-    gltf.scene.position.x = -500;
-    gltf.scene.position.z = -150;
-    gltf.scene.rotation.y = 3 * (Math.PI / 2);
+  new GLTFLoader().load("bg-assets/fries.glb", function (gltf) {
+    gltf.scene.scale.set(45, 45, 45);
+    gltf.scene.position.x = -280;
+    gltf.scene.position.z = -420;
+    gltf.scene.rotation.y = Math.PI / 8;
     scene.add(gltf.scene);
   });
 
   //hotdog Asset
   for (let i = 0; i < assetLoopCount; i++) {
-    new GLTFLoader().load("hotdog.glb", function (gltf) {
+    new GLTFLoader().load("bg-assets/hotdog.glb", function (gltf) {
       randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 3.5);
     });
   }
 
-  new GLTFLoader().load("hotdog.glb", function (gltf) {
-    gltf.scene.scale.set(65, 65, 65);
-    gltf.scene.position.x = 500;
-    gltf.scene.position.z = -150;
-    gltf.scene.rotation.y = 3 * (Math.PI / 2);
+  new GLTFLoader().load("bg-assets/hotdog.glb", function (gltf) {
+    gltf.scene.scale.set(35, 35, 35);
+    gltf.scene.position.x = 300;
+    gltf.scene.position.z = -420;
+    gltf.scene.rotation.y = -(Math.PI / 8);
     scene.add(gltf.scene);
   });
 
