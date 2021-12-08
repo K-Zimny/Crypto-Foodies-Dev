@@ -33,10 +33,28 @@ function init() {
     scene.add(gltf.scene);
   });
 
+  //ND chinese Asset
+  new GLTFLoader().load("brands/nice-day-chinese.glb", function (gltf) {
+    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+    gltf.scene.position.x = -20;
+    gltf.scene.position.y = 100;
+    gltf.scene.scale.set(18, 18, 18);
+    scene.add(gltf.scene);
+  });
+
+  //Budlong Asset
+  new GLTFLoader().load("brands/budlong.glb", function (gltf) {
+    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+    gltf.scene.position.x = 100;
+    gltf.scene.position.y = 35;
+    gltf.scene.scale.set(18, 18, 18);
+    scene.add(gltf.scene);
+  });
+
   //HB stan Asset
   new GLTFLoader().load("brands/hamburger-stan.glb", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-    gltf.scene.position.x = -60;
+    gltf.scene.position.x = -100;
     gltf.scene.position.y = 35;
     gltf.scene.scale.set(8, 8, 8);
     scene.add(gltf.scene);
