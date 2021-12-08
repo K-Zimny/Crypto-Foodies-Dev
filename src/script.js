@@ -26,13 +26,34 @@ function init() {
 
   //------------- loaders
 
-  //CF Center Building Asset
-  new GLTFLoader().load("s2-building.glb", function (gltf) {
+  // CF Center Building Asset
+  new GLTFLoader().load("low_poly_building_1/scene.gltf", function (gltf) {
     gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.y = -25;
     gltf.scene.scale.set(8, 8, 8);
     scene.add(gltf.scene);
   });
+  // new GLTFLoader().load("low_poly_building/scene.gltf", function (gltf) {
+  //   gltf.scene.rotation.y = 3 * (Math.PI / 2);
+  //   gltf.scene.position.y = -25;
+  //   gltf.scene.scale.set(8, 8, 8);
+  //   scene.add(gltf.scene);
+  // });
+  // new GLTFLoader().load("japanese_restaurant/scene.gltf", function (gltf) {
+  //   gltf.scene.rotation.y = 3 * (Math.PI / 2);
+  //   gltf.scene.position.y = -25;
+  //   gltf.scene.scale.set(8, 8, 8);
+  //   scene.add(gltf.scene);
+  // });
+  // new GLTFLoader().load(
+  //   "foodiesbld/crypto-foodies-building.gltf",
+  //   function (gltf) {
+  //     gltf.scene.rotation.y = 3 * (Math.PI / 2);
+  //     gltf.scene.position.y = -25;
+  //     gltf.scene.scale.set(8, 8, 8);
+  //     scene.add(gltf.scene);
+  //   }
+  // );
 
   //ND Chinese Asset
   new GLTFLoader().load("nice-day-chinese.glb", function (gltf) {
@@ -44,49 +65,43 @@ function init() {
   });
 
   const protectedArea = 85;
-  const worldScaleDispersionFactor = 600;
-  const assetLoopCount = 1500;
+  const worldScaleDispersionFactor = 500;
+  const assetLoopCount = 30;
 
   //Burger Asset
   for (let i = 0; i < assetLoopCount; i++) {
     new GLTFLoader().load("burger.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 0.5);
-    });
-  }
-
-  for (let i = 0; i < 10; i++) {
-    new GLTFLoader().load("burger.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, 250, 6);
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 6);
     });
   }
 
   //fries Asset
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < assetLoopCount; i++) {
     new GLTFLoader().load("fries.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, 250, 4);
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 4);
     });
   }
 
   //hotdog Asset
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < assetLoopCount; i++) {
     new GLTFLoader().load("hotdog.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, 200, 3.5);
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 3.5);
     });
   }
 
   //milkshake Asset
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < assetLoopCount; i++) {
     new GLTFLoader().load("milkshake.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, 2750, 4);
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 4);
     });
   }
 
-  //taco Asset
-  for (let i = 0; i < 10; i++) {
-    new GLTFLoader().load("taco.glb", function (gltf) {
-      randomPlacementAssetGenerator(gltf, 225, 6);
-    });
-  }
+  // //taco Asset
+  // for (let i = 0; i < 10; i++) {
+  //   new GLTFLoader().load("taco.glb", function (gltf) {
+  //     randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 6);
+  //   });
+  // }
 
   //Random Placement Asset Generation Function
   function randomPlacementAssetGenerator(
@@ -103,10 +118,7 @@ function init() {
     gltf.scene.scale.set(assetScaleFactor, assetScaleFactor, assetScaleFactor);
     gltf.scene.updateMatrix();
     gltf.scene.matrixAutoUpdate = false;
-    if (
-      gltf.scene.position.z > protectedArea ||
-      gltf.scene.position.z < -protectedArea
-    ) {
+    if (gltf.scene.position.z > 250 || gltf.scene.position.z < -protectedArea) {
       scene.add(gltf.scene);
     }
 
@@ -122,6 +134,63 @@ function init() {
       gltf.scene.position.x < -protectedArea
     ) {
       scene.add(gltf.scene);
+    }
+  }
+
+  //----------- Stars
+
+  const starGeometry = new THREE.BoxGeometry(1, 1, 0);
+  const purpleMaterial = new THREE.MeshBasicMaterial({
+    color: "#f542ec",
+    transparent: true,
+    opacity: 0.4,
+  });
+  const orangeMaterial = new THREE.MeshBasicMaterial({
+    color: "#f55d42",
+    transparent: true,
+    opacity: 0.4,
+  });
+  const whiteMaterial = new THREE.MeshBasicMaterial({
+    color: "#fcf7e1",
+    transparent: true,
+    opacity: 0.4,
+  });
+
+  randomPlacementMeshGenerator(starGeometry, purpleMaterial, 0.5, 5000, 500);
+  randomPlacementMeshGenerator(starGeometry, orangeMaterial, 0.65, 3000, 500);
+  randomPlacementMeshGenerator(starGeometry, whiteMaterial, 0.75, 500, 500);
+
+  //Random Placement Asset Generation Function
+
+  function randomPlacementMeshGenerator(
+    geometry,
+    material,
+    scale,
+    loop,
+    range
+  ) {
+    for (let i = 0; i < loop; i++) {
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.position.x = (Math.random() - 0.5) * range;
+      mesh.position.y = (Math.random() - 0.5) * range;
+      mesh.position.z = (Math.random() - 0.5) * range;
+      // mesh.rotation.x = (Math.random() - 0.5) * range;
+      // mesh.rotation.y = (Math.random() - 0.5) * range;
+      // mesh.rotation.z = (Math.random() - 0.5) * range;
+      mesh.scale.set(scale, scale, scale);
+      mesh.updateMatrix();
+      mesh.matrixAutoUpdate = false;
+      if (mesh.position.z > 200 || mesh.position.z < -protectedArea) {
+        scene.add(mesh);
+      }
+
+      if (mesh.position.y > protectedArea || mesh.position.y < -protectedArea) {
+        scene.add(mesh);
+      }
+
+      if (mesh.position.x > protectedArea || mesh.position.x < -protectedArea) {
+        scene.add(mesh);
+      }
     }
   }
 
