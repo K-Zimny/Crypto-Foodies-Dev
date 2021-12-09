@@ -33,6 +33,14 @@ function init() {
     scene.add(gltf.scene);
   });
 
+  // CF Center Building Logo Asset
+  new GLTFLoader().load("crypto-foodies/cf-logo.glb", function (gltf) {
+    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+    gltf.scene.position.y = 20;
+    gltf.scene.scale.set(40, 40, 40);
+    scene.add(gltf.scene);
+  });
+
   //ND chinese Asset
   new GLTFLoader().load("brands/nice-day-chinese.glb", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
