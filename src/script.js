@@ -1,5 +1,6 @@
 import "./general.css";
 import "./content.css";
+import "./page.js";
 import * as THREE from "three";
 
 import Stats from "three/examples/jsm/libs/stats.module.js";
