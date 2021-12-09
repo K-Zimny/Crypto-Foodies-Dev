@@ -1,4 +1,5 @@
-import "./style.css";
+import "./general.css";
+import "./content.css";
 import * as THREE from "three";
 
 import Stats from "three/examples/jsm/libs/stats.module.js";
@@ -311,5 +312,5 @@ function rotate() {
   render();
 }
 
-animate();
-// rotate();
+// animate();
+rotate();

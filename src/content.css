@@ -1,0 +1,50 @@
+/* header */
+
+header {
+  /* visibility: hidden; */
+  /* opacity: 0; */
+  /* display: none; */
+  position: absolute;
+  width: 75%;
+  max-width: 900px;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-primary);
+  padding: 20px;
+  text-align: center;
+  border-width: 3px;
+  border-style: solid;
+  border-color: rgba(198, 198, 198, 0.47) rgba(0, 0, 0, 0.62)
+    rgba(0, 0, 0, 0.62) rgba(198, 198, 198, 0.47);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  header {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: 10px;
+  margin-bottom: 30px;
+  line-height: 4rem;
+}
+
+header p {
+  font-size: 1rem;
+}
+
+nav ul,
+nav li {
+  display: inline-block;
+}
+
+nav ul {
+  padding: 0;
+}
+nav li {
+  padding: 10px 50px;
+}
