@@ -38,7 +38,14 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.y = 20;
     gltf.scene.scale.set(40, 40, 40);
+
+    // gltf.scene.translateOnAxis(1, 1, 1);
     scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y += 0.005;
+    }
+    rotate();
   });
 
   //ND chinese Asset
@@ -71,6 +78,14 @@ function init() {
   const protectedArea = 85;
   const worldScaleDispersionFactor = 500;
   const assetLoopCount = 30;
+
+  //Logo Asset
+
+  for (let i = 0; i < assetLoopCount; i++) {
+    new GLTFLoader().load("crypto-foodies/cf-logo.glb", function (gltf) {
+      randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 6);
+    });
+  }
 
   //Burger Asset
   for (let i = 0; i < assetLoopCount; i++) {
@@ -118,7 +133,7 @@ function init() {
 
   //milkshake Asset
   for (let i = 0; i < assetLoopCount; i++) {
-    new GLTFLoader().load("milkshake.glb", function (gltf) {
+    new GLTFLoader().load("bg-assets/milkshake.glb", function (gltf) {
       randomPlacementAssetGenerator(gltf, worldScaleDispersionFactor, 4);
     });
   }
