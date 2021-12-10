@@ -64,9 +64,9 @@ function init() {
   //Budlong Asset
   new GLTFLoader().load("brands/budlong.glb", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-    gltf.scene.position.x = 100;
+    gltf.scene.position.x = 40;
     gltf.scene.position.y = 35;
-    gltf.scene.scale.set(18, 18, 18);
+    gltf.scene.scale.set(55, 55, 55);
     scene.add(gltf.scene);
   });
 
