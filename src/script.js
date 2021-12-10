@@ -309,7 +309,7 @@ function rotateWorld() {
   perspectiveCamera.position.x = radius * Math.sin(angle);
   perspectiveCamera.position.z = radius * Math.cos(angle);
   perspectiveCamera.position.y = radius * Math.sin(angle);
-  angle += 0.00025;
+  angle += 0.001;
   controls.rotateSpeed = 0;
   controls.zoomSpeed = 0;
 }
