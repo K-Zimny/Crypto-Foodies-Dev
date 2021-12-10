@@ -11,7 +11,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 let perspectiveCamera, controls, scene, renderer, stats;
 
-let requestRotate;
+let requestRotate, down;
 
 init();
 
@@ -275,7 +275,7 @@ function createControls(camera) {
 
   controls.rotateSpeed = 1.0;
   controls.zoomSpeed = 0.8;
-  controls.panSpeed = 0.8;
+  controls.panSpeed = 0;
   controls.maxDistance = 600;
   controls.minDistance = 200;
 
@@ -298,11 +298,16 @@ function render() {
   renderer.render(scene, camera);
 }
 
+let angle = 0;
+let radius = 1000;
+
 // Animate
 function rotateWorld() {
-  perspectiveCamera.position.x += Math.cos(1 * Math.PI * 2) / 14;
-  perspectiveCamera.position.y += Math.cos(1 * Math.PI * 2) / 14;
-  perspectiveCamera.position.z += Math.sin(1 * Math.PI * 2) / 110;
+  perspectiveCamera.position.x = radius * Math.sin(angle);
+  perspectiveCamera.position.z = radius * Math.cos(angle);
+  perspectiveCamera.position.y = radius * Math.sin(angle);
+  angle += 0.00025;
+  controls.rotateSpeed = 0;
 }
 
 function animate() {
@@ -316,7 +321,6 @@ function animate() {
 }
 
 animate();
-// rotate();
 
 //---------------------------------------------------------------
 
@@ -369,6 +373,7 @@ jQuery(function () {
   }
 
   function exploreWorld() {
+    controls.rotateSpeed = 3;
     jQuery("header").addClass("btn-no-click");
     jQuery("header").fadeTo(1000, 0, function () {
       jQuery("header").removeClass("block");
@@ -396,12 +401,21 @@ jQuery(function () {
     });
   }
 
-  // ---------------------------  Called functions  --------------------------- //
+  function inputDetect() {
+    jQuery(document).on("mousedown", function () {
+      down = true;
+    });
+    jQuery(document).on("mouseup", function () {
+      down = false;
+    });
+  }
 
+  // ---------------------------  Called functions  --------------------------- //
+  inputDetect();
   showHeader();
   pageFadeIn();
-  //   hideHeader();
-  //   showContentPage("#about");
+  // requestRotate();
+  requestRotate = true;
 
   jQuery("#aboutLink").on("click", function () {
     showContentPage("#about");
@@ -420,10 +434,10 @@ jQuery(function () {
   });
   jQuery("#explore").on("click", function () {
     exploreWorld();
-    requestRotate = true;
+    requestRotate = false;
   });
   jQuery("#endExplore").on("click", function () {
     endExploreWorld();
-    requestRotate = false;
+    requestRotate = true;
   });
 });
