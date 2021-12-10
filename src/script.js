@@ -11,7 +11,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 let perspectiveCamera, controls, scene, renderer, stats;
 
-let requestRotate, down;
+let requestRotate, requestIntroZoomIn;
 
 init();
 
@@ -19,7 +19,8 @@ function init() {
   const aspect = window.innerWidth / window.innerHeight;
 
   perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1500);
-  perspectiveCamera.position.z = 250;
+  // perspectiveCamera.position.z = 250;
+  perspectiveCamera.position.z = 2500;
 
   //------------- world
 
@@ -276,8 +277,10 @@ function createControls(camera) {
   controls.rotateSpeed = 1.0;
   controls.zoomSpeed = 0.8;
   controls.panSpeed = 0;
-  controls.maxDistance = 800;
-  controls.minDistance = 200;
+  // controls.maxDistance = 800;
+  // controls.minDistance = 200;
+  controls.maxDistance = 1000;
+  controls.minDistance = 250;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
 }
@@ -311,9 +314,21 @@ function rotateWorld() {
   controls.zoomSpeed = 0;
 }
 
+function introZoomIn() {
+  if (perspectiveCamera.position.z > 600) {
+    perspectiveCamera.position.z -= 1;
+  } else {
+    requestRotate = true;
+    requestIntroZoomIn = false;
+  }
+}
+
 function animate() {
   if (requestRotate) {
     rotateWorld();
+  }
+  if (requestIntroZoomIn) {
+    introZoomIn();
   }
   requestAnimationFrame(animate);
   controls.update();
@@ -332,6 +347,7 @@ jQuery(function () {
   function pageFadeIn() {
     jQuery("body").fadeTo(10000, 1);
   }
+
   function showHeader() {
     jQuery("header").addClass("btn-no-click");
     jQuery("header").addClass("block");
@@ -415,10 +431,10 @@ jQuery(function () {
   }
 
   // ---------------------------  Called functions  --------------------------- //
-  inputDetect();
-  showHeader();
+  // inputDetect();
   pageFadeIn();
-  requestRotate = true;
+  requestIntroZoomIn = true;
+  showHeader();
 
   jQuery("#aboutLink").on("click", function () {
     showContentPage("#about");
