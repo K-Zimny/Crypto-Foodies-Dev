@@ -11,6 +11,8 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 let perspectiveCamera, controls, scene, renderer, stats;
 
+let requestRotate;
+
 init();
 
 function init() {
@@ -296,18 +298,18 @@ function render() {
   renderer.render(scene, camera);
 }
 
-function animate() {
-  requestAnimationFrame(animate);
-  controls.update();
-  stats.update();
-  render();
+// Animate
+function rotateWorld() {
+  perspectiveCamera.position.x += Math.cos(1 * Math.PI * 2) / 14;
+  perspectiveCamera.position.y += Math.cos(1 * Math.PI * 2) / 14;
+  perspectiveCamera.position.z += Math.sin(1 * Math.PI * 2) / 110;
 }
 
-function rotate() {
-  perspectiveCamera.position.x += Math.cos(1 * Math.PI * 2) / 4;
-  perspectiveCamera.position.y += Math.cos(1 * Math.PI * 2) / 4;
-  perspectiveCamera.position.z += Math.cos(1 * Math.PI * 2) / 14;
-  requestAnimationFrame(rotate);
+function animate() {
+  if (requestRotate) {
+    rotateWorld();
+  }
+  requestAnimationFrame(animate);
   controls.update();
   stats.update();
   render();
@@ -418,8 +420,10 @@ jQuery(function () {
   });
   jQuery("#explore").on("click", function () {
     exploreWorld();
+    requestRotate = true;
   });
   jQuery("#endExplore").on("click", function () {
     endExploreWorld();
+    requestRotate = false;
   });
 });
