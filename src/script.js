@@ -312,6 +312,7 @@ function rotateWorld() {
   angle += 0.001;
   controls.rotateSpeed = 0;
   controls.zoomSpeed = 0;
+  controls.maxDistance = 700;
 }
 
 function introZoomIn() {
@@ -459,5 +460,8 @@ jQuery(function () {
   });
   jQuery("#endExplore").on("click", function () {
     endExploreWorld();
+  });
+  jQuery("#audioBtn").on("click", function () {
+    document.getElementById("audio").play();
   });
 });
