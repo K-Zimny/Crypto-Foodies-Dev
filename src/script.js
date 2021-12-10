@@ -276,7 +276,7 @@ function createControls(camera) {
   controls.rotateSpeed = 1.0;
   controls.zoomSpeed = 0.8;
   controls.panSpeed = 0;
-  controls.maxDistance = 600;
+  controls.maxDistance = 800;
   controls.minDistance = 200;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
@@ -299,7 +299,7 @@ function render() {
 }
 
 let angle = 0;
-let radius = 1000;
+let radius = 600;
 
 // Animate
 function rotateWorld() {
@@ -308,6 +308,7 @@ function rotateWorld() {
   perspectiveCamera.position.y = radius * Math.sin(angle);
   angle += 0.00025;
   controls.rotateSpeed = 0;
+  controls.zoomSpeed = 0;
 }
 
 function animate() {
@@ -374,6 +375,8 @@ jQuery(function () {
 
   function exploreWorld() {
     controls.rotateSpeed = 3;
+    controls.zoomSpeed = 0.8;
+    requestRotate = false;
     jQuery("header").addClass("btn-no-click");
     jQuery("header").fadeTo(1000, 0, function () {
       jQuery("header").removeClass("block");
@@ -388,6 +391,7 @@ jQuery(function () {
   }
 
   function endExploreWorld() {
+    requestRotate = true;
     jQuery("#endExplore").addClass("btn-no-click");
     jQuery("#endExplore").fadeTo(1000, 0, function () {
       jQuery("#endExplore").removeClass("block");
@@ -414,7 +418,6 @@ jQuery(function () {
   inputDetect();
   showHeader();
   pageFadeIn();
-  // requestRotate();
   requestRotate = true;
 
   jQuery("#aboutLink").on("click", function () {
@@ -432,12 +435,13 @@ jQuery(function () {
   jQuery("#howLink").on("click", function () {
     showContentPage("#how");
   });
+  jQuery("#howHomeBtn").on("click", function () {
+    hideContentPage("#how");
+  });
   jQuery("#explore").on("click", function () {
     exploreWorld();
-    requestRotate = false;
   });
   jQuery("#endExplore").on("click", function () {
     endExploreWorld();
-    requestRotate = true;
   });
 });
