@@ -73,3 +73,13 @@ nav li {
     backdrop-filter: blur(20px);
   }
 }
+
+/* Exploration */
+
+#endExplore {
+  opacity: 0;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
