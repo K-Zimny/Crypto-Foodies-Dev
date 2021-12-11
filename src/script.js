@@ -9,6 +9,8 @@ import { TrackballControls } from "three/examples/jsm/controls/TrackballControls
 
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+
 let perspectiveCamera, controls, scene, renderer, stats;
 
 let requestRotate, requestIntroZoomIn;
@@ -63,13 +65,31 @@ function init() {
   });
 
   //Budlong Asset
-  new GLTFLoader().load("brands/budlong.glb", function (gltf) {
-    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-    gltf.scene.position.x = 40;
-    gltf.scene.position.y = 35;
-    gltf.scene.scale.set(55, 55, 55);
-    scene.add(gltf.scene);
-  });
+
+  const budLoader = new GLTFLoader();
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath("draco/");
+  budLoader.setDRACOLoader(dracoLoader);
+
+  budLoader.load(
+    // resource URL
+    "brands/budlong-compressed.glb",
+    // called when the resource is loaded
+    function (gltf) {
+      gltf.scene.position.x = 40;
+      gltf.scene.position.y = 35;
+      gltf.scene.scale.set(15, 15, 15);
+      scene.add(gltf.scene);
+    }
+  );
+
+  // new GLTFLoader().load("brands/budlong-compressed.glb", function (gltf) {
+  //   // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+  //   gltf.scene.position.x = 40;
+  //   gltf.scene.position.y = 35;
+  //   gltf.scene.scale.set(55, 55, 55);
+  //   scene.add(gltf.scene);
+  // });
 
   //HB stan Asset
   new GLTFLoader().load("brands/hamburger-stan.glb", function (gltf) {
