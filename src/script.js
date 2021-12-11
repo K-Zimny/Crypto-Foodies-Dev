@@ -27,6 +27,11 @@ function init() {
   //------------- world
 
   scene = new THREE.Scene();
+  const bgLoader = new THREE.TextureLoader();
+  bgLoader.load("imgs/space-bg.webp", function (texture) {
+    scene.background = texture;
+  });
+
   scene.background = new THREE.Color("#1f1f1f");
   scene.fog = new THREE.FogExp2("#1f1f1f", 0.001);
 
