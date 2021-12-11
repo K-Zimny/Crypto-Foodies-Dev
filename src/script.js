@@ -32,6 +32,11 @@ function init() {
 
   //------------- loaders
 
+  // DRACO Loader
+
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath("draco/");
+
   // CF Center Building Asset
   new GLTFLoader().load("crypto-foodies/building-glass.glb", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
@@ -41,10 +46,12 @@ function init() {
   });
 
   // CF Center Building Logo Asset
-  new GLTFLoader().load("crypto-foodies/cf-logo.glb", function (gltf) {
+  const buildingLogo = new GLTFLoader();
+  buildingLogo.setDRACOLoader(dracoLoader);
+  buildingLogo.load("locations/u-of-texas.glb", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.y = 20;
-    gltf.scene.scale.set(40, 40, 40);
+    gltf.scene.scale.set(10, 10, 10);
 
     // gltf.scene.translateOnAxis(1, 1, 1);
     scene.add(gltf.scene);
@@ -67,8 +74,6 @@ function init() {
   //Budlong Asset
 
   const budLoader = new GLTFLoader();
-  const dracoLoader = new DRACOLoader();
-  dracoLoader.setDecoderPath("draco/");
   budLoader.setDRACOLoader(dracoLoader);
 
   budLoader.load(
