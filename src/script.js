@@ -48,26 +48,29 @@ function init() {
   // CF Center Building Logo Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
-  buildingLogo.load("locations/u-of-texas.glb", function (gltf) {
-    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-    gltf.scene.position.y = 20;
-    gltf.scene.scale.set(10, 10, 10);
-
-    // gltf.scene.translateOnAxis(1, 1, 1);
-    scene.add(gltf.scene);
-    function rotate() {
-      requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.005;
+  buildingLogo.load(
+    "locations/u-of-texas-origin-centered.gltf",
+    function (gltf) {
+      gltf.scene.position.y = 37;
+      gltf.scene.position.z = 5;
+      gltf.scene.scale.set(10, 10, 10);
+      scene.add(gltf.scene);
+      function rotate() {
+        requestAnimationFrame(rotate);
+        gltf.scene.rotation.y += 0.01;
+      }
+      rotate();
     }
-    rotate();
-  });
+  );
 
   //ND chinese Asset
-  new GLTFLoader().load("brands/nice-day-chinese.glb", function (gltf) {
+  const ndChinese = new GLTFLoader();
+  ndChinese.setDRACOLoader(dracoLoader);
+  ndChinese.load("brands/nice-day-chinese-test.gltf", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-    gltf.scene.position.x = -20;
+    gltf.scene.position.x = 20;
     gltf.scene.position.y = 100;
-    gltf.scene.scale.set(18, 18, 18);
+    gltf.scene.scale.set(28, 28, 28);
     scene.add(gltf.scene);
   });
 
@@ -81,7 +84,7 @@ function init() {
     "brands/budlong-compressed.glb",
     // called when the resource is loaded
     function (gltf) {
-      gltf.scene.position.x = 40;
+      gltf.scene.position.x = 70;
       gltf.scene.position.y = 35;
       gltf.scene.scale.set(15, 15, 15);
       scene.add(gltf.scene);
