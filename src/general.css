@@ -6,7 +6,7 @@
 :root {
   --dark: #121212;
   --text-primary: #fff;
-  --color-primary: rgba(54, 54, 54, 0);
+  --color-primary: #1f1f1f;
 }
 
 html {

@@ -527,5 +527,6 @@ jQuery(function () {
   });
   jQuery("#audioBtn").on("click", function () {
     document.getElementById("audio").play();
+    document.documentElement.requestFullscreen();
   });
 });
