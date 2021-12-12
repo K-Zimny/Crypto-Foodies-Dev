@@ -43,7 +43,7 @@ function init() {
 
   const material = new THREE.MeshBasicMaterial({ map: texture });
   material.transparent = false;
-  material.opacity = 1;
+  material.opacity = 0.5;
 
   const mesh = new THREE.Mesh(geometry, material);
 
@@ -480,8 +480,8 @@ jQuery(function () {
 
   // ---------------------------  Called functions  --------------------------- //
   // inputDetect();
-  // pageFadeIn();
-  // requestIntroZoomIn = true;
+  pageFadeIn();
+  requestIntroZoomIn = true;
   showHeader();
 
   jQuery("#aboutLink").on("click", function () {
