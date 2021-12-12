@@ -20,20 +20,34 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
 
-  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1500);
+  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2000);
   // perspectiveCamera.position.z = 250;
   perspectiveCamera.position.z = 2500;
 
   //------------- world
 
   scene = new THREE.Scene();
-  const bgLoader = new THREE.TextureLoader();
-  bgLoader.load("imgs/space-bg.webp", function (texture) {
-    scene.background = texture;
-  });
-
   scene.background = new THREE.Color("#1f1f1f");
-  scene.fog = new THREE.FogExp2("#1f1f1f", 0.001);
+  scene.fog = new THREE.FogExp2("#1f1f1f", 0.0005);
+
+  // pano scene
+
+  const geometry = new THREE.SphereGeometry(700, 60, 40);
+  // invert the geometry on the x-axis so that all of the faces point inward
+  geometry.scale(-1, 1, 1);
+
+  const texture = new THREE.TextureLoader().load("imgs/space-bg.webp");
+  texture.wrapS = THREE.MirroredRepeatWrapping;
+  texture.wrapT = THREE.MirroredRepeatWrapping;
+  texture.repeat.set(4, 4);
+
+  const material = new THREE.MeshBasicMaterial({ map: texture });
+  material.transparent = false;
+  material.opacity = 1;
+
+  const mesh = new THREE.Mesh(geometry, material);
+
+  scene.add(mesh);
 
   //------------- loaders
 
@@ -466,8 +480,8 @@ jQuery(function () {
 
   // ---------------------------  Called functions  --------------------------- //
   // inputDetect();
-  pageFadeIn();
-  requestIntroZoomIn = true;
+  // pageFadeIn();
+  // requestIntroZoomIn = true;
   showHeader();
 
   jQuery("#aboutLink").on("click", function () {
