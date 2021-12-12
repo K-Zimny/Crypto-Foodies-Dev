@@ -275,57 +275,70 @@ function init() {
 
   //----------- Stars
 
-  const starGeometry = new THREE.BoxGeometry(1, 1, 0);
-  const purpleMaterial = new THREE.MeshBasicMaterial({
-    color: "#f542ec",
-    transparent: true,
-    opacity: 0.4,
-  });
-  const orangeMaterial = new THREE.MeshBasicMaterial({
-    color: "#f55d42",
-    transparent: true,
-    opacity: 0.4,
-  });
-  const whiteMaterial = new THREE.MeshBasicMaterial({
-    color: "#fcf7e1",
-    transparent: true,
-    opacity: 0.4,
-  });
+  /**
+   * Particles
+   */
+  // Geometry
+  const particlesGeometry = new THREE.BufferGeometry();
+  const count = 1000;
+  const positions = new Float32Array(count * 3);
 
-  randomPlacementMeshGenerator(starGeometry, purpleMaterial, 0.6, 3000, 500);
-  randomPlacementMeshGenerator(starGeometry, orangeMaterial, 0.75, 1000, 500);
-  randomPlacementMeshGenerator(starGeometry, whiteMaterial, 0.85, 500, 500);
-
-  //Random Placement Asset Generation Function
-
-  function randomPlacementMeshGenerator(
-    geometry,
-    material,
-    scale,
-    loop,
-    range
+  for (
+    let i = 0;
+    i < count * 3;
+    i++ // Multiply by 3 for same reason
   ) {
-    for (let i = 0; i < loop; i++) {
-      const mesh = new THREE.Mesh(geometry, material);
-      mesh.position.x = (Math.random() - 0.5) * range;
-      mesh.position.y = (Math.random() - 0.5) * range;
-      mesh.position.z = (Math.random() - 0.5) * range;
-      mesh.scale.set(scale, scale, scale);
-      mesh.updateMatrix();
-      mesh.matrixAutoUpdate = false;
-      if (mesh.position.z > 200 || mesh.position.z < -protectedArea) {
-        scene.add(mesh);
-      }
-
-      if (mesh.position.y > protectedArea || mesh.position.y < -protectedArea) {
-        scene.add(mesh);
-      }
-
-      if (mesh.position.x > protectedArea || mesh.position.x < -protectedArea) {
-        scene.add(mesh);
-      }
-    }
+    positions[i] = (Math.random() - 0.5) * 500;
   }
+
+  // Material
+  const particlesMaterial = new THREE.PointsMaterial({
+    size: 2,
+    sizeAttenuation: true,
+    color: "white",
+    transparent: true,
+    opacity: 0.35,
+  });
+  // particlesMaterial.vertexColors = true;
+  const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+  particlesGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(positions, 3)
+  );
+  scene.add(particles);
+
+  // alt
+  // Geometry
+  const particlesGeometryAlt = new THREE.BufferGeometry();
+  const countAlt = 1000;
+  const positionsAlt = new Float32Array(count * 3);
+
+  for (
+    let i = 0;
+    i < count * 3;
+    i++ // Multiply by 3 for same reason
+  ) {
+    positionsAlt[i] = (Math.random() - 0.5) * 500;
+  }
+
+  // Material
+  const particlesMaterialAlt = new THREE.PointsMaterial({
+    size: 2,
+    sizeAttenuation: true,
+    color: "#96178a",
+    transparent: true,
+    opacity: 0.75,
+  });
+  // particlesMaterial.vertexColors = true;
+  const particlesAlt = new THREE.Points(
+    particlesGeometryAlt,
+    particlesMaterialAlt
+  );
+  particlesGeometryAlt.setAttribute(
+    "position",
+    new THREE.BufferAttribute(positionsAlt, 3)
+  );
+  scene.add(particlesAlt);
 
   //-------------  lights
 
