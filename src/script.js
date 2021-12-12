@@ -67,20 +67,45 @@ function init() {
   // CF Center Building Logo Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
-  buildingLogo.load(
-    "locations/u-of-texas-origin-centered.gltf",
-    function (gltf) {
-      gltf.scene.position.y = 37;
-      gltf.scene.position.z = 5;
-      gltf.scene.scale.set(10, 10, 10);
-      scene.add(gltf.scene);
-      function rotate() {
-        requestAnimationFrame(rotate);
-        gltf.scene.rotation.y += 0.01;
-      }
-      rotate();
+  buildingLogo.load("locations/u-of-texas.gltf", function (gltf) {
+    gltf.scene.position.y = 37;
+    gltf.scene.position.z = 5;
+    gltf.scene.scale.set(10, 10, 10);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y += 0.005;
     }
-  );
+    rotate();
+  });
+
+  // CF Center Building Logo Asset
+  const coinLogo = new GLTFLoader();
+  coinLogo.setDRACOLoader(dracoLoader);
+  coinLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
+    gltf.scene.position.x = -30;
+    gltf.scene.position.y = -5;
+    gltf.scene.position.z = 5;
+    gltf.scene.scale.set(10, 10, 10);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y += 0.025;
+    }
+    rotate();
+  });
+  coinLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
+    gltf.scene.position.x = 30;
+    gltf.scene.position.y = -5;
+    gltf.scene.position.z = 5;
+    gltf.scene.scale.set(10, 10, 10);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.025;
+    }
+    rotate();
+  });
 
   //ND chinese Asset
   const ndChinese = new GLTFLoader();
@@ -91,6 +116,13 @@ function init() {
     gltf.scene.position.y = 85;
     gltf.scene.scale.set(28, 28, 28);
     scene.add(gltf.scene);
+    let x = 1;
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.position.y = Math.sin(x) + 85;
+      x += 0.025;
+    }
+    rotate();
   });
 
   //Budlong Asset
@@ -107,6 +139,13 @@ function init() {
       gltf.scene.position.y = 10;
       gltf.scene.scale.set(15, 15, 15);
       scene.add(gltf.scene);
+      let x = 1;
+      function rotate() {
+        requestAnimationFrame(rotate);
+        gltf.scene.position.y = Math.sin(x) + 10;
+        x += 0.035;
+      }
+      rotate();
     }
   );
 
@@ -125,6 +164,13 @@ function init() {
     gltf.scene.position.y = -20;
     gltf.scene.scale.set(8, 8, 8);
     scene.add(gltf.scene);
+    let x = 1;
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.position.y = Math.sin(x) - 20;
+      x += 0.045;
+    }
+    rotate();
   });
 
   const protectedArea = 85;
@@ -359,7 +405,7 @@ function rotateWorld() {
   perspectiveCamera.position.x = radius * Math.sin(angle);
   perspectiveCamera.position.z = radius * Math.cos(angle);
   perspectiveCamera.position.y = radius * Math.sin(angle);
-  angle += 0.001;
+  angle += 0.0005;
   controls.rotateSpeed = 0;
   controls.zoomSpeed = 0;
   controls.maxDistance = 700;
