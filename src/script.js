@@ -13,7 +13,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
 let perspectiveCamera, controls, scene, renderer, stats;
 
-let requestRotate, requestIntroZoomIn;
+let requestRotate, requestIntroZoomIn, requestSlowRotate;
 
 init();
 
@@ -87,8 +87,8 @@ function init() {
   ndChinese.setDRACOLoader(dracoLoader);
   ndChinese.load("brands/nice-day-chinese-test.gltf", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-    gltf.scene.position.x = 20;
-    gltf.scene.position.y = 100;
+    gltf.scene.position.x = 0;
+    gltf.scene.position.y = 85;
     gltf.scene.scale.set(28, 28, 28);
     scene.add(gltf.scene);
   });
@@ -103,8 +103,8 @@ function init() {
     "brands/budlong-compressed.glb",
     // called when the resource is loaded
     function (gltf) {
-      gltf.scene.position.x = 70;
-      gltf.scene.position.y = 35;
+      gltf.scene.position.x = 115;
+      gltf.scene.position.y = 10;
       gltf.scene.scale.set(15, 15, 15);
       scene.add(gltf.scene);
     }
@@ -121,15 +121,15 @@ function init() {
   //HB stan Asset
   new GLTFLoader().load("brands/hamburger-stan.glb", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-    gltf.scene.position.x = -100;
-    gltf.scene.position.y = 35;
+    gltf.scene.position.x = -140;
+    gltf.scene.position.y = -20;
     gltf.scene.scale.set(8, 8, 8);
     scene.add(gltf.scene);
   });
 
   const protectedArea = 85;
-  const worldScaleDispersionFactor = 500;
-  const assetLoopCount = 30;
+  const worldScaleDispersionFactor = 1000;
+  const assetLoopCount = 50;
 
   //Logo Asset
 
@@ -148,8 +148,10 @@ function init() {
 
   new GLTFLoader().load("bg-assets/burger.glb", function (gltf) {
     gltf.scene.scale.set(100, 100, 100);
-    gltf.scene.position.x = -80;
-    gltf.scene.position.z = -500;
+    gltf.scene.position.x = 450;
+    gltf.scene.position.y = 125;
+    gltf.scene.position.z = -250;
+    gltf.scene.rotation.y = Math.PI / 1.5;
     scene.add(gltf.scene);
   });
 
@@ -162,9 +164,10 @@ function init() {
 
   new GLTFLoader().load("bg-assets/fries.glb", function (gltf) {
     gltf.scene.scale.set(45, 45, 45);
-    gltf.scene.position.x = -280;
-    gltf.scene.position.z = -420;
-    gltf.scene.rotation.y = Math.PI / 8;
+    gltf.scene.position.x = -480;
+    gltf.scene.position.y = -280;
+    gltf.scene.position.z = 0;
+    gltf.scene.rotation.y = Math.PI / 2;
     scene.add(gltf.scene);
   });
 
@@ -177,9 +180,9 @@ function init() {
 
   new GLTFLoader().load("bg-assets/hotdog.glb", function (gltf) {
     gltf.scene.scale.set(35, 35, 35);
-    gltf.scene.position.x = 300;
-    gltf.scene.position.z = -420;
-    gltf.scene.rotation.y = -(Math.PI / 8);
+    gltf.scene.position.x = 400;
+    gltf.scene.position.z = 420;
+    gltf.scene.rotation.y = -(Math.PI / 1.5);
     scene.add(gltf.scene);
   });
 
@@ -243,9 +246,9 @@ function init() {
     opacity: 0.4,
   });
 
-  randomPlacementMeshGenerator(starGeometry, purpleMaterial, 0.5, 5000, 500);
-  randomPlacementMeshGenerator(starGeometry, orangeMaterial, 0.65, 3000, 500);
-  randomPlacementMeshGenerator(starGeometry, whiteMaterial, 0.75, 500, 500);
+  randomPlacementMeshGenerator(starGeometry, purpleMaterial, 0.6, 3000, 500);
+  randomPlacementMeshGenerator(starGeometry, orangeMaterial, 0.75, 1000, 500);
+  randomPlacementMeshGenerator(starGeometry, whiteMaterial, 0.85, 500, 500);
 
   //Random Placement Asset Generation Function
 
@@ -365,10 +368,18 @@ function rotateWorld() {
 function introZoomIn() {
   if (perspectiveCamera.position.z > 600) {
     perspectiveCamera.position.z -= 1;
+    controls.rotateSpeed = 0;
+    controls.zoomSpeed = 0;
   } else {
     requestRotate = true;
     requestIntroZoomIn = false;
   }
+}
+
+function slowRotate() {
+  perspectiveCamera.position.x += 0.1;
+  perspectiveCamera.position.z += 0.1;
+  perspectiveCamera.position.y += 0.05;
 }
 
 function animate() {
@@ -377,6 +388,10 @@ function animate() {
   }
   if (requestIntroZoomIn) {
     introZoomIn();
+  }
+
+  if (requestSlowRotate) {
+    slowRotate();
   }
   requestAnimationFrame(animate);
   controls.update();
@@ -441,6 +456,7 @@ jQuery(function () {
     controls.rotateSpeed = 3;
     controls.zoomSpeed = 0.8;
     requestRotate = false;
+    requestSlowRotate = true;
     jQuery("header").addClass("btn-no-click");
     jQuery("header").fadeTo(1000, 0, function () {
       jQuery("header").removeClass("block");
@@ -455,6 +471,7 @@ jQuery(function () {
   }
 
   function endExploreWorld() {
+    requestSlowRotate = false;
     requestRotate = true;
     jQuery("#endExplore").addClass("btn-no-click");
     jQuery("#endExplore").fadeTo(1000, 0, function () {
