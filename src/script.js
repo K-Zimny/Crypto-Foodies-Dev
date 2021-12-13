@@ -571,14 +571,12 @@ jQuery(function () {
   }
 
   function altLookAt() {
-    console.log(requestRotate);
     altCamX = Math.random() * 300;
     altCamY = Math.random() * 300;
     altCamZ = Math.random() * 300;
     requestAltLookAt = !requestAltLookAt;
     requestRotate = !requestRotate;
     requestSlowRotate = !requestSlowRotate;
-    console.log(requestRotate);
   }
 
   function inputDetect() {
