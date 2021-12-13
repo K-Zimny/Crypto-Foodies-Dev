@@ -489,6 +489,7 @@ jQuery(function () {
     jQuery("header").fadeTo(1000, 0, function () {
       jQuery("header").removeClass("block");
       jQuery("header").addClass("hidden");
+      jQuery("body").addClass("body-100vh");
       jQuery(page).addClass("btn-no-click");
       jQuery(page).removeClass("hidden");
       jQuery(page).addClass("block");
@@ -502,6 +503,7 @@ jQuery(function () {
     jQuery(page).fadeTo(1000, 0, function () {
       jQuery(page).removeClass("block");
       jQuery(page).addClass("hidden");
+      jQuery("body").removeClass("body-100vh");
       jQuery("header").addClass("btn-no-click");
       jQuery("header").removeClass("hidden");
       jQuery("header").addClass("block");

@@ -31,6 +31,12 @@ body {
   line-height: 30px;
 }
 
+body.body-100vh {
+  display: flex;
+  align-items: center;
+  min-height: 98vh;
+}
+
 @media only screen and (max-width: 767px) {
   body {
     margin: 0;
