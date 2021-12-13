@@ -14,6 +14,9 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 let perspectiveCamera, controls, scene, renderer, stats;
 
 let requestRotate, requestIntroZoomIn, requestSlowRotate;
+let requestAltLookAt = false;
+
+let altCamX, altCamY, altCamZ;
 
 init();
 
@@ -407,6 +410,11 @@ function onWindowResize() {
 
 function render() {
   const camera = perspectiveCamera;
+  if (requestAltLookAt) {
+    camera.lookAt(new THREE.Vector3(altCamX, altCamY, altCamZ));
+  } else {
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
+  }
   renderer.render(scene, camera);
 }
 
@@ -485,6 +493,7 @@ jQuery(function () {
     });
   }
   function showContentPage(page) {
+    altLookAt();
     jQuery("header").addClass("btn-no-click");
     jQuery("header").fadeTo(1000, 0, function () {
       jQuery("header").removeClass("block");
@@ -499,6 +508,7 @@ jQuery(function () {
     });
   }
   function hideContentPage(page) {
+    altLookAt();
     jQuery(page).addClass("btn-no-click");
     jQuery(page).fadeTo(1000, 0, function () {
       jQuery(page).removeClass("block");
@@ -558,6 +568,17 @@ jQuery(function () {
     jQuery("header").css("position", "fixed");
     jQuery("#header h2").addClass("hidden-mobile");
     jQuery("#header nav").removeClass("block-mobile");
+  }
+
+  function altLookAt() {
+    console.log(requestRotate);
+    altCamX = Math.random() * 300;
+    altCamY = Math.random() * 300;
+    altCamZ = Math.random() * 300;
+    requestAltLookAt = !requestAltLookAt;
+    requestRotate = !requestRotate;
+    requestSlowRotate = !requestSlowRotate;
+    console.log(requestRotate);
   }
 
   function inputDetect() {
