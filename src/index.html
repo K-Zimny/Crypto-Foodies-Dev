@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="https://use.typekit.net/gsm0hxi.css" />
   </head>
   <body>
+    <section id="canvasContainer"></section>
     <header id="header" class="hidden">
-      <div>
+      <div id="headerBtnMenu">
         <h1>Crypto Foodies</h1>
+        <button id="headerBtn">↑</button>
       </div>
       <div>
-        <h2>Welcome to the Foodieverse, the future of Food & Finance</h2>
+        <h2 class="hidden-mobile">
+          Welcome to the Foodieverse, the future of Food & Finance
+        </h2>
       </div>
       <hr />
-      <nav>
+      <nav class="hidden-mobile">
         <ul>
           <li><button id="aboutLink">About</button></li>
           <li><button id="whyLink">Brands</button></li>
@@ -93,6 +97,6 @@
       <source src="../static/audio/cf-music.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-    <canvas class="webgl"></canvas>
+    <!-- <canvas class="webgl"></canvas> -->
   </body>
 </html>

@@ -19,7 +19,6 @@ init();
 
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
-
   perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2000);
   // perspectiveCamera.position.z = 250;
   perspectiveCamera.position.z = 2500;
@@ -371,6 +370,7 @@ function init() {
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
+  renderer.domElement.id = "mainCanvas";
 
   stats = new Stats();
   document.body.appendChild(stats.dom);
@@ -545,6 +545,19 @@ jQuery(function () {
     });
   }
 
+  function openHeaderMenu() {
+    // FIXME:Change the value of fixed below back to static, this was only for testing
+    jQuery("header").css("position", "fixed");
+    jQuery("#header h2").removeClass("hidden-mobile");
+    jQuery("#header nav").addClass("block-mobile");
+  }
+
+  function closeHeaderMenu() {
+    jQuery("header").css("position", "fixed");
+    jQuery("#header h2").addClass("hidden-mobile");
+    jQuery("#header nav").removeClass("block-mobile");
+  }
+
   function inputDetect() {
     jQuery(document).on("mousedown", function () {
       down = true;
@@ -556,7 +569,7 @@ jQuery(function () {
 
   // ---------------------------  Called functions  --------------------------- //
   // inputDetect();
-  pageFadeIn();
+  // pageSFadeIn();
   requestIntroZoomIn = true;
   showHeader();
 
@@ -587,5 +600,18 @@ jQuery(function () {
   jQuery("#audioBtn").on("click", function () {
     document.getElementById("audio").play();
     document.documentElement.requestFullscreen();
+  });
+  let headerOpen = false;
+  jQuery("#headerBtn").on("click", function () {
+    console.log(headerOpen);
+    if (headerOpen == false) {
+      openHeaderMenu();
+      headerOpen = true;
+      console.log(headerOpen);
+    } else {
+      closeHeaderMenu();
+      headerOpen = false;
+      console.log(headerOpen);
+    }
   });
 });
