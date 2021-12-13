@@ -173,7 +173,7 @@ function init() {
     rotate();
   });
 
-  const protectedArea = 85;
+  const protectedArea = 100;
   const worldScaleDispersionFactor = 1000;
   const assetLoopCount = 50;
 
@@ -356,15 +356,15 @@ function init() {
   const ambientLight = new THREE.AmbientLight(0x222222);
   scene.add(ambientLight);
 
-  // building lighting
+  // // building lighting
   const light = new THREE.PointLight("hsl(10,100%,50%)", 27, 100);
   light.position.set(0, -25, -50);
   scene.add(light);
 
-  // stan lighting
-  const light1 = new THREE.PointLight("hsl(100,100%,50%)", 27, 100);
-  light1.position.set(6, 135, -50);
-  scene.add(light1);
+  // // stan lighting
+  // const light1 = new THREE.PointLight("hsl(100,100%,50%)", 27, 100);
+  // light1.position.set(6, 135, -50);
+  // scene.add(light1);
   //------------- renderer
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -418,7 +418,7 @@ function rotateWorld() {
   perspectiveCamera.position.x = radius * Math.sin(angle);
   perspectiveCamera.position.z = radius * Math.cos(angle);
   perspectiveCamera.position.y = radius * Math.sin(angle);
-  angle += 0.0005;
+  angle += 0.001;
   controls.rotateSpeed = 0;
   controls.zoomSpeed = 0;
   controls.maxDistance = 700;
