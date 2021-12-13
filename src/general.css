@@ -53,12 +53,12 @@ body {
 /* text styles */
 
 p {
-  font-family: orbitron, sans-serif;
-  font-weight: 300;
+  font-family: "Open Sans", sans-serif;
+  /* font-weight: 300; */
   font-style: normal;
-  font-size: 1.25rem;
-  letter-spacing: 3px;
-  word-spacing: 3px;
+  font-size: 1.35rem;
+  /* letter-spacing: 3px; */
+  /* word-spacing: 3px; */
 }
 
 a {

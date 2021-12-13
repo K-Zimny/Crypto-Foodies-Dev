@@ -108,7 +108,7 @@ nav li {
   opacity: 0;
   position: absolute;
   width: 85%;
-  /* max-width: 900px; */
+  max-width: 1440px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -122,12 +122,26 @@ nav li {
     rgba(0, 0, 0, 0.62) rgba(198, 198, 198, 0.47);
 }
 
-/* @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  .content-page {
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-  }
-} */
+.content-block {
+  margin-bottom: 4rem;
+}
+
+/* about page */
+
+#about .flex-container {
+  display: flex;
+  gap: 90px;
+}
+
+#about .flex-container .content-block:first-of-type {
+  width: 35%;
+}
+#about .flex-container .content-block:nth-of-type(2) {
+  width: 70%;
+}
+#about .flex-container .content-block:nth-of-type(2) p {
+  font-size: 1.25rem;
+}
 
 @media only screen and (max-width: 767px) {
   .content-page {
