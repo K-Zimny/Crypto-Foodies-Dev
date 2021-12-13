@@ -1,5 +1,6 @@
 import "./general.css";
 import "./content.css";
+import "./enter-screen.css";
 import "./page.js";
 import * as THREE from "three";
 
@@ -22,7 +23,7 @@ init();
 
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
-  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2000);
+  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2500);
   // perspectiveCamera.position.z = 250;
   perspectiveCamera.position.z = 2500;
 
@@ -526,6 +527,7 @@ jQuery(function () {
   function exploreWorld() {
     controls.rotateSpeed = 3;
     controls.zoomSpeed = 0.8;
+    controls.maxDistance = 1500;
     requestRotate = false;
     requestSlowRotate = true;
     jQuery("header").addClass("btn-no-click");
@@ -544,6 +546,7 @@ jQuery(function () {
   function endExploreWorld() {
     requestSlowRotate = false;
     requestRotate = true;
+    controls.maxDistance = 1000;
     jQuery("#endExplore").addClass("btn-no-click");
     jQuery("#endExplore").fadeTo(1000, 0, function () {
       jQuery("#endExplore").removeClass("block");
@@ -600,17 +603,17 @@ jQuery(function () {
   jQuery("#aboutHomeBtn").on("click", function () {
     hideContentPage("#about");
   });
-  jQuery("#whyLink").on("click", function () {
-    showContentPage("#why");
+  jQuery("#brandsLink").on("click", function () {
+    showContentPage("#brands");
   });
-  jQuery("#whyHomeBtn").on("click", function () {
-    hideContentPage("#why");
+  jQuery("#brandsHomeBtn").on("click", function () {
+    hideContentPage("#brands");
   });
-  jQuery("#howLink").on("click", function () {
-    showContentPage("#how");
+  jQuery("#connectLink").on("click", function () {
+    showContentPage("#connect");
   });
-  jQuery("#howHomeBtn").on("click", function () {
-    hideContentPage("#how");
+  jQuery("#connectHomeBtn").on("click", function () {
+    hideContentPage("#connect");
   });
   jQuery("#explore").on("click", function () {
     exploreWorld();
@@ -635,4 +638,6 @@ jQuery(function () {
       console.log(headerOpen);
     }
   });
+
+  // Enter Screen Loader
 });
