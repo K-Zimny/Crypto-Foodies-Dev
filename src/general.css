@@ -83,7 +83,7 @@ button:hover,
 button:active,
 button:focus {
   border-style: inset;
-  background-color: var(--color-primary);
+  background-color: #353535;
 }
 
 hr {
