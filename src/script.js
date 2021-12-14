@@ -68,7 +68,7 @@ function init() {
     scene.add(gltf.scene);
   });
 
-  // CF Center Building Logo Asset
+  // CF Center Building Logo Above building Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
   buildingLogo.load("locations/u-of-texas.gltf", function (gltf) {
@@ -133,7 +133,6 @@ function init() {
 
   const budLoader = new GLTFLoader();
   budLoader.setDRACOLoader(dracoLoader);
-
   budLoader.load(
     // resource URL
     "brands/budlong-compressed.glb",
@@ -162,11 +161,13 @@ function init() {
   // });
 
   //HB stan Asset
-  new GLTFLoader().load("brands/hamburger-stan.glb", function (gltf) {
+  const stanLoader = new GLTFLoader();
+  stanLoader.setDRACOLoader(dracoLoader);
+  stanLoader.load("brands/hamburger-stand-no-backboard.gltf", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = -140;
     gltf.scene.position.y = -20;
-    gltf.scene.scale.set(8, 8, 8);
+    gltf.scene.scale.set(22, 22, 22);
     scene.add(gltf.scene);
     let x = 1;
     function rotate() {
@@ -175,6 +176,14 @@ function init() {
       x += 0.045;
     }
     rotate();
+  });
+
+  // CF Center Building Asset
+  const particleAsset = new GLTFLoader();
+  particleAsset.setDRACOLoader(dracoLoader);
+  particleAsset.load("/bg-assets/particles-purple.gltf", function (gltf) {
+    gltf.scene.scale.set(12, 12, 12);
+    scene.add(gltf.scene);
   });
 
   const protectedArea = 100;
@@ -311,38 +320,38 @@ function init() {
   );
   scene.add(particles);
 
-  // alt
-  // Geometry
-  const particlesGeometryAlt = new THREE.BufferGeometry();
-  const countAlt = 1000;
-  const positionsAlt = new Float32Array(count * 3);
+  // // alt
+  // // Geometry
+  // const particlesGeometryAlt = new THREE.BufferGeometry();
+  // const countAlt = 1000;
+  // const positionsAlt = new Float32Array(count * 3);
 
-  for (
-    let i = 0;
-    i < count * 3;
-    i++ // Multiply by 3 for same reason
-  ) {
-    positionsAlt[i] = (Math.random() - 0.5) * 500;
-  }
+  // for (
+  //   let i = 0;
+  //   i < count * 3;
+  //   i++ // Multiply by 3 for same reason
+  // ) {
+  //   positionsAlt[i] = (Math.random() - 0.5) * 500;
+  // }
 
-  // Material
-  const particlesMaterialAlt = new THREE.PointsMaterial({
-    size: 2,
-    sizeAttenuation: true,
-    color: "#96178a",
-    transparent: true,
-    opacity: 0.75,
-  });
-  // particlesMaterial.vertexColors = true;
-  const particlesAlt = new THREE.Points(
-    particlesGeometryAlt,
-    particlesMaterialAlt
-  );
-  particlesGeometryAlt.setAttribute(
-    "position",
-    new THREE.BufferAttribute(positionsAlt, 3)
-  );
-  scene.add(particlesAlt);
+  // // Material
+  // const particlesMaterialAlt = new THREE.PointsMaterial({
+  //   size: 2,
+  //   sizeAttenuation: true,
+  //   color: "#96178a",
+  //   transparent: true,
+  //   opacity: 0.75,
+  // });
+  // // particlesMaterial.vertexColors = true;
+  // const particlesAlt = new THREE.Points(
+  //   particlesGeometryAlt,
+  //   particlesMaterialAlt
+  // );
+  // particlesGeometryAlt.setAttribute(
+  //   "position",
+  //   new THREE.BufferAttribute(positionsAlt, 3)
+  // );
+  // scene.add(particlesAlt);
 
   //-------------  lights
 
