@@ -22,7 +22,7 @@
   position: fixed;
   inset: 0;
   z-index: 999;
-  background-color: #00000034;
+  /* background-color: #00000015; */
 }
 
 #introSceneText p {
@@ -33,4 +33,5 @@
   background: #000000c4;
   padding: 5rem;
   margin-bottom: 100px;
+  user-select: none;
 }

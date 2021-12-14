@@ -25,6 +25,8 @@ function init() {
   const aspect = window.innerWidth / window.innerHeight;
   perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2500);
   perspectiveCamera.position.z = 2500;
+  perspectiveCamera.position.x = -500;
+  perspectiveCamera.position.y = -500;
 
   //------------- world
 
@@ -422,21 +424,37 @@ let angle = 0;
 let radius = 600;
 
 // Animate
+let rotateWorldCount = 0;
+let moveFactor = Math.random() * 4;
+
 function rotateWorld() {
-  perspectiveCamera.position.x = radius * Math.sin(angle);
-  perspectiveCamera.position.z = radius * Math.cos(angle);
-  perspectiveCamera.position.y = radius * Math.sin(angle);
-  angle += 0.001;
-  controls.rotateSpeed = 0;
-  controls.zoomSpeed = 0;
+  console.log(rotateWorldCount);
+
+  if (rotateWorldCount < 4000) {
+    perspectiveCamera.position.x += 0.1 * moveFactor;
+    perspectiveCamera.position.z += 0.1 * moveFactor;
+    perspectiveCamera.position.y += 0.1 * moveFactor;
+  } else if (rotateWorldCount < 8000) {
+    perspectiveCamera.position.x -= 0.1 * moveFactor;
+    perspectiveCamera.position.z -= 0.1 * moveFactor;
+    perspectiveCamera.position.y -= 0.1 * moveFactor;
+  } else if (rotateWorldCount < 9000) {
+    rotateWorldCount = 0;
+    moveFactor = Math.random() * 4;
+  }
+  rotateWorldCount++;
+  controls.rotateSpeed = 1;
+  controls.zoomSpeed = 1;
   controls.maxDistance = 700;
 }
 
 function introZoomIn() {
-  if (perspectiveCamera.position.z > 600) {
+  if (perspectiveCamera.position.z > 350) {
     perspectiveCamera.position.z -= 0.75;
-    controls.rotateSpeed = 0;
-    controls.zoomSpeed = 0;
+    perspectiveCamera.position.x += 0.25;
+    perspectiveCamera.position.y += 0.25;
+    controls.rotateSpeed = 1;
+    controls.zoomSpeed = 1;
   } else {
     requestRotate = true;
     requestIntroZoomIn = false;
@@ -586,6 +604,7 @@ jQuery(function () {
   function introScene() {
     pageFadeIn();
     requestIntroZoomIn = true;
+    // requestRotate = true;
     jQuery("#introSceneText").removeClass("hidden");
     jQuery("#introSceneText").addClass("flex");
     jQuery("#introSceneText")
