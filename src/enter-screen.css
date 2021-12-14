@@ -35,3 +35,8 @@
   margin-bottom: 100px;
   user-select: none;
 }
+#introSceneText p span {
+  font-size: 5rem;
+  letter-spacing: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
