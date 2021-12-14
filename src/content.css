@@ -125,8 +125,16 @@ nav li {
 
 /* about page */
 
+#about h2,
+#about h3,
+#about p,
+#about button,
+#aboutLink {
+  color: #ce87d3;
+}
+
 #about .flex-container {
-  display: flex;
+  /* display: flex; */
   gap: 75px;
 }
 
@@ -138,7 +146,7 @@ nav li {
 #about .flex-container .content-block:first-of-type {
   background-color: var(--color-primary-lighter);
   /* padding: 20px 10px; */
-  width: 50%;
+  width: 100%;
   border: 2px solid black;
   border-top-color: #c6c6c678;
   border-left-color: #c6c6c678;
@@ -150,7 +158,7 @@ nav li {
   margin-top: 0;
 }
 #about .flex-container .content-block:nth-of-type(2) {
-  width: 70%;
+  width: 100%;
 }
 #about .flex-container .content-block:nth-of-type(2) p {
   font-size: 1.25rem;
@@ -160,12 +168,20 @@ nav li {
   .content-page {
     position: static;
     transform: none;
-    margin: auto;
     width: 100%;
   }
 }
 
 /* connect page */
+
+#connect h2,
+#connect h3,
+#connect p,
+#connect a,
+#connect button,
+#connectLink {
+  color: #48d5c8;
+}
 
 #connect h3,
 #connect a {
@@ -185,6 +201,12 @@ nav li {
   flex-flow: row nowrap;
 }
 
+@media only screen and (max-width: 767px) {
+  #connect .flex-container {
+    flex-flow: column;
+  }
+}
+
 #connect .content-block {
   border: 2px solid black;
   border-top-color: #c6c6c678;
@@ -202,6 +224,23 @@ nav li {
 
 #connect .content-block:first-of-type {
   margin-left: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  #connect .content-block:first-of-type {
+    margin-left: 1rem;
+  }
+}
+
+/* brands page */
+
+#brands h2,
+#brands h3,
+#brands p,
+#brands a,
+#brands button,
+#brandsLink {
+  color: #6dbc54;
 }
 
 /* Exploration */

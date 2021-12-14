@@ -438,7 +438,15 @@ function rotateWorld() {
     perspectiveCamera.position.x -= 0.1 * moveFactor;
     perspectiveCamera.position.z -= 0.1 * moveFactor;
     perspectiveCamera.position.y -= 0.1 * moveFactor;
-  } else if (rotateWorldCount < 9000) {
+  } else if (rotateWorldCount < 12000) {
+    perspectiveCamera.position.x -= 0.1 * moveFactor;
+    perspectiveCamera.position.z += 0.1 * moveFactor;
+    perspectiveCamera.position.y += 0.1 * moveFactor;
+  } else if (rotateWorldCount < 16000) {
+    perspectiveCamera.position.x += 0.1 * moveFactor;
+    perspectiveCamera.position.z += 0.1 * moveFactor;
+    perspectiveCamera.position.y -= 0.1 * moveFactor;
+  } else if (rotateWorldCount < 17000) {
     rotateWorldCount = 0;
     moveFactor = Math.random() * 4;
   }
