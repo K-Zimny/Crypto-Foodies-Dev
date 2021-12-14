@@ -100,6 +100,10 @@ hr {
   display: block !important;
 }
 
+.flex {
+  flex: block !important;
+}
+
 @media only screen and (max-width: 767px) {
   .hidden-mobile {
     display: none !important;

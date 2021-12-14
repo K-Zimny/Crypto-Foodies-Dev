@@ -24,7 +24,6 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
   perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2500);
-  // perspectiveCamera.position.z = 250;
   perspectiveCamera.position.z = 2500;
 
   //------------- world
@@ -435,7 +434,7 @@ function rotateWorld() {
 
 function introZoomIn() {
   if (perspectiveCamera.position.z > 600) {
-    perspectiveCamera.position.z -= 1;
+    perspectiveCamera.position.z -= 0.75;
     controls.rotateSpeed = 0;
     controls.zoomSpeed = 0;
   } else {
@@ -476,7 +475,7 @@ import jQuery from "jquery";
 jQuery(function () {
   // ---------------------------  functions  --------------------------- //
   function pageFadeIn() {
-    jQuery("body").fadeTo(10000, 1);
+    jQuery("body").fadeTo(1500, 1, function () {});
   }
 
   function showHeader() {
@@ -495,6 +494,8 @@ jQuery(function () {
   }
   function showContentPage(page) {
     altLookAt();
+    requestRotate = false;
+    requestSlowRotate = true;
     jQuery("header").addClass("btn-no-click");
     jQuery("header").fadeTo(1000, 0, function () {
       jQuery("header").removeClass("block");
@@ -510,6 +511,8 @@ jQuery(function () {
   }
   function hideContentPage(page) {
     altLookAt();
+    requestSlowRotate = false;
+    requestRotate = true;
     jQuery(page).addClass("btn-no-click");
     jQuery(page).fadeTo(1000, 0, function () {
       jQuery(page).removeClass("block");
@@ -578,8 +581,23 @@ jQuery(function () {
     altCamY = Math.random() * 300;
     altCamZ = Math.random() * 300;
     requestAltLookAt = !requestAltLookAt;
-    requestRotate = !requestRotate;
-    requestSlowRotate = !requestSlowRotate;
+  }
+
+  function introScene() {
+    pageFadeIn();
+    requestIntroZoomIn = true;
+    jQuery("#introSceneText").removeClass("hidden");
+    jQuery("#introSceneText").addClass("flex");
+    jQuery("#introSceneText")
+      .delay(2000)
+      .fadeTo(2500, 1, function () {
+        jQuery("#introSceneText")
+          .delay(2500)
+          .fadeTo(2500, 0, function () {
+            jQuery("#introSceneText").remove();
+            setTimeout(showHeader, 0);
+          });
+      });
   }
 
   function inputDetect() {
@@ -591,11 +609,56 @@ jQuery(function () {
     });
   }
 
+  // Enter Screen Loader
+
+  THREE.DefaultLoadingManager.onStart = function (
+    url,
+    itemsLoaded,
+    itemsTotal
+  ) {
+    console.log(
+      "Started loading file: " +
+        url +
+        ".\nLoaded " +
+        itemsLoaded +
+        " of " +
+        itemsTotal +
+        " files."
+    );
+  };
+
+  THREE.DefaultLoadingManager.onLoad = function () {
+    console.log("Loading Complete!");
+    jQuery("body").css("opacity", "0");
+    jQuery("#enterScreen").remove();
+    introScene();
+  };
+
+  THREE.DefaultLoadingManager.onProgress = function (
+    url,
+    itemsLoaded,
+    itemsTotal
+  ) {
+    console.log(
+      "Loading file: " +
+        url +
+        ".\nLoaded " +
+        itemsLoaded +
+        " of " +
+        itemsTotal +
+        " files."
+    );
+  };
+
+  THREE.DefaultLoadingManager.onError = function (url) {
+    console.log("There was an error loading " + url);
+  };
+
   // ---------------------------  Called functions  --------------------------- //
   // inputDetect();
   // pageSFadeIn();
-  requestIntroZoomIn = true;
-  showHeader();
+  // requestIntroZoomIn = true;
+  // showHeader();
 
   jQuery("#aboutLink").on("click", function () {
     showContentPage("#about");
@@ -638,6 +701,4 @@ jQuery(function () {
       console.log(headerOpen);
     }
   });
-
-  // Enter Screen Loader
 });
