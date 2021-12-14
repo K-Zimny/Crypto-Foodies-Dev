@@ -181,7 +181,7 @@ function init() {
   // CF Center Building Asset
   const particleAsset = new GLTFLoader();
   particleAsset.setDRACOLoader(dracoLoader);
-  particleAsset.load("/bg-assets/particles-purple.gltf", function (gltf) {
+  particleAsset.load("/bg-assets/blasted-galaxy-3.gltf", function (gltf) {
     gltf.scene.scale.set(12, 12, 12);
     scene.add(gltf.scene);
   });

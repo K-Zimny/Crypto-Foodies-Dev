@@ -128,8 +128,7 @@ nav li {
 #about h2,
 #about h3,
 #about p,
-#about button,
-#aboutLink {
+#about button {
   color: #ce87d3;
 }
 
@@ -178,8 +177,7 @@ nav li {
 #connect h3,
 #connect p,
 #connect a,
-#connect button,
-#connectLink {
+#connect button {
   color: #48d5c8;
 }
 
@@ -238,8 +236,7 @@ nav li {
 #brands h3,
 #brands p,
 #brands a,
-#brands button,
-#brandsLink {
+#brands button {
   color: #6dbc54;
 }
 
