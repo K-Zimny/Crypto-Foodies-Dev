@@ -26,6 +26,7 @@ html {
 
 body {
   /* opacity: 0; */
+  opacity: 1 !important; /*only for bedug*/
   background: var(--dark);
   color: var(--text-primary);
   font-family: "Press Start 2P", cursive;
