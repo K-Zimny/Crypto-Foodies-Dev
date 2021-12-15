@@ -74,7 +74,7 @@ function init() {
   buildingLogo.load("locations/u-of-texas.gltf", function (gltf) {
     gltf.scene.position.y = 0;
     gltf.scene.position.z = 0;
-    gltf.scene.scale.set(20, 20, 20);
+    gltf.scene.scale.set(15, 15, 15);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
@@ -118,17 +118,17 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = -85;
-    gltf.scene.scale.set(15, 15, 15);
+    gltf.scene.scale.set(10, 10, 10);
     scene.add(gltf.scene);
     let x = 0;
     let y = 0;
     function rotate() {
       requestAnimationFrame(rotate);
       gltf.scene.rotation.y -= 0.005;
-      gltf.scene.position.x = Math.sin(x) * 100;
-      gltf.scene.position.y = Math.cos(y) * 100;
-      x += 0.0025;
-      y += 0.0025;
+      gltf.scene.position.x = Math.sin(x) * 65;
+      gltf.scene.position.y = Math.cos(y) * 65;
+      x += 0.001;
+      y += 0.001;
     }
     rotate();
   });
@@ -142,17 +142,17 @@ function init() {
       // gltf.scene.rotation.y = 3 * (Math.PI / 2);
       gltf.scene.position.x = 0;
       gltf.scene.position.y = 85;
-      gltf.scene.scale.set(15, 15, 15);
+      gltf.scene.scale.set(10, 10, 10);
       scene.add(gltf.scene);
       let x = 0;
       let y = Math.PI;
       function rotate() {
         requestAnimationFrame(rotate);
         gltf.scene.rotation.y -= 0.005;
-        gltf.scene.position.x = Math.sin(x) * 100;
-        gltf.scene.position.y = Math.cos(y) * 100;
-        x -= 0.0025;
-        y -= 0.0025;
+        gltf.scene.position.x = Math.sin(x) * 65;
+        gltf.scene.position.y = Math.cos(y) * 65;
+        x -= 0.001;
+        y -= 0.001;
       }
       rotate();
     }
@@ -161,7 +161,7 @@ function init() {
   //ND chinese Asset
   const ndChinese = new GLTFLoader();
   ndChinese.setDRACOLoader(dracoLoader);
-  ndChinese.load("locations/tejis-full-blue.gltf", function (gltf) {
+  ndChinese.load("brands/nice-day-chinese-test.gltf", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = 135;
@@ -172,8 +172,8 @@ function init() {
     function rotate() {
       requestAnimationFrame(rotate);
       // gltf.scene.rotation.y -= 0.005;
-      gltf.scene.position.x = Math.sin(x) * 200;
-      gltf.scene.position.y = Math.cos(y) * 200;
+      gltf.scene.position.x = Math.sin(x) * 125;
+      gltf.scene.position.y = Math.cos(y) * 125;
       x -= 0.001;
       y -= 0.001;
     }
@@ -186,21 +186,20 @@ function init() {
   budLoader.setDRACOLoader(dracoLoader);
   budLoader.load(
     // resource URL
-    "locations/tejis-full-blue.gltf",
+    "brands/budlong-compressed.glb",
     // called when the resource is loaded
     function (gltf) {
       gltf.scene.position.x = 115;
       gltf.scene.position.y = -135;
-      gltf.scene.scale.set(15, 15, 15);
+      gltf.scene.scale.set(7, 7, 7);
       scene.add(gltf.scene);
       let x = -2.09;
       let y = -2.09;
       function rotate() {
         requestAnimationFrame(rotate);
         // gltf.scene.rotation.y -= 0.005;
-        gltf.scene.position.x = Math.sin(x) * 200;
-        gltf.scene.position.y = Math.cos(y) * 200;
-        console.log(gltf.scene.position.y);
+        gltf.scene.position.x = Math.sin(x) * 125;
+        gltf.scene.position.y = Math.cos(y) * 125;
         x -= 0.001;
         y -= 0.001;
       }
@@ -211,7 +210,7 @@ function init() {
   //HB stan Asset
   const stanLoader = new GLTFLoader();
   stanLoader.setDRACOLoader(dracoLoader);
-  stanLoader.load("locations/ghostline-kitchens-orange.gltf", function (gltf) {
+  stanLoader.load("brands/hamburger-stand-no-backboard.gltf", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = -140;
     gltf.scene.position.y = -20;
@@ -222,8 +221,8 @@ function init() {
     function rotate() {
       requestAnimationFrame(rotate);
       // gltf.scene.rotation.y -= 0.005;
-      gltf.scene.position.x = Math.sin(x) * 200;
-      gltf.scene.position.y = Math.cos(y) * 200;
+      gltf.scene.position.x = Math.sin(x) * 125;
+      gltf.scene.position.y = Math.cos(y) * 125;
       x -= 0.001;
       y -= 0.001;
     }
@@ -742,9 +741,9 @@ jQuery(function () {
   }
 
   function introScene() {
-    // pageFadeIn();
-    // requestIntroZoomIn = true;
-    // requestRotate = true;
+    pageFadeIn();
+    requestIntroZoomIn = true;
+    requestRotate = true;
     jQuery("#introSceneText").removeClass("hidden");
     jQuery("#introSceneText").addClass("flex");
     jQuery("#introSceneText")
