@@ -124,7 +124,9 @@ function init() {
     let y = 0;
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.005;
+      gltf.scene.rotation.y += 0.0005;
+      gltf.scene.rotation.x -= 0.0005;
+      gltf.scene.rotation.z -= 0.0005;
       gltf.scene.position.x = Math.sin(x) * 65;
       gltf.scene.position.y = Math.cos(y) * 65;
       x += 0.001;
@@ -148,7 +150,9 @@ function init() {
       let y = Math.PI;
       function rotate() {
         requestAnimationFrame(rotate);
-        gltf.scene.rotation.y -= 0.005;
+        gltf.scene.rotation.y -= 0.0005;
+        gltf.scene.rotation.x += 0.0005;
+        gltf.scene.rotation.z += 0.0005;
         gltf.scene.position.x = Math.sin(x) * 65;
         gltf.scene.position.y = Math.cos(y) * 65;
         x -= 0.001;
@@ -165,13 +169,15 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = 135;
-    gltf.scene.scale.set(15, 15, 15);
+    gltf.scene.scale.set(20, 20, 20);
     scene.add(gltf.scene);
     let x = 0;
     let y = 0;
     function rotate() {
       requestAnimationFrame(rotate);
-      // gltf.scene.rotation.y -= 0.005;
+      gltf.scene.rotation.y += 0.001;
+      gltf.scene.rotation.x -= 0.001;
+      gltf.scene.rotation.z -= 0.001;
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
       x -= 0.001;
@@ -191,13 +197,15 @@ function init() {
     function (gltf) {
       gltf.scene.position.x = 115;
       gltf.scene.position.y = -135;
-      gltf.scene.scale.set(7, 7, 7);
+      gltf.scene.scale.set(10, 10, 10);
       scene.add(gltf.scene);
       let x = -2.09;
       let y = -2.09;
       function rotate() {
         requestAnimationFrame(rotate);
-        // gltf.scene.rotation.y -= 0.005;
+        gltf.scene.rotation.y -= 0.001;
+        gltf.scene.rotation.x += 0.001;
+        gltf.scene.rotation.z -= 0.001;
         gltf.scene.position.x = Math.sin(x) * 125;
         gltf.scene.position.y = Math.cos(y) * 125;
         x -= 0.001;
@@ -220,7 +228,9 @@ function init() {
     let y = 2.09;
     function rotate() {
       requestAnimationFrame(rotate);
-      // gltf.scene.rotation.y -= 0.005;
+      gltf.scene.rotation.y -= 0.001;
+      gltf.scene.rotation.x -= 0.001;
+      gltf.scene.rotation.z += 0.001;
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
       x -= 0.001;
