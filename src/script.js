@@ -122,6 +122,7 @@ function init() {
     scene.add(gltf.scene);
     let x = 0;
     let y = 0;
+    let z = 0;
     function rotate() {
       requestAnimationFrame(rotate);
       gltf.scene.rotation.y += 0.0005;
@@ -129,8 +130,10 @@ function init() {
       gltf.scene.rotation.z -= 0.0005;
       gltf.scene.position.x = Math.sin(x) * 65;
       gltf.scene.position.y = Math.cos(y) * 65;
+      gltf.scene.position.z = Math.cos(z) * 65;
       x += 0.001;
       y += 0.001;
+      z += 0.001;
     }
     rotate();
   });
@@ -148,6 +151,7 @@ function init() {
       scene.add(gltf.scene);
       let x = 0;
       let y = Math.PI;
+      let z = 0;
       function rotate() {
         requestAnimationFrame(rotate);
         gltf.scene.rotation.y -= 0.0005;
@@ -155,8 +159,10 @@ function init() {
         gltf.scene.rotation.z += 0.0005;
         gltf.scene.position.x = Math.sin(x) * 65;
         gltf.scene.position.y = Math.cos(y) * 65;
+        gltf.scene.position.z = Math.cos(z) * 65;
         x -= 0.001;
         y -= 0.001;
+        z += 0.001;
       }
       rotate();
     }
@@ -173,6 +179,7 @@ function init() {
     scene.add(gltf.scene);
     let x = 0;
     let y = 0;
+    let z = 0;
     function rotate() {
       requestAnimationFrame(rotate);
       gltf.scene.rotation.y += 0.00075;
@@ -180,8 +187,10 @@ function init() {
       gltf.scene.rotation.z -= 0.00075;
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
+      gltf.scene.position.z = Math.cos(z) * 125;
       x -= 0.001;
       y -= 0.001;
+      z += 0.001;
     }
     rotate();
   });
@@ -201,6 +210,7 @@ function init() {
       scene.add(gltf.scene);
       let x = -2.09;
       let y = -2.09;
+      let z = 0;
       function rotate() {
         requestAnimationFrame(rotate);
         gltf.scene.rotation.y -= 0.00075;
@@ -208,8 +218,10 @@ function init() {
         gltf.scene.rotation.z -= 0.00075;
         gltf.scene.position.x = Math.sin(x) * 125;
         gltf.scene.position.y = Math.cos(y) * 125;
+        gltf.scene.position.z = Math.cos(z) * 125;
         x -= 0.001;
         y -= 0.001;
+        z += 0.001;
       }
       rotate();
     }
@@ -226,6 +238,7 @@ function init() {
     scene.add(gltf.scene);
     let x = 2.09;
     let y = 2.09;
+    let z = 0;
     function rotate() {
       requestAnimationFrame(rotate);
       gltf.scene.rotation.y -= 0.00075;
@@ -233,8 +246,10 @@ function init() {
       gltf.scene.rotation.z += 0.00075;
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
+      gltf.scene.position.z = Math.cos(z) * 125;
       x -= 0.001;
       y -= 0.001;
+      z += 0.001;
     }
     rotate();
   });
