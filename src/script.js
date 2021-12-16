@@ -25,8 +25,8 @@ function init() {
   const aspect = window.innerWidth / window.innerHeight;
   perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2500);
   perspectiveCamera.position.z = 2500;
-  perspectiveCamera.position.x = -500;
-  perspectiveCamera.position.y = -500;
+  perspectiveCamera.position.x = -1000;
+  perspectiveCamera.position.y = -1000;
 
   //------------- world
 
@@ -175,9 +175,9 @@ function init() {
     let y = 0;
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.001;
-      gltf.scene.rotation.x -= 0.001;
-      gltf.scene.rotation.z -= 0.001;
+      gltf.scene.rotation.y += 0.00075;
+      gltf.scene.rotation.x -= 0.00075;
+      gltf.scene.rotation.z -= 0.00075;
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
       x -= 0.001;
@@ -203,9 +203,9 @@ function init() {
       let y = -2.09;
       function rotate() {
         requestAnimationFrame(rotate);
-        gltf.scene.rotation.y -= 0.001;
-        gltf.scene.rotation.x += 0.001;
-        gltf.scene.rotation.z -= 0.001;
+        gltf.scene.rotation.y -= 0.00075;
+        gltf.scene.rotation.x += 0.00075;
+        gltf.scene.rotation.z -= 0.00075;
         gltf.scene.position.x = Math.sin(x) * 125;
         gltf.scene.position.y = Math.cos(y) * 125;
         x -= 0.001;
@@ -228,9 +228,9 @@ function init() {
     let y = 2.09;
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.001;
-      gltf.scene.rotation.x -= 0.001;
-      gltf.scene.rotation.z += 0.001;
+      gltf.scene.rotation.y -= 0.00075;
+      gltf.scene.rotation.x -= 0.00075;
+      gltf.scene.rotation.z += 0.00075;
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
       x -= 0.001;
@@ -314,13 +314,13 @@ function init() {
   const particleAsset = new GLTFLoader();
   particleAsset.setDRACOLoader(dracoLoader);
   particleAsset.load("/bg-assets/blasted-galaxy-3.gltf", function (gltf) {
-    gltf.scene.scale.set(12, 12, 12);
+    gltf.scene.scale.set(13, 13, 13);
     scene.add(gltf.scene);
   });
 
-  const protectedArea = 100;
+  const protectedArea = 150;
   const worldScaleDispersionFactor = 1000;
-  const assetLoopCount = 50;
+  const assetLoopCount = 35;
 
   //Logo Asset
 
@@ -594,7 +594,7 @@ function rotateWorld() {
   rotateWorldCount++;
   controls.rotateSpeed = 1;
   controls.zoomSpeed = 1;
-  controls.maxDistance = 700;
+  controls.maxDistance = 750;
 }
 
 function introZoomIn() {
@@ -604,6 +604,7 @@ function introZoomIn() {
     perspectiveCamera.position.y += 0.25;
     controls.rotateSpeed = 1;
     controls.zoomSpeed = 1;
+    controls.maxDistance = 1000;
   } else {
     requestRotate = true;
     requestIntroZoomIn = false;
