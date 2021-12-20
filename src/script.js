@@ -36,7 +36,7 @@ function init() {
 
   // pano scene
 
-  const geometry = new THREE.SphereGeometry(700, 60, 40);
+  const geometry = new THREE.SphereGeometry(300, 60, 40);
   // invert the geometry on the x-axis so that all of the faces point inward
   geometry.scale(-1, 1, 1);
 
@@ -365,7 +365,7 @@ function init() {
 
   const protectedArea = 150;
   const worldScaleDispersionFactor = 1000;
-  const assetLoopCount = 50;
+  const assetLoopCount = 40;
 
   //Logo Asset
 
@@ -470,7 +470,7 @@ function init() {
    */
   // Geometry
   const particlesGeometry = new THREE.BufferGeometry();
-  const count = 1000;
+  const count = 500;
   const positions = new Float32Array(count * 3);
 
   for (
@@ -478,7 +478,7 @@ function init() {
     i < count * 3;
     i++ // Multiply by 3 for same reason
   ) {
-    positions[i] = (Math.random() - 0.5) * 500;
+    positions[i] = (Math.random() - 0.5) * 400;
   }
 
   // Material
@@ -616,7 +616,7 @@ let rotateWorldCount = 0;
 let moveFactor = Math.random() * 4;
 
 function rotateWorld() {
-  console.log(rotateWorldCount);
+  // console.log(rotateWorldCount);
   // perspectiveCamera.position.x += 0.051 * moveFactor;
   // perspectiveCamera.position.z += 0.051 * moveFactor;
   // perspectiveCamera.position.y += 0.05 * moveFactor;
@@ -805,9 +805,9 @@ jQuery(function () {
   }
 
   function altLookAt() {
-    altCamX = Math.random() * 300;
-    altCamY = Math.random() * 300;
-    altCamZ = Math.random() * 300;
+    altCamX = Math.random() * 200;
+    altCamY = Math.random() * 200;
+    altCamZ = Math.random() * 200;
     requestAltLookAt = !requestAltLookAt;
   }
 
@@ -845,15 +845,15 @@ jQuery(function () {
     itemsLoaded,
     itemsTotal
   ) {
-    console.log(
-      "Started loading file: " +
-        url +
-        ".\nLoaded " +
-        itemsLoaded +
-        " of " +
-        itemsTotal +
-        " files."
-    );
+    // console.log(
+    //   "Started loading file: " +
+    //     url +
+    //     ".\nLoaded " +
+    //     itemsLoaded +
+    //     " of " +
+    //     itemsTotal +
+    //     " files."
+    // );
   };
 
   THREE.DefaultLoadingManager.onLoad = function () {
@@ -868,15 +868,15 @@ jQuery(function () {
     itemsLoaded,
     itemsTotal
   ) {
-    console.log(
-      "Loading file: " +
-        url +
-        ".\nLoaded " +
-        itemsLoaded +
-        " of " +
-        itemsTotal +
-        " files."
-    );
+    // console.log(
+    //   "Loading file: " +
+    //     url +
+    //     ".\nLoaded " +
+    //     itemsLoaded +
+    //     " of " +
+    //     itemsTotal +
+    //     " files."
+    // );
   };
 
   THREE.DefaultLoadingManager.onError = function (url) {
@@ -919,15 +919,15 @@ jQuery(function () {
   });
   let headerOpen = false;
   jQuery("#headerBtn").on("click", function () {
-    console.log(headerOpen);
+    // console.log(headerOpen);
     if (headerOpen == false) {
       openHeaderMenu();
       headerOpen = true;
-      console.log(headerOpen);
+      // console.log(headerOpen);
     } else {
       closeHeaderMenu();
       headerOpen = false;
-      console.log(headerOpen);
+      // console.log(headerOpen);
     }
   });
 });

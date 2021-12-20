@@ -31,9 +31,9 @@ header {
 } */
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   letter-spacing: 10px;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   line-height: 4rem;
 }
 
@@ -64,7 +64,7 @@ nav li {
 
 header button {
   padding: 12px 6px 12px 12px;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
 @media only screen and (max-width: 767px) {
@@ -141,6 +141,10 @@ header button {
   border-radius: 3px;
 }
 
+.content-page h2 {
+  font-size: 2rem;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -173,12 +177,9 @@ header button {
 
 #about .flex-container .content-block:first-of-type {
   background-color: var(--color-primary-lighter);
-  /* padding: 20px 10px; */
   width: 100%;
-  border: 2px solid black;
-  border-top-color: #c6c6c678;
-  border-left-color: #c6c6c678;
-  padding: 10px;
+  border: 1px solid #ffffff85;
+  padding: 20px;
   height: fit-content;
 }
 
@@ -285,6 +286,7 @@ header button {
   justify-content: center;
   align-items: center;
   min-height: 300px;
+  min-width: 300px;
 }
 
 @media only screen and (max-width: 767px) {

@@ -29,7 +29,9 @@ body {
   /* opacity: 1 !important; */
   background: rgb(235, 235, 235);
   color: var(--text-primary);
-  font-family: "Press Start 2P", cursive;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   line-height: 30px;
 }
 
@@ -58,7 +60,9 @@ img {
 /* text styles */
 
 p {
-  font-family: "Open Sans", sans-serif;
+  /* font-family: tablet-gothic, sans-serif; */
+  font-weight: 400;
+  font-style: normal;
   /* font-weight: 300; */
   font-style: normal;
   font-size: 1.35rem;
@@ -74,7 +78,9 @@ a {
 button {
   width: 100%;
   background-color: transparent;
-  font-family: "Press Start 2P", cursive;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   letter-spacing: 5px;
   word-spacing: 3px;
   line-height: 30px;
