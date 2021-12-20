@@ -72,9 +72,9 @@ function init() {
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
   buildingLogo.load("locations/u-of-texas.gltf", function (gltf) {
-    gltf.scene.position.y = 37;
+    gltf.scene.position.y = 60;
     gltf.scene.position.z = 5;
-    gltf.scene.scale.set(10, 10, 10);
+    gltf.scene.scale.set(15, 15, 15);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
@@ -84,29 +84,31 @@ function init() {
   });
 
   // CF Center Building Logo Asset
-  const coinLogo = new GLTFLoader();
-  coinLogo.setDRACOLoader(dracoLoader);
-  coinLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
+  const tejiSphere = new GLTFLoader();
+  tejiSphere.setDRACOLoader(dracoLoader);
+  tejiSphere.load("locations/tegi-planet-test-5.gltf", function (gltf) {
     gltf.scene.position.x = -30;
-    gltf.scene.position.y = -5;
-    gltf.scene.position.z = 5;
+    gltf.scene.position.y = 25;
+    gltf.scene.position.z = 0;
     gltf.scene.scale.set(10, 10, 10);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.025;
+      gltf.scene.rotation.y -= 0.0085;
     }
     rotate();
   });
-  coinLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
+  const gkitchenSphere = new GLTFLoader();
+  gkitchenSphere.setDRACOLoader(dracoLoader);
+  gkitchenSphere.load("locations/ghostline-planet-test.gltf", function (gltf) {
     gltf.scene.position.x = 30;
-    gltf.scene.position.y = -5;
-    gltf.scene.position.z = 5;
+    gltf.scene.position.y = 25;
+    gltf.scene.position.z = 0;
     gltf.scene.scale.set(10, 10, 10);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.025;
+      gltf.scene.rotation.y -= 0.0085;
     }
     rotate();
   });
@@ -117,13 +119,13 @@ function init() {
   ndChinese.load("brands/nice-day-chinese-test.gltf", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
-    gltf.scene.position.y = 85;
+    gltf.scene.position.y = -85;
     gltf.scene.scale.set(28, 28, 28);
     scene.add(gltf.scene);
     let x = 1;
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.position.y = Math.sin(x) + 85;
+      gltf.scene.position.y = Math.sin(x) - 55;
       x += 0.025;
     }
     rotate();
@@ -178,13 +180,13 @@ function init() {
     rotate();
   });
 
-  // CF Center Building Asset
-  const particleAsset = new GLTFLoader();
-  particleAsset.setDRACOLoader(dracoLoader);
-  particleAsset.load("/bg-assets/blasted-galaxy-3.gltf", function (gltf) {
-    gltf.scene.scale.set(12, 12, 12);
-    scene.add(gltf.scene);
-  });
+  // // Particles
+  // const particleAsset = new GLTFLoader();
+  // particleAsset.setDRACOLoader(dracoLoader);
+  // particleAsset.load("/bg-assets/blasted-galaxy-3.gltf", function (gltf) {
+  //   gltf.scene.scale.set(12, 12, 12);
+  //   scene.add(gltf.scene);
+  // });
 
   const protectedArea = 100;
   const worldScaleDispersionFactor = 1000;
