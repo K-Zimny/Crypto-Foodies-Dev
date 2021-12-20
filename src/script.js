@@ -579,7 +579,7 @@ function createControls(camera) {
   controls.panSpeed = 0;
   // controls.maxDistance = 800;
   // controls.minDistance = 200;
-  controls.maxDistance = 375;
+  controls.maxDistance = 380;
   controls.minDistance = 0;
   controls.dynamicDampingFactor = 0.025;
 
@@ -620,14 +620,22 @@ function rotateWorld() {
   // perspectiveCamera.position.x += 0.051 * moveFactor;
   // perspectiveCamera.position.z += 0.051 * moveFactor;
   // perspectiveCamera.position.y += 0.05 * moveFactor;
-  if (rotateWorldCount < 2000) {
+  if (rotateWorldCount < 1500) {
     perspectiveCamera.position.x += 0.1 * moveFactor;
     perspectiveCamera.position.z += 0.1 * moveFactor;
     perspectiveCamera.position.y += 0.05 * moveFactor;
-  } else if (rotateWorldCount < 4000) {
+  } else if (rotateWorldCount < 2000) {
+    perspectiveCamera.position.x += 0.5 * moveFactor;
+    perspectiveCamera.position.z -= 0.5 * moveFactor;
+    perspectiveCamera.position.y -= 0.25 * moveFactor;
+  } else if (rotateWorldCount < 3250) {
     perspectiveCamera.position.x -= 0.025 * moveFactor;
-    perspectiveCamera.position.z += 0.025 * moveFactor;
-    perspectiveCamera.position.y -= 0.0025 * moveFactor;
+    perspectiveCamera.position.z -= 0.025 * moveFactor;
+    perspectiveCamera.position.y += 0.025 * moveFactor;
+  } else if (rotateWorldCount < 4500) {
+    perspectiveCamera.position.x -= 0.05 * moveFactor;
+    perspectiveCamera.position.z += 1 * moveFactor;
+    perspectiveCamera.position.y += 0.25 * moveFactor;
   }
   // else if (rotateWorldCount < 6000) {
   //   perspectiveCamera.position.x -= 0.05 * moveFactor;
@@ -638,14 +646,14 @@ function rotateWorld() {
   //   perspectiveCamera.position.z += 0.05 * moveFactor;
   //   perspectiveCamera.position.y -= 0.05 * moveFactor;
   // }
-  else if (rotateWorldCount < 4001) {
+  else if (rotateWorldCount < 4501) {
     rotateWorldCount = 0;
     moveFactor = Math.random() * 2;
   }
   rotateWorldCount++;
   controls.rotateSpeed = 0.35;
   controls.zoomSpeed = 0.25;
-  controls.maxDistance = 325;
+  controls.maxDistance = 335;
 }
 
 function introZoomIn() {
