@@ -634,8 +634,8 @@ function rotateWorld() {
     moveFactor = Math.random() * 4;
   }
   rotateWorldCount++;
-  controls.rotateSpeed = 1;
-  controls.zoomSpeed = 1;
+  controls.rotateSpeed = 0.25;
+  controls.zoomSpeed = 0.25;
   controls.maxDistance = 400;
 }
 
