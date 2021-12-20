@@ -23,7 +23,7 @@ init();
 
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
-  perspectiveCamera = new THREE.PerspectiveCamera(20, aspect, 1, 2500);
+  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2500);
   perspectiveCamera.position.z = 2500;
   perspectiveCamera.position.x = -1000;
   perspectiveCamera.position.y = -1000;
@@ -71,10 +71,10 @@ function init() {
   // CF Center Building Logo Above building Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
-  buildingLogo.load("locations/u-of-texas.gltf", function (gltf) {
+  buildingLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
     gltf.scene.position.y = 0;
     gltf.scene.position.z = 0;
-    gltf.scene.scale.set(20, 20, 20);
+    gltf.scene.scale.set(80, 80, 80);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
@@ -111,6 +111,33 @@ function init() {
   //   rotate();
   // });
 
+  //texas asset
+  const texasLoader = new GLTFLoader();
+  texasLoader.setDRACOLoader(dracoLoader);
+  texasLoader.load("locations/u-of-texas.gltf", function (gltf) {
+    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+    gltf.scene.position.x = 0;
+    gltf.scene.position.y = -85;
+    gltf.scene.scale.set(10, 10, 10);
+    scene.add(gltf.scene);
+    let x = -2.09;
+    let y = -2.09;
+    let z = 0;
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y += 0.00075;
+      gltf.scene.rotation.x -= 0.00075;
+      gltf.scene.rotation.z -= 0.00075;
+      gltf.scene.position.x = Math.sin(x) * 75;
+      gltf.scene.position.y = Math.cos(y) * 75;
+      gltf.scene.position.z = Math.cos(z) * 75;
+      x += 0.001;
+      y += 0.001;
+      z += 0.001;
+    }
+    rotate();
+  });
+
   //Tejis asset
   const tejiLoader = new GLTFLoader();
   tejiLoader.setDRACOLoader(dracoLoader);
@@ -128,9 +155,9 @@ function init() {
       gltf.scene.rotation.y += 0.00075;
       gltf.scene.rotation.x -= 0.00075;
       gltf.scene.rotation.z -= 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 65;
-      gltf.scene.position.y = Math.cos(y) * 65;
-      gltf.scene.position.z = Math.cos(z) * 65;
+      gltf.scene.position.x = Math.sin(x) * 100;
+      gltf.scene.position.y = Math.cos(y) * 100;
+      gltf.scene.position.z = Math.cos(z) * 100;
       x += 0.001;
       y += 0.001;
       z += 0.001;
@@ -157,9 +184,9 @@ function init() {
         gltf.scene.rotation.y -= 0.00075;
         gltf.scene.rotation.x += 0.00075;
         gltf.scene.rotation.z += 0.00075;
-        gltf.scene.position.x = Math.sin(x) * 65;
-        gltf.scene.position.y = Math.cos(y) * 65;
-        gltf.scene.position.z = Math.cos(z) * 65;
+        gltf.scene.position.x = Math.sin(x) * 100;
+        gltf.scene.position.y = Math.cos(y) * 100;
+        gltf.scene.position.z = Math.cos(z) * 100;
         x -= 0.001;
         y -= 0.001;
         z += 0.001;
