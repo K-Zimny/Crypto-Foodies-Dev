@@ -703,7 +703,7 @@ import jQuery from "jquery";
 jQuery(function () {
   // ---------------------------  functions  --------------------------- //
   function pageFadeIn() {
-    jQuery("body").fadeTo(3000, 1, function () {});
+    jQuery("body").fadeTo(5000, 1, function () {});
   }
 
   function showHeader() {
