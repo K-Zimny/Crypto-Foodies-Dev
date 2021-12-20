@@ -130,7 +130,7 @@ function init() {
       gltf.scene.rotation.z -= 0.00075;
       gltf.scene.position.x = Math.sin(x) * 75;
       gltf.scene.position.y = Math.cos(y) * 75;
-      gltf.scene.position.z = Math.cos(z) * 75;
+      // gltf.scene.position.z = Math.cos(z) * 75;
       x += 0.001;
       y += 0.001;
       z += 0.001;
@@ -157,7 +157,7 @@ function init() {
       gltf.scene.rotation.z -= 0.00075;
       gltf.scene.position.x = Math.sin(x) * 100;
       gltf.scene.position.y = Math.cos(y) * 100;
-      gltf.scene.position.z = Math.cos(z) * 100;
+      // gltf.scene.position.z = Math.cos(z) * 100;
       x += 0.001;
       y += 0.001;
       z += 0.001;
@@ -186,7 +186,7 @@ function init() {
         gltf.scene.rotation.z += 0.00075;
         gltf.scene.position.x = Math.sin(x) * 100;
         gltf.scene.position.y = Math.cos(y) * 100;
-        gltf.scene.position.z = Math.cos(z) * 100;
+        // gltf.scene.position.z = Math.cos(z) * 100;
         x -= 0.001;
         y -= 0.001;
         z += 0.001;
@@ -214,7 +214,7 @@ function init() {
       gltf.scene.rotation.z -= 0.00075;
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
-      gltf.scene.position.z = Math.cos(z) * 125;
+      // gltf.scene.position.z = Math.cos(z) * 125;
       x -= 0.0005;
       y -= 0.0005;
       z += 0.0005;
@@ -245,7 +245,7 @@ function init() {
         gltf.scene.rotation.z -= 0.00075;
         gltf.scene.position.x = Math.sin(x) * 125;
         gltf.scene.position.y = Math.cos(y) * 125;
-        gltf.scene.position.z = Math.cos(z) * 125;
+        // gltf.scene.position.z = Math.cos(z) * 125;
         x -= 0.0005;
         y -= 0.0005;
         z += 0.0005;
@@ -273,7 +273,7 @@ function init() {
       gltf.scene.rotation.z += 0.00075;
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
-      gltf.scene.position.z = Math.cos(z) * 125;
+      // gltf.scene.position.z = Math.cos(z) * 125;
       x -= 0.0005;
       y -= 0.0005;
       z += 0.0005;
