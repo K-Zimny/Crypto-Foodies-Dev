@@ -7,7 +7,7 @@
   --dark: #121212;
   --text-primary: #fff;
   --color-primary: #1f1f1f;
-  --color-primary-lighter: #3b3b3b;
+  --color-primary-lighter: #36363654;
 }
 
 * {
@@ -48,6 +48,10 @@ body.body-100vh {
   position: fixed;
   inset: 0;
   z-index: -1;
+}
+
+img {
+  max-width: 100%;
 }
 
 /* text styles */

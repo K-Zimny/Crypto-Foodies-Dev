@@ -269,9 +269,29 @@ header button {
   color: #6dbc54;
 }
 
-/* #brandsLink {
-  padding: 25px 6px 25px 12px;
-} */
+#brands .brands-flex-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+}
+
+#brands .brands-flex-container h3 {
+  width: 50%;
+  text-align: center;
+}
+
+#brands .brands-flex-container figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+@media only screen and (max-width: 767px) {
+  #brands .brands-flex-container h3 {
+    width: 100%;
+  }
+}
 
 /* Exploration */
 
