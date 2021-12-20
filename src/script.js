@@ -636,7 +636,7 @@ function rotateWorld() {
   rotateWorldCount++;
   controls.rotateSpeed = 1;
   controls.zoomSpeed = 1;
-  controls.maxDistance = 750;
+  controls.maxDistance = 400;
 }
 
 function introZoomIn() {
