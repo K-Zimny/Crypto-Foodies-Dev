@@ -25,8 +25,9 @@ html {
 }
 
 body {
-  opacity: 1 !important;
-  background: var(--dark);
+  opacity: 0;
+  /* opacity: 1 !important; */
+  background: rgb(235, 235, 235);
   color: var(--text-primary);
   font-family: "Press Start 2P", cursive;
   line-height: 30px;

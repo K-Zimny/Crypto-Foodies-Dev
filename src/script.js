@@ -24,9 +24,9 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
   perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2500);
-  perspectiveCamera.position.z = 2500;
-  perspectiveCamera.position.x = -1000;
-  perspectiveCamera.position.y = -1000;
+  perspectiveCamera.position.z = 100;
+  perspectiveCamera.position.x = -10;
+  perspectiveCamera.position.y = -10;
 
   //------------- world
 
@@ -72,13 +72,14 @@ function init() {
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
   buildingLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
-    gltf.scene.position.y = 0;
-    gltf.scene.position.z = 0;
+    gltf.scene.position.y = -5;
+    gltf.scene.position.x = -20;
+    gltf.scene.rotation.y = 76.8;
     gltf.scene.scale.set(80, 80, 80);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.00075;
+      gltf.scene.rotation.y -= 0.002;
     }
     rotate();
   });
@@ -202,19 +203,20 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = 135;
+    gltf.scene.rotation.x = 3;
     gltf.scene.scale.set(25, 25, 25);
     scene.add(gltf.scene);
-    let x = 0;
+    let x = -1;
     let y = 0;
-    let z = 0;
+    let z = 1;
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.00075;
-      gltf.scene.rotation.x -= 0.00075;
-      gltf.scene.rotation.z -= 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 125;
-      gltf.scene.position.y = Math.cos(y) * 125;
-      gltf.scene.position.z = Math.cos(z) * 125;
+      gltf.scene.rotation.y += 0.00095;
+      gltf.scene.rotation.x -= 0.00095;
+      gltf.scene.rotation.z -= 0.00095;
+      gltf.scene.position.x = Math.sin(x) * 120;
+      gltf.scene.position.y = Math.cos(y) * 120;
+      gltf.scene.position.z = Math.cos(z) * 120;
       x -= 0.0005;
       y -= 0.0005;
       z += 0.0005;
@@ -261,6 +263,7 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = -140;
     gltf.scene.position.y = -20;
+    gltf.scene.rotation.y = 2;
     gltf.scene.scale.set(20, 20, 20);
     scene.add(gltf.scene);
     let x = 2.09;
@@ -271,9 +274,9 @@ function init() {
       gltf.scene.rotation.y -= 0.00075;
       gltf.scene.rotation.x -= 0.00075;
       gltf.scene.rotation.z += 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 125;
-      gltf.scene.position.y = Math.cos(y) * 125;
-      gltf.scene.position.z = Math.cos(z) * 125;
+      gltf.scene.position.x = Math.sin(x) * 115;
+      gltf.scene.position.y = Math.cos(y) * 115;
+      gltf.scene.position.z = Math.cos(z) * 115;
       x -= 0.0005;
       y -= 0.0005;
       z += 0.0005;
@@ -360,7 +363,7 @@ function init() {
   //   scene.add(gltf.scene);
   // });
 
-  const protectedArea = 200;
+  const protectedArea = 150;
   const worldScaleDispersionFactor = 1000;
   const assetLoopCount = 50;
 
@@ -576,8 +579,9 @@ function createControls(camera) {
   controls.panSpeed = 0;
   // controls.maxDistance = 800;
   // controls.minDistance = 200;
-  controls.maxDistance = 1000;
-  controls.minDistance = 250;
+  controls.maxDistance = 375;
+  controls.minDistance = 0;
+  controls.dynamicDampingFactor = 0.025;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
 }
@@ -598,7 +602,8 @@ function render() {
   if (requestAltLookAt) {
     camera.lookAt(new THREE.Vector3(altCamX, altCamY, altCamZ));
   } else {
-    camera.lookAt(new THREE.Vector3(0, 0, 0));
+    camera.lookAt(new THREE.Vector3(0, 35, 50));
+    // camera.lookAt(new THREE.Vector3(0, 0, 0));
   }
   renderer.render(scene, camera);
 }
@@ -612,41 +617,46 @@ let moveFactor = Math.random() * 4;
 
 function rotateWorld() {
   console.log(rotateWorldCount);
-
-  if (rotateWorldCount < 4000) {
+  // perspectiveCamera.position.x += 0.051 * moveFactor;
+  // perspectiveCamera.position.z += 0.051 * moveFactor;
+  // perspectiveCamera.position.y += 0.05 * moveFactor;
+  if (rotateWorldCount < 2000) {
     perspectiveCamera.position.x += 0.1 * moveFactor;
     perspectiveCamera.position.z += 0.1 * moveFactor;
-    perspectiveCamera.position.y += 0.1 * moveFactor;
-  } else if (rotateWorldCount < 8000) {
-    perspectiveCamera.position.x -= 0.1 * moveFactor;
-    perspectiveCamera.position.z -= 0.1 * moveFactor;
-    perspectiveCamera.position.y -= 0.1 * moveFactor;
-  } else if (rotateWorldCount < 12000) {
-    perspectiveCamera.position.x -= 0.1 * moveFactor;
-    perspectiveCamera.position.z += 0.1 * moveFactor;
-    perspectiveCamera.position.y += 0.1 * moveFactor;
-  } else if (rotateWorldCount < 16000) {
-    perspectiveCamera.position.x += 0.1 * moveFactor;
-    perspectiveCamera.position.z += 0.1 * moveFactor;
-    perspectiveCamera.position.y -= 0.1 * moveFactor;
-  } else if (rotateWorldCount < 17000) {
+    perspectiveCamera.position.y += 0.05 * moveFactor;
+  } else if (rotateWorldCount < 4000) {
+    perspectiveCamera.position.x -= 0.025 * moveFactor;
+    perspectiveCamera.position.z += 0.025 * moveFactor;
+    perspectiveCamera.position.y -= 0.0025 * moveFactor;
+  }
+  // else if (rotateWorldCount < 6000) {
+  //   perspectiveCamera.position.x -= 0.05 * moveFactor;
+  //   perspectiveCamera.position.z += 0.05 * moveFactor;
+  //   perspectiveCamera.position.y += 0.05 * moveFactor;
+  // } else if (rotateWorldCount < 8000) {
+  //   perspectiveCamera.position.x += 0.05 * moveFactor;
+  //   perspectiveCamera.position.z += 0.05 * moveFactor;
+  //   perspectiveCamera.position.y -= 0.05 * moveFactor;
+  // }
+  else if (rotateWorldCount < 4001) {
     rotateWorldCount = 0;
-    moveFactor = Math.random() * 4;
+    moveFactor = Math.random() * 2;
   }
   rotateWorldCount++;
-  controls.rotateSpeed = 0.25;
+  controls.rotateSpeed = 0.35;
   controls.zoomSpeed = 0.25;
-  controls.maxDistance = 400;
+  controls.maxDistance = 325;
 }
 
 function introZoomIn() {
-  if (perspectiveCamera.position.z > 350) {
-    perspectiveCamera.position.z -= 0.75;
-    perspectiveCamera.position.x += 0.25;
-    perspectiveCamera.position.y += 0.25;
+  if (perspectiveCamera.position.z < 100) {
+    perspectiveCamera.position.z += 0.45;
+    perspectiveCamera.position.x += 0.05;
+    perspectiveCamera.position.y += 0.05;
     controls.rotateSpeed = 1;
     controls.zoomSpeed = 1;
-    controls.maxDistance = 1000;
+    controls.maxDistance = 375;
+    controls.minDistance = 1;
   } else {
     requestRotate = true;
     requestIntroZoomIn = false;
@@ -685,7 +695,7 @@ import jQuery from "jquery";
 jQuery(function () {
   // ---------------------------  functions  --------------------------- //
   function pageFadeIn() {
-    jQuery("body").fadeTo(1500, 1, function () {});
+    jQuery("body").fadeTo(3000, 1, function () {});
   }
 
   function showHeader() {
@@ -740,7 +750,7 @@ jQuery(function () {
   function exploreWorld() {
     controls.rotateSpeed = 3;
     controls.zoomSpeed = 0.8;
-    controls.maxDistance = 1500;
+    controls.maxDistance = 375;
     requestRotate = false;
     requestSlowRotate = true;
     jQuery("header").addClass("btn-no-click");
@@ -759,7 +769,7 @@ jQuery(function () {
   function endExploreWorld() {
     requestSlowRotate = false;
     requestRotate = true;
-    controls.maxDistance = 1000;
+    controls.maxDistance = 375;
     jQuery("#endExplore").addClass("btn-no-click");
     jQuery("#endExplore").fadeTo(1000, 0, function () {
       jQuery("#endExplore").removeClass("block");
