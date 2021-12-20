@@ -23,7 +23,7 @@ init();
 
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
-  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2500);
+  perspectiveCamera = new THREE.PerspectiveCamera(20, aspect, 1, 2500);
   perspectiveCamera.position.z = 2500;
   perspectiveCamera.position.x = -1000;
   perspectiveCamera.position.y = -1000;
@@ -40,14 +40,14 @@ function init() {
   // invert the geometry on the x-axis so that all of the faces point inward
   geometry.scale(-1, 1, 1);
 
-  const texture = new THREE.TextureLoader().load("imgs/space-bg.webp");
+  const texture = new THREE.TextureLoader().load("imgs/space-bg-1.webp");
   texture.wrapS = THREE.MirroredRepeatWrapping;
   texture.wrapT = THREE.MirroredRepeatWrapping;
   texture.repeat.set(4, 4);
 
   const material = new THREE.MeshBasicMaterial({ map: texture });
-  material.transparent = false;
-  material.opacity = 0.5;
+  material.transparent = true;
+  material.opacity = 0.65;
 
   const mesh = new THREE.Mesh(geometry, material);
 
@@ -74,11 +74,11 @@ function init() {
   buildingLogo.load("locations/u-of-texas.gltf", function (gltf) {
     gltf.scene.position.y = 0;
     gltf.scene.position.z = 0;
-    gltf.scene.scale.set(15, 15, 15);
+    gltf.scene.scale.set(20, 20, 20);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.005;
+      gltf.scene.rotation.y += 0.00075;
     }
     rotate();
   });
@@ -114,7 +114,7 @@ function init() {
   //Tejis asset
   const tejiLoader = new GLTFLoader();
   tejiLoader.setDRACOLoader(dracoLoader);
-  tejiLoader.load("locations/tejis-full-blue.gltf", function (gltf) {
+  tejiLoader.load("locations/tegi-planet-test-5.gltf", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = -85;
@@ -125,9 +125,9 @@ function init() {
     let z = 0;
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.0005;
-      gltf.scene.rotation.x -= 0.0005;
-      gltf.scene.rotation.z -= 0.0005;
+      gltf.scene.rotation.y += 0.00075;
+      gltf.scene.rotation.x -= 0.00075;
+      gltf.scene.rotation.z -= 0.00075;
       gltf.scene.position.x = Math.sin(x) * 65;
       gltf.scene.position.y = Math.cos(y) * 65;
       gltf.scene.position.z = Math.cos(z) * 65;
@@ -142,7 +142,7 @@ function init() {
   const ghostKitchenLoader = new GLTFLoader();
   ghostKitchenLoader.setDRACOLoader(dracoLoader);
   ghostKitchenLoader.load(
-    "locations/ghostline-kitchens-orange.gltf",
+    "locations/ghostline-planet-test.gltf",
     function (gltf) {
       // gltf.scene.rotation.y = 3 * (Math.PI / 2);
       gltf.scene.position.x = 0;
@@ -154,9 +154,9 @@ function init() {
       let z = 0;
       function rotate() {
         requestAnimationFrame(rotate);
-        gltf.scene.rotation.y -= 0.0005;
-        gltf.scene.rotation.x += 0.0005;
-        gltf.scene.rotation.z += 0.0005;
+        gltf.scene.rotation.y -= 0.00075;
+        gltf.scene.rotation.x += 0.00075;
+        gltf.scene.rotation.z += 0.00075;
         gltf.scene.position.x = Math.sin(x) * 65;
         gltf.scene.position.y = Math.cos(y) * 65;
         gltf.scene.position.z = Math.cos(z) * 65;
@@ -175,7 +175,7 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = 135;
-    gltf.scene.scale.set(20, 20, 20);
+    gltf.scene.scale.set(25, 25, 25);
     scene.add(gltf.scene);
     let x = 0;
     let y = 0;
@@ -188,9 +188,9 @@ function init() {
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
       gltf.scene.position.z = Math.cos(z) * 125;
-      x -= 0.001;
-      y -= 0.001;
-      z += 0.001;
+      x -= 0.0005;
+      y -= 0.0005;
+      z += 0.0005;
     }
     rotate();
   });
@@ -206,7 +206,7 @@ function init() {
     function (gltf) {
       gltf.scene.position.x = 115;
       gltf.scene.position.y = -135;
-      gltf.scene.scale.set(10, 10, 10);
+      gltf.scene.scale.set(15, 15, 15);
       scene.add(gltf.scene);
       let x = -2.09;
       let y = -2.09;
@@ -219,9 +219,9 @@ function init() {
         gltf.scene.position.x = Math.sin(x) * 125;
         gltf.scene.position.y = Math.cos(y) * 125;
         gltf.scene.position.z = Math.cos(z) * 125;
-        x -= 0.001;
-        y -= 0.001;
-        z += 0.001;
+        x -= 0.0005;
+        y -= 0.0005;
+        z += 0.0005;
       }
       rotate();
     }
@@ -234,7 +234,7 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = -140;
     gltf.scene.position.y = -20;
-    gltf.scene.scale.set(15, 15, 15);
+    gltf.scene.scale.set(20, 20, 20);
     scene.add(gltf.scene);
     let x = 2.09;
     let y = 2.09;
@@ -247,9 +247,9 @@ function init() {
       gltf.scene.position.x = Math.sin(x) * 125;
       gltf.scene.position.y = Math.cos(y) * 125;
       gltf.scene.position.z = Math.cos(z) * 125;
-      x -= 0.001;
-      y -= 0.001;
-      z += 0.001;
+      x -= 0.0005;
+      y -= 0.0005;
+      z += 0.0005;
     }
     rotate();
   });
@@ -325,17 +325,17 @@ function init() {
   //   rotate();
   // });
 
-  // Galaxy Particle Blast Asset
-  const particleAsset = new GLTFLoader();
-  particleAsset.setDRACOLoader(dracoLoader);
-  particleAsset.load("/bg-assets/blasted-galaxy-3.gltf", function (gltf) {
-    gltf.scene.scale.set(13, 13, 13);
-    scene.add(gltf.scene);
-  });
+  // // Galaxy Particle Blast Asset
+  // const particleAsset = new GLTFLoader();
+  // particleAsset.setDRACOLoader(dracoLoader);
+  // particleAsset.load("/bg-assets/blasted-galaxy-3.gltf", function (gltf) {
+  //   gltf.scene.scale.set(13, 13, 13);
+  //   scene.add(gltf.scene);
+  // });
 
-  const protectedArea = 150;
+  const protectedArea = 200;
   const worldScaleDispersionFactor = 1000;
-  const assetLoopCount = 35;
+  const assetLoopCount = 50;
 
   //Logo Asset
 

@@ -32,11 +32,11 @@
       <hr />
       <nav class="hidden-mobile">
         <ul>
+          <li><button id="brandsLink">Order</button></li>
           <li><button id="aboutLink">About</button></li>
-          <li><button id="brandsLink">Brands</button></li>
           <li><button id="connectLink">Connect</button></li>
           <!-- <li id="exploreli"><button id="explore">Explore World</button></li> -->
-          <li><button id="audioBtn">Click for Music (Recommended)</button></li>
+          <li><button id="audioBtn">Click for Music</button></li>
         </ul>
       </nav>
     </header>
@@ -80,16 +80,38 @@
             fulfillment coming from Host Restaurants (HR) in their area.
           </p>
         </div>
+        <div class="content-block">
+          <figure>
+            <img src="/static/svg/cf-storyboard.svg" alt="">
+          </figure>
+        </div>
       </div>
       <button id="aboutHomeBtn">Back to menu</button>
     </section>
     <section id="brands" class="content-page hidden">
       <div>
-        <h2>Brands</h2>
+        <h2>Order</h2>
         <hr />
-        <h3><a href="https://www.hamburgerstan.com/">Hamburger Stan</a></h3>
-        <h3><a href="https://www.thebudlong.com/">The Budlong</a></h3>
-        <h3><a href="https://www.eatniceday.com/">Nice Day Chinese</a></h3>
+        <div class="brands-flex-container">
+          <h3><a href="https://www.hamburgerstan.com/">
+            <figure>
+              <img src="/static/svg/hamburger-stan.svg" alt="Hamburger Stan Logo">
+            </figure>
+            Hamburger Stan
+          </a></h3>
+        <h3><a href="https://www.thebudlong.com/">
+          <figure>
+            <img src="/static/svg/budlong.svg" alt="Hamburger Stan Logo">
+          </figure>
+          The Budlong
+        </a></h3>
+        <h3><a href="https://www.eatniceday.com/">
+          <figure>
+            <img src="/static/svg/nd-chinese.svg" alt="Hamburger Stan Logo">
+          </figure>
+          Nice Day Chinese
+        </a></h3>
+        </div>
         <button id="brandsHomeBtn">Back to menu</button>
       </div>
     </section>
