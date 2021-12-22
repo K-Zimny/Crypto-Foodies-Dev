@@ -23,7 +23,7 @@ init();
 
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
-  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 2500);
+  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1000);
   perspectiveCamera.position.z = 100;
   perspectiveCamera.position.x = -10;
   perspectiveCamera.position.y = -10;
@@ -47,7 +47,7 @@ function init() {
 
   const material = new THREE.MeshBasicMaterial({ map: texture });
   material.transparent = true;
-  material.opacity = 0.65;
+  // material.opacity = 0.65;
 
   const mesh = new THREE.Mesh(geometry, material);
 
