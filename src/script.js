@@ -71,18 +71,21 @@ function init() {
   // CF Center Building Logo Above building Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
-  buildingLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
-    gltf.scene.position.y = -5;
-    gltf.scene.position.x = -20;
-    gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(80, 80, 80);
-    scene.add(gltf.scene);
-    function rotate() {
-      requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.002;
+  buildingLogo.load(
+    "crypto-foodies/crypto-foodie-building-new.gltf",
+    function (gltf) {
+      gltf.scene.position.y = -5;
+      gltf.scene.position.x = -20;
+      gltf.scene.rotation.y = 76.8;
+      gltf.scene.scale.set(3, 3, 3);
+      scene.add(gltf.scene);
+      function rotate() {
+        requestAnimationFrame(rotate);
+        gltf.scene.rotation.y -= 0.002;
+      }
+      rotate();
     }
-    rotate();
-  });
+  );
 
   // // CF Center Building Logo Asset
   // const coinLogo = new GLTFLoader();
