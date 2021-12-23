@@ -87,6 +87,54 @@ function init() {
     }
   );
 
+  // CF Center Building Logo Above building Asset
+  const building1Logo = new GLTFLoader();
+  building1Logo.setDRACOLoader(dracoLoader);
+  building1Logo.load("crypto-foodies/cf-logo-3.gltf", function (gltf) {
+    gltf.scene.position.y = 65;
+    gltf.scene.position.x = -25;
+    gltf.scene.rotation.y = 76.8;
+    gltf.scene.scale.set(15, 15, 15);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.002;
+    }
+    rotate();
+  });
+
+  // CF Center Building Logo Above building Asset
+  const pickupLogo = new GLTFLoader();
+  pickupLogo.setDRACOLoader(dracoLoader);
+  pickupLogo.load("crypto-foodies/pickup.gltf", function (gltf) {
+    gltf.scene.position.y = 65;
+    gltf.scene.position.x = -80;
+    gltf.scene.rotation.y = Math.PI;
+    gltf.scene.scale.set(15, 15, 15);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.02;
+    }
+    rotate();
+  });
+
+  // CF Center Building Logo Above building Asset
+  const deliveryLogo = new GLTFLoader();
+  deliveryLogo.setDRACOLoader(dracoLoader);
+  deliveryLogo.load("crypto-foodies/delivery.gltf", function (gltf) {
+    gltf.scene.position.y = 65;
+    gltf.scene.position.x = 55;
+    gltf.scene.rotation.y = 0;
+    gltf.scene.scale.set(15, 15, 15);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.02;
+    }
+    rotate();
+  });
+
   // // CF Center Building Logo Asset
   // const coinLogo = new GLTFLoader();
   // coinLogo.setDRACOLoader(dracoLoader);
@@ -132,9 +180,9 @@ function init() {
       gltf.scene.rotation.y += 0.00075;
       gltf.scene.rotation.x -= 0.00075;
       gltf.scene.rotation.z -= 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 75;
-      gltf.scene.position.y = Math.cos(y) * 75;
-      gltf.scene.position.z = Math.cos(z) * 75;
+      gltf.scene.position.x = Math.sin(x) * 175;
+      gltf.scene.position.y = Math.cos(y) * 175;
+      gltf.scene.position.z = Math.cos(z) * 175;
       x += 0.001;
       y += 0.001;
       z += 0.001;
