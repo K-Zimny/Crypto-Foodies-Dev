@@ -25,8 +25,8 @@ function init() {
   const aspect = window.innerWidth / window.innerHeight;
   perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
   perspectiveCamera.position.z = 100;
-  perspectiveCamera.position.x = 100;
-  perspectiveCamera.position.y = 100;
+  perspectiveCamera.position.x = -40;
+  perspectiveCamera.position.y = -25;
 
   //------------- world
 
@@ -311,9 +311,9 @@ function init() {
       gltf.scene.rotation.y += 0.00075;
       gltf.scene.rotation.x -= 0.00075;
       gltf.scene.rotation.z -= 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 100;
-      gltf.scene.position.y = Math.cos(y) * 100;
-      gltf.scene.position.z = Math.cos(z) * 100;
+      gltf.scene.position.x = Math.sin(x) * 150;
+      gltf.scene.position.y = Math.cos(y) * 150;
+      gltf.scene.position.z = Math.cos(z) * 150;
       x += 0.001;
       y += 0.001;
       z += 0.001;
@@ -701,7 +701,7 @@ function init() {
   const ambientLight = new THREE.AmbientLight(0x222222);
   scene.add(ambientLight);
 
-  // // building lighting
+  // building lighting
   const light = new THREE.PointLight("hsl(10,100%,50%)", 27, 100);
   light.position.set(-20, 25, 0);
   scene.add(light);
@@ -826,11 +826,19 @@ function rotateWorld() {
   controls.maxDistance = 335;
 }
 
+// clock
+const clock = new THREE.Clock();
+
 function introZoomIn() {
-  if (perspectiveCamera.position.z < 100) {
-    perspectiveCamera.position.z += 0.45;
-    perspectiveCamera.position.x += 0.05;
-    perspectiveCamera.position.y += 0.05;
+  if (perspectiveCamera.position.z < 225) {
+    const elapsedTime = clock.getElapsedTime();
+    // console.log(elapsedTime);
+    perspectiveCamera.position.z += elapsedTime / 6;
+    perspectiveCamera.position.x += elapsedTime / 8;
+    perspectiveCamera.position.y += elapsedTime / 8;
+    // perspectiveCamera.position.z += 0.45;
+    // perspectiveCamera.position.x += 0.05;
+    // perspectiveCamera.position.y += 0.05;
     controls.rotateSpeed = 1;
     controls.zoomSpeed = 1;
     controls.maxDistance = 375;
