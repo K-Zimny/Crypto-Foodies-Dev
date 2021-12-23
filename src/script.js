@@ -23,10 +23,10 @@ init();
 
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
-  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1550);
+  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
   perspectiveCamera.position.z = 100;
-  perspectiveCamera.position.x = -10;
-  perspectiveCamera.position.y = -10;
+  perspectiveCamera.position.x = 100;
+  perspectiveCamera.position.y = 100;
 
   //------------- world
 
@@ -36,7 +36,7 @@ function init() {
 
   // pano scene
 
-  const geometry = new THREE.SphereGeometry(300, 60, 40);
+  const geometry = new THREE.SphereGeometry(350, 60, 40);
   // invert the geometry on the x-axis so that all of the faces point inward
   geometry.scale(-1, 1, 1);
 
@@ -80,6 +80,81 @@ function init() {
     function rotate() {
       requestAnimationFrame(rotate);
       gltf.scene.rotation.y -= 0.002;
+    }
+    rotate();
+  });
+
+  // CF Center Building Logo Above building Asset
+  const centerLogo = new GLTFLoader();
+  centerLogo.setDRACOLoader(dracoLoader);
+  centerLogo.load("crypto-foodies/building-glass.glb", function (gltf) {
+    // gltf.scene.position.y = 19;
+    // gltf.scene.position.x = -20;
+    gltf.scene.position.y = -0.15;
+    gltf.scene.position.x = 0.15;
+    gltf.scene.position.z = 750;
+    gltf.scene.rotation.y = 76.8;
+    gltf.scene.scale.set(0.01, 0.01, 0.01);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.02;
+    }
+    rotate();
+  });
+
+  // CF Center Building Logo Above building Asset
+  const buildingLogoSmall = new GLTFLoader();
+  buildingLogoSmall.setDRACOLoader(dracoLoader);
+  buildingLogoSmall.load("crypto-foodies/cf-logo-3.gltf", function (gltf) {
+    // gltf.scene.position.y = 19.2;
+    // gltf.scene.position.x = -20;
+    gltf.scene.position.y = 0.03;
+    gltf.scene.position.x = 0.15;
+    gltf.scene.position.z = 750;
+    gltf.scene.rotation.y = 0;
+    gltf.scene.scale.set(0.045, 0.045, 0.045);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.05;
+    }
+    rotate();
+  });
+  // CF Center Building Logo Above building Asset
+  const pickupLogoSmall = new GLTFLoader();
+  pickupLogoSmall.setDRACOLoader(dracoLoader);
+  pickupLogoSmall.load("crypto-foodies/pickup.gltf", function (gltf) {
+    // gltf.scene.position.y = 18.8;
+    // gltf.scene.position.x = -20;
+    gltf.scene.position.y = 0.15;
+    gltf.scene.position.x = 0.15;
+    gltf.scene.position.z = 750;
+    gltf.scene.rotation.y = 76.8;
+    gltf.scene.scale.set(0.1, 0.1, 0.1);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.02;
+    }
+    rotate();
+  });
+
+  // CF Center Building Logo Above building Asset
+  const deliveryLogoSmall = new GLTFLoader();
+  deliveryLogoSmall.setDRACOLoader(dracoLoader);
+  deliveryLogoSmall.load("crypto-foodies/delivery.gltf", function (gltf) {
+    // gltf.scene.position.y = 19.4;
+    // gltf.scene.position.x = -20;
+    gltf.scene.position.y = -0.2;
+    gltf.scene.position.x = 0.15;
+    gltf.scene.position.z = 750;
+    gltf.scene.rotation.y = 76.8;
+    gltf.scene.scale.set(0.1, 0.1, 0.1);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.02;
     }
     rotate();
   });
@@ -683,10 +758,22 @@ function onWindowResize() {
 function render() {
   const camera = perspectiveCamera;
   if (requestAltLookAt) {
-    camera.lookAt(new THREE.Vector3(altCamX, altCamY, altCamZ));
+    // perspectiveCamera.position.z = 1150;
+    perspectiveCamera.position.z = 751.5;
+    perspectiveCamera.position.x = 0;
+    perspectiveCamera.position.y = 0;
+    camera.lookAt(new THREE.Vector3(0, 0, 750));
   } else {
-    camera.lookAt(new THREE.Vector3(0, 35, 50));
-    // camera.lookAt(new THREE.Vector3(0, 0, 0));
+    // Create a media condition that targets viewports at least 768px wide
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    // Check if the media query is true
+    if (mediaQuery.matches) {
+      // Then trigger an alert
+      camera.lookAt(new THREE.Vector3(-20, 25, 0));
+    } else {
+      // camera.lookAt(new THREE.Vector3(0, 35, 50));
+      camera.lookAt(new THREE.Vector3(-20, 10, 0));
+    }
   }
   renderer.render(scene, camera);
 }
@@ -747,7 +834,7 @@ function introZoomIn() {
     controls.rotateSpeed = 1;
     controls.zoomSpeed = 1;
     controls.maxDistance = 375;
-    controls.minDistance = 1;
+    controls.minDistance = 0;
   } else {
     requestRotate = true;
     requestIntroZoomIn = false;
