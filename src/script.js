@@ -71,11 +71,11 @@ function init() {
   // CF Center Building Logo Above building Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
-  buildingLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
-    gltf.scene.position.y = -5;
+  buildingLogo.load("crypto-foodies/cf-logo-3.gltf", function (gltf) {
+    gltf.scene.position.y = 25;
     gltf.scene.position.x = -20;
     gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(80, 80, 80);
+    gltf.scene.scale.set(25, 25, 25);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
@@ -83,6 +83,86 @@ function init() {
     }
     rotate();
   });
+
+  // CF Center Building Logo Above building Asset
+  const pickupLogo = new GLTFLoader();
+  pickupLogo.setDRACOLoader(dracoLoader);
+  pickupLogo.load("crypto-foodies/pickup.gltf", function (gltf) {
+    gltf.scene.position.y = -20;
+    gltf.scene.position.x = -20;
+    gltf.scene.rotation.y = Math.PI;
+    gltf.scene.scale.set(15, 15, 15);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.02;
+    }
+    rotate();
+  });
+
+  // CF Center Building Logo Above building Asset
+  const deliveryLogo = new GLTFLoader();
+  deliveryLogo.setDRACOLoader(dracoLoader);
+  deliveryLogo.load("crypto-foodies/delivery.gltf", function (gltf) {
+    gltf.scene.position.y = 70;
+    gltf.scene.position.x = -20;
+    gltf.scene.rotation.y = 0;
+    gltf.scene.scale.set(15, 15, 15);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.02;
+    }
+    rotate();
+  });
+
+  // // CF Center Building Logo Above building Asset
+  // const buildingLogo = new GLTFLoader();
+  // buildingLogo.setDRACOLoader(dracoLoader);
+  // buildingLogo.load("crypto-foodies/cf-logo-3.gltf", function (gltf) {
+  //   gltf.scene.position.y = 15;
+  //   gltf.scene.position.x = -20;
+  //   gltf.scene.rotation.y = 76.8;
+  //   gltf.scene.scale.set(30, 30, 30);
+  //   scene.add(gltf.scene);
+  //   function rotate() {
+  //     requestAnimationFrame(rotate);
+  //     gltf.scene.rotation.y -= 0.002;
+  //   }
+  //   rotate();
+  // });
+
+  // // CF Center Building Logo Above building Asset
+  // const pickupLogo = new GLTFLoader();
+  // pickupLogo.setDRACOLoader(dracoLoader);
+  // pickupLogo.load("crypto-foodies/pickup.gltf", function (gltf) {
+  //   gltf.scene.position.y = 45;
+  //   gltf.scene.position.x = -65;
+  //   gltf.scene.rotation.y = 76.8;
+  //   gltf.scene.scale.set(15, 15, 15);
+  //   scene.add(gltf.scene);
+  //   function rotate() {
+  //     requestAnimationFrame(rotate);
+  //     gltf.scene.rotation.y -= 0.02;
+  //   }
+  //   rotate();
+  // });
+
+  // // CF Center Building Logo Above building Asset
+  // const deliveryLogo = new GLTFLoader();
+  // deliveryLogo.setDRACOLoader(dracoLoader);
+  // deliveryLogo.load("crypto-foodies/delivery.gltf", function (gltf) {
+  //   gltf.scene.position.y = 65;
+  //   gltf.scene.position.x = -5;
+  //   gltf.scene.rotation.y = 76.8;
+  //   gltf.scene.scale.set(15, 15, 15);
+  //   scene.add(gltf.scene);
+  //   function rotate() {
+  //     requestAnimationFrame(rotate);
+  //     gltf.scene.rotation.y -= 0.01;
+  //   }
+  //   rotate();
+  // });
 
   // // CF Center Building Logo Asset
   // const coinLogo = new GLTFLoader();
@@ -129,9 +209,9 @@ function init() {
       gltf.scene.rotation.y += 0.00075;
       gltf.scene.rotation.x -= 0.00075;
       gltf.scene.rotation.z -= 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 75;
-      gltf.scene.position.y = Math.cos(y) * 75;
-      gltf.scene.position.z = Math.cos(z) * 75;
+      gltf.scene.position.x = Math.sin(x) * 150;
+      gltf.scene.position.y = Math.cos(y) * 150;
+      gltf.scene.position.z = Math.cos(z) * 150;
       x += 0.001;
       y += 0.001;
       z += 0.001;
@@ -548,7 +628,7 @@ function init() {
 
   // // building lighting
   const light = new THREE.PointLight("hsl(10,100%,50%)", 27, 100);
-  light.position.set(0, -25, -50);
+  light.position.set(-20, 25, 0);
   scene.add(light);
 
   // // stan lighting
