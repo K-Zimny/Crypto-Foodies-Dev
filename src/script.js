@@ -84,7 +84,7 @@ function init() {
     gltf.scene.position.y = 25;
     gltf.scene.position.x = -20;
     gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(35, 35, 35);
+    gltf.scene.scale.set(95, 95, 95);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
@@ -284,7 +284,7 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = -85;
-    gltf.scene.scale.set(10, 10, 10);
+    gltf.scene.scale.set(20, 20, 20);
     scene.add(gltf.scene);
     let x = -2.09;
     let y = -2.09;
@@ -311,7 +311,7 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = -85;
-    gltf.scene.scale.set(10, 10, 10);
+    gltf.scene.scale.set(20, 20, 20);
     scene.add(gltf.scene);
     let x = 0;
     let y = 0;
@@ -340,7 +340,7 @@ function init() {
       // gltf.scene.rotation.y = 3 * (Math.PI / 2);
       gltf.scene.position.x = 0;
       gltf.scene.position.y = 85;
-      gltf.scene.scale.set(10, 10, 10);
+      gltf.scene.scale.set(20, 20, 50);
       scene.add(gltf.scene);
       let x = 0;
       let y = Math.PI;
@@ -369,7 +369,7 @@ function init() {
     gltf.scene.position.x = 0;
     gltf.scene.position.y = 135;
     gltf.scene.rotation.x = 3;
-    gltf.scene.scale.set(25, 25, 25);
+    gltf.scene.scale.set(35, 35, 35);
     scene.add(gltf.scene);
     let x = -1;
     let y = 0;
@@ -429,7 +429,7 @@ function init() {
     gltf.scene.position.x = -140;
     gltf.scene.position.y = -20;
     gltf.scene.rotation.y = 2;
-    gltf.scene.scale.set(20, 20, 20);
+    gltf.scene.scale.set(35, 35, 35);
     scene.add(gltf.scene);
     let x = 2.09;
     let y = 2.09;
@@ -530,7 +530,7 @@ function init() {
 
   const protectedArea = 100;
   const worldScaleDispersionFactor = 1000;
-  const assetLoopCount = 50;
+  const assetLoopCount = 40;
 
   //Logo Asset
 
@@ -635,7 +635,7 @@ function init() {
    */
   // Geometry
   const particlesGeometry = new THREE.BufferGeometry();
-  const count = 2500;
+  const count = 4500;
   const positions = new Float32Array(count * 3);
 
   for (
@@ -663,38 +663,38 @@ function init() {
   );
   scene.add(particles);
 
-  // // alt
-  // // Geometry
-  // const particlesGeometryAlt = new THREE.BufferGeometry();
-  // const countAlt = 1000;
-  // const positionsAlt = new Float32Array(count * 3);
+  // alt
+  // Geometry
+  const particlesGeometryAlt = new THREE.BufferGeometry();
+  const countAlt = 500;
+  const positionsAlt = new Float32Array(count * 3);
 
-  // for (
-  //   let i = 0;
-  //   i < count * 3;
-  //   i++ // Multiply by 3 for same reason
-  // ) {
-  //   positionsAlt[i] = (Math.random() - 0.5) * 500;
-  // }
+  for (
+    let i = 0;
+    i < count * 3;
+    i++ // Multiply by 3 for same reason
+  ) {
+    positionsAlt[i] = (Math.random() - 0.5) * 1750;
+  }
 
-  // // Material
-  // const particlesMaterialAlt = new THREE.PointsMaterial({
-  //   size: 2,
-  //   sizeAttenuation: true,
-  //   color: "#96178a",
-  //   transparent: true,
-  //   opacity: 0.75,
-  // });
-  // // particlesMaterial.vertexColors = true;
-  // const particlesAlt = new THREE.Points(
-  //   particlesGeometryAlt,
-  //   particlesMaterialAlt
-  // );
-  // particlesGeometryAlt.setAttribute(
-  //   "position",
-  //   new THREE.BufferAttribute(positionsAlt, 3)
-  // );
-  // scene.add(particlesAlt);
+  // Material
+  const particlesMaterialAlt = new THREE.PointsMaterial({
+    size: 0.25,
+    sizeAttenuation: true,
+    color: "#009999",
+    transparent: true,
+    opacity: 0.25,
+  });
+  // particlesMaterial.vertexColors = true;
+  const particlesAlt = new THREE.Points(
+    particlesGeometryAlt,
+    particlesMaterialAlt
+  );
+  particlesGeometryAlt.setAttribute(
+    "position",
+    new THREE.BufferAttribute(positionsAlt, 3)
+  );
+  scene.add(particlesAlt);
 
   //-------------  lights
 
