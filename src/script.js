@@ -39,15 +39,15 @@ function init() {
   // perspectiveCamera = new THREE.PerspectiveCamera(145, aspect, 1, 1700); Also Good
   // perspectiveCamera = new THREE.PerspectiveCamera(180.009, aspect, 1, 1700);
 
-  perspectiveCamera.position.z = 100;
-  perspectiveCamera.position.x = -40;
-  perspectiveCamera.position.y = -25;
+  perspectiveCamera.position.z = 5;
+  perspectiveCamera.position.x = -15;
+  perspectiveCamera.position.y = 15;
 
   //------------- world
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color("#1f1f1f");
-  scene.fog = new THREE.FogExp2("#1f1f1f", 0.0005);
+  scene.fog = new THREE.FogExp2("#fff", 0.0075);
 
   // pano scene
 
@@ -90,11 +90,11 @@ function init() {
     gltf.scene.position.y = 25;
     gltf.scene.position.x = -20;
     gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(35, 35, 35);
+    gltf.scene.scale.set(50, 50, 50);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.002;
+      gltf.scene.rotation.y -= 0.001;
     }
     rotate();
   });
@@ -762,8 +762,8 @@ function createControls(camera) {
   controls.panSpeed = 0;
   // controls.maxDistance = 800;
   // controls.minDistance = 200;
-  controls.maxDistance = 350;
-  controls.minDistance = 30;
+  controls.maxDistance = 200;
+  controls.minDistance = 0;
   controls.dynamicDampingFactor = 0.015;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
@@ -801,7 +801,7 @@ function render() {
     }
   }
   renderer.render(scene, camera);
-  composer.render();
+  // composer.render();
 }
 
 let angle = 0;
@@ -819,7 +819,7 @@ function rotateWorld() {
   if (rotateWorldCount < 1500) {
     perspectiveCamera.position.x += 0.1 * 1;
     perspectiveCamera.position.z += 0.05 * 1;
-    perspectiveCamera.position.y += 0.05 * 1;
+    perspectiveCamera.position.y += 0.035 * 1;
   } else if (rotateWorldCount < 2000) {
     perspectiveCamera.position.x += 0.5 * moveFactor;
     perspectiveCamera.position.z -= 0.5 * moveFactor;
@@ -849,26 +849,26 @@ function rotateWorld() {
   rotateWorldCount++;
   controls.rotateSpeed = 0.35;
   controls.zoomSpeed = 0.03;
-  controls.maxDistance = 350;
+  controls.maxDistance = 200;
 }
 
 // clock
 const clock = new THREE.Clock();
 
 function introZoomIn() {
-  if (perspectiveCamera.position.z < 225) {
+  if (perspectiveCamera.position.z < 150) {
     const elapsedTime = clock.getElapsedTime();
     // console.log(elapsedTime);
-    perspectiveCamera.position.z += elapsedTime / 10;
-    perspectiveCamera.position.x += elapsedTime / 12;
-    perspectiveCamera.position.y += elapsedTime / 12;
+    perspectiveCamera.position.z += elapsedTime / 2000;
+    perspectiveCamera.position.x += elapsedTime / 2000;
+    perspectiveCamera.position.y += elapsedTime / 2000;
     // perspectiveCamera.position.z += 0.45;
     // perspectiveCamera.position.x += 0.05;
     // perspectiveCamera.position.y += 0.05;
     controls.rotateSpeed = 1;
     controls.zoomSpeed = 0.03;
-    controls.maxDistance = 350;
-    controls.minDistance = 30;
+    controls.maxDistance = 200;
+    controls.minDistance = 0;
   } else {
     requestRotate = true;
     requestIntroZoomIn = false;
