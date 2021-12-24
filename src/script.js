@@ -14,6 +14,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { GlitchPass } from "./CustomGlitch";
+import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass.js";
 
 let perspectiveCamera, controls, scene, renderer, stats;
 
@@ -22,7 +23,7 @@ let requestAltLookAt = false;
 
 let altCamX, altCamY, altCamZ;
 
-let glitchPass, composer;
+let filmPass, composer;
 
 init();
 
@@ -535,8 +536,8 @@ function init() {
   // });
 
   const protectedArea = 100;
-  const worldScaleDispersionFactor = 1000;
-  const assetLoopCount = 50;
+  const worldScaleDispersionFactor = 500;
+  const assetLoopCount = 20;
 
   //Logo Asset
 
@@ -750,8 +751,8 @@ function init() {
   composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, perspectiveCamera));
 
-  glitchPass = new GlitchPass();
-  composer.addPass(glitchPass);
+  filmPass = new FilmPass(1, 0, 0, false);
+  // composer.addPass(filmPass);
 }
 
 function createControls(camera) {
@@ -801,7 +802,7 @@ function render() {
     }
   }
   renderer.render(scene, camera);
-  // composer.render();
+  composer.render();
 }
 
 let angle = 0;
