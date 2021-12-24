@@ -663,38 +663,38 @@ function init() {
   );
   scene.add(particles);
 
-  // // alt
-  // // Geometry
-  // const particlesGeometryAlt = new THREE.BufferGeometry();
-  // const countAlt = 1000;
-  // const positionsAlt = new Float32Array(count * 3);
+  // alt
+  // Geometry
+  const particlesGeometryAlt = new THREE.BufferGeometry();
+  const countAlt = 500;
+  const positionsAlt = new Float32Array(count * 3);
 
-  // for (
-  //   let i = 0;
-  //   i < count * 3;
-  //   i++ // Multiply by 3 for same reason
-  // ) {
-  //   positionsAlt[i] = (Math.random() - 0.5) * 500;
-  // }
+  for (
+    let i = 0;
+    i < countAlt * 3;
+    i++ // Multiply by 3 for same reason
+  ) {
+    positionsAlt[i] = (Math.random() - 0.5) * 1750;
+  }
 
-  // // Material
-  // const particlesMaterialAlt = new THREE.PointsMaterial({
-  //   size: 2,
-  //   sizeAttenuation: true,
-  //   color: "#96178a",
-  //   transparent: true,
-  //   opacity: 0.75,
-  // });
-  // // particlesMaterial.vertexColors = true;
-  // const particlesAlt = new THREE.Points(
-  //   particlesGeometryAlt,
-  //   particlesMaterialAlt
-  // );
-  // particlesGeometryAlt.setAttribute(
-  //   "position",
-  //   new THREE.BufferAttribute(positionsAlt, 3)
-  // );
-  // scene.add(particlesAlt);
+  // Material
+  const particlesMaterialAlt = new THREE.PointsMaterial({
+    size: 0.5,
+    sizeAttenuation: true,
+    color: "red",
+    transparent: true,
+    opacity: 0.35,
+  });
+  // particlesMaterial.vertexColors = true;
+  const particlesAlt = new THREE.Points(
+    particlesGeometryAlt,
+    particlesMaterialAlt
+  );
+  particlesGeometryAlt.setAttribute(
+    "position",
+    new THREE.BufferAttribute(positionsAlt, 3)
+  );
+  scene.add(particlesAlt);
 
   //-------------  lights
 
@@ -750,7 +750,7 @@ function createControls(camera) {
   // controls.minDistance = 200;
   controls.maxDistance = 350;
   controls.minDistance = 30;
-  controls.dynamicDampingFactor = 0.025;
+  controls.dynamicDampingFactor = 0.015;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
 }
