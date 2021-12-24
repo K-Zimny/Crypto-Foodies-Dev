@@ -50,7 +50,8 @@ body.body-100vh {
 #mainCanvas {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
+  /* cursor: none; */
 }
 
 img {
@@ -156,3 +157,19 @@ hr {
 .hide-scrollbar ::-webkit-scrollbar {
   width: 0;
 }
+
+/* mouse */
+
+/* #invertedcursor {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  mix-blend-mode: difference;
+  transition: transform 0.2s;
+} */
