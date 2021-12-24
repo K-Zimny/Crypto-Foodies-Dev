@@ -27,11 +27,10 @@ function init() {
 
   //
   // perspectiveCamera = new THREE.PerspectiveCamera(120.25, aspect, 1, 1700);
-  // perspectiveCamera = new THREE.PerspectiveCamera(180, aspect, 1, 1700); Cool art style, blocky
-  perspectiveCamera = new THREE.PerspectiveCamera(170, aspect, 1, 1700);
-  // Good Really
+  // perspectiveCamera = new THREE.PerspectiveCamera(180, aspect, 1, 1700);
+  // perspectiveCamera = new THREE.PerspectiveCamera(170, aspect, 1, 1700); Good Really
   // perspectiveCamera = new THREE.PerspectiveCamera(145, aspect, 1, 1700); Also Good
-  // perspectiveCamera = new THREE.PerspectiveCamera(180.009, aspect, 1, 1700);
+  perspectiveCamera = new THREE.PerspectiveCamera(105, aspect, 1, 1700);
 
   perspectiveCamera.position.z = 100;
   perspectiveCamera.position.x = -40;
