@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.06535c4ef1db7cc4.js","mappings":"mBACAA,QAAQC,IAAI,S","sources":["webpack:///./src/pages.js"],"sourcesContent":["import \"./pages.css\";\r\nconsole.log(\"test\");\r\n"],"names":["console","log"],"sourceRoot":""}
