@@ -11,12 +11,18 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { GlitchPass } from "./CustomGlitch";
+
 let perspectiveCamera, controls, scene, renderer, stats;
 
 let requestRotate, requestIntroZoomIn, requestSlowRotate;
 let requestAltLookAt = false;
 
 let altCamX, altCamY, altCamZ;
+
+let glitchPass, composer;
 
 init();
 
@@ -738,6 +744,14 @@ function init() {
   window.addEventListener("resize", onWindowResize);
 
   createControls(perspectiveCamera);
+
+  // postprocessing
+
+  composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, perspectiveCamera));
+
+  glitchPass = new GlitchPass();
+  composer.addPass(glitchPass);
 }
 
 function createControls(camera) {
@@ -787,6 +801,7 @@ function render() {
     }
   }
   renderer.render(scene, camera);
+  composer.render();
 }
 
 let angle = 0;
