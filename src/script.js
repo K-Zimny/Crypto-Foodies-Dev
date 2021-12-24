@@ -653,7 +653,7 @@ function init() {
     color: "white",
     transparent: true,
     // opacity: 0.35,
-    opacity: 0.05,
+    opacity: 0.1,
   });
   // particlesMaterial.vertexColors = true;
   const particles = new THREE.Points(particlesGeometry, particlesMaterial);
