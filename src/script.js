@@ -23,15 +23,7 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
   // perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
-  // perspectiveCamera = new THREE.PerspectiveCamera(20.25, aspect, 1, 1700);
-
-  //
-  // perspectiveCamera = new THREE.PerspectiveCamera(120.25, aspect, 1, 1700);
-  // perspectiveCamera = new THREE.PerspectiveCamera(180, aspect, 1, 1700);
-  // perspectiveCamera = new THREE.PerspectiveCamera(170, aspect, 1, 1700); Good Really
-  // perspectiveCamera = new THREE.PerspectiveCamera(145, aspect, 1, 1700); Also Good
-  perspectiveCamera = new THREE.PerspectiveCamera(105, aspect, 1, 1700);
-
+  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
   perspectiveCamera.position.z = 100;
   perspectiveCamera.position.x = -40;
   perspectiveCamera.position.y = -25;
@@ -55,11 +47,11 @@ function init() {
 
   const material = new THREE.MeshBasicMaterial({ map: texture });
   material.transparent = true;
-  material.opacity = 0.05;
+  material.opacity = 0.5;
 
   const mesh = new THREE.Mesh(geometry, material);
 
-  // scene.add(mesh);
+  scene.add(mesh);
 
   //------------- loaders
 
@@ -634,7 +626,7 @@ function init() {
    */
   // Geometry
   const particlesGeometry = new THREE.BufferGeometry();
-  const count = 2500;
+  const count = 500;
   const positions = new Float32Array(count * 3);
 
   for (
@@ -642,17 +634,16 @@ function init() {
     i < count * 3;
     i++ // Multiply by 3 for same reason
   ) {
-    positions[i] = (Math.random() - 0.5) * 1750;
+    positions[i] = (Math.random() - 0.5) * 400;
   }
 
   // Material
   const particlesMaterial = new THREE.PointsMaterial({
-    size: 1,
+    size: 2,
     sizeAttenuation: true,
     color: "white",
     transparent: true,
-    // opacity: 0.35,
-    opacity: 0.05,
+    opacity: 0.35,
   });
   // particlesMaterial.vertexColors = true;
   const particles = new THREE.Points(particlesGeometry, particlesMaterial);
@@ -743,12 +734,12 @@ function createControls(camera) {
   controls = new TrackballControls(camera, renderer.domElement);
 
   controls.rotateSpeed = 1.0;
-  controls.zoomSpeed = 0.03;
+  controls.zoomSpeed = 0.8;
   controls.panSpeed = 0;
   // controls.maxDistance = 800;
   // controls.minDistance = 200;
   controls.maxDistance = 350;
-  controls.minDistance = 30;
+  controls.minDistance = 0;
   controls.dynamicDampingFactor = 0.025;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
@@ -832,7 +823,7 @@ function rotateWorld() {
   }
   rotateWorldCount++;
   controls.rotateSpeed = 0.35;
-  controls.zoomSpeed = 0.03;
+  controls.zoomSpeed = 0.25;
   controls.maxDistance = 350;
 }
 
@@ -850,9 +841,9 @@ function introZoomIn() {
     // perspectiveCamera.position.x += 0.05;
     // perspectiveCamera.position.y += 0.05;
     controls.rotateSpeed = 1;
-    controls.zoomSpeed = 0.03;
+    controls.zoomSpeed = 1;
     controls.maxDistance = 350;
-    controls.minDistance = 30;
+    controls.minDistance = 0;
   } else {
     requestRotate = true;
     requestIntroZoomIn = false;
@@ -955,7 +946,7 @@ jQuery(function () {
 
   function exploreWorld() {
     controls.rotateSpeed = 3;
-    controls.zoomSpeed = 0.03;
+    controls.zoomSpeed = 0.8;
     controls.maxDistance = 375;
     requestRotate = false;
     requestSlowRotate = true;
