@@ -23,7 +23,7 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
   // perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
-  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
+  perspectiveCamera = new THREE.PerspectiveCamera(21, aspect, 1, 1700);
   perspectiveCamera.position.z = 100;
   perspectiveCamera.position.x = -40;
   perspectiveCamera.position.y = -25;
