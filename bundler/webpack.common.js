@@ -30,13 +30,13 @@ module.exports = {
       chunks: ["pages"],
       minify: true,
     }),
-    // new HtmlWebpackPlugin({
-    //   template: path.resolve(__dirname, "../src/about.html"),
-    //   inject: true,
-    //   chunks: ["about"],
-    //   // filename: "about.html",
-    //   minify: true,
-    // }),
+    new HtmlWebpackPlugin({
+      filename: "partners.html",
+      template: path.resolve(__dirname, "../src/partners.html"),
+      chunks: ["pages"],
+      minify: true,
+    }),
+
     new MiniCSSExtractPlugin(),
   ],
   module: {

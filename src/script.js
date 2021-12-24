@@ -22,7 +22,17 @@ init();
 
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
-  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
+  // perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
+  // perspectiveCamera = new THREE.PerspectiveCamera(20.25, aspect, 1, 1700);
+
+  //
+  // perspectiveCamera = new THREE.PerspectiveCamera(120.25, aspect, 1, 1700);
+  // perspectiveCamera = new THREE.PerspectiveCamera(180, aspect, 1, 1700); Cool art style, blocky
+  perspectiveCamera = new THREE.PerspectiveCamera(170, aspect, 1, 1700);
+  // Good Really
+  // perspectiveCamera = new THREE.PerspectiveCamera(145, aspect, 1, 1700); Also Good
+  // perspectiveCamera = new THREE.PerspectiveCamera(180.009, aspect, 1, 1700);
+
   perspectiveCamera.position.z = 100;
   perspectiveCamera.position.x = -40;
   perspectiveCamera.position.y = -25;
@@ -46,11 +56,11 @@ function init() {
 
   const material = new THREE.MeshBasicMaterial({ map: texture });
   material.transparent = true;
-  material.opacity = 0.65;
+  material.opacity = 0.05;
 
   const mesh = new THREE.Mesh(geometry, material);
 
-  scene.add(mesh);
+  // scene.add(mesh);
 
   //------------- loaders
 
@@ -74,7 +84,7 @@ function init() {
     gltf.scene.position.y = 25;
     gltf.scene.position.x = -20;
     gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(25, 25, 25);
+    gltf.scene.scale.set(35, 35, 35);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
@@ -625,7 +635,7 @@ function init() {
    */
   // Geometry
   const particlesGeometry = new THREE.BufferGeometry();
-  const count = 500;
+  const count = 2500;
   const positions = new Float32Array(count * 3);
 
   for (
@@ -633,16 +643,17 @@ function init() {
     i < count * 3;
     i++ // Multiply by 3 for same reason
   ) {
-    positions[i] = (Math.random() - 0.5) * 400;
+    positions[i] = (Math.random() - 0.5) * 1750;
   }
 
   // Material
   const particlesMaterial = new THREE.PointsMaterial({
-    size: 2,
+    size: 1,
     sizeAttenuation: true,
     color: "white",
     transparent: true,
-    opacity: 0.35,
+    // opacity: 0.35,
+    opacity: 0.05,
   });
   // particlesMaterial.vertexColors = true;
   const particles = new THREE.Points(particlesGeometry, particlesMaterial);
@@ -733,12 +744,12 @@ function createControls(camera) {
   controls = new TrackballControls(camera, renderer.domElement);
 
   controls.rotateSpeed = 1.0;
-  controls.zoomSpeed = 0.8;
+  controls.zoomSpeed = 0.03;
   controls.panSpeed = 0;
   // controls.maxDistance = 800;
   // controls.minDistance = 200;
-  controls.maxDistance = 380;
-  controls.minDistance = 0;
+  controls.maxDistance = 350;
+  controls.minDistance = 30;
   controls.dynamicDampingFactor = 0.025;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
@@ -791,9 +802,9 @@ function rotateWorld() {
   // perspectiveCamera.position.z += 0.051 * moveFactor;
   // perspectiveCamera.position.y += 0.05 * moveFactor;
   if (rotateWorldCount < 1500) {
-    perspectiveCamera.position.x += 0.1 * moveFactor;
-    perspectiveCamera.position.z += 0.1 * moveFactor;
-    perspectiveCamera.position.y += 0.05 * moveFactor;
+    perspectiveCamera.position.x += 0.1 * 1;
+    perspectiveCamera.position.z += 0.05 * 1;
+    perspectiveCamera.position.y += 0.05 * 1;
   } else if (rotateWorldCount < 2000) {
     perspectiveCamera.position.x += 0.5 * moveFactor;
     perspectiveCamera.position.z -= 0.5 * moveFactor;
@@ -822,8 +833,8 @@ function rotateWorld() {
   }
   rotateWorldCount++;
   controls.rotateSpeed = 0.35;
-  controls.zoomSpeed = 0.25;
-  controls.maxDistance = 335;
+  controls.zoomSpeed = 0.03;
+  controls.maxDistance = 350;
 }
 
 // clock
@@ -833,16 +844,16 @@ function introZoomIn() {
   if (perspectiveCamera.position.z < 225) {
     const elapsedTime = clock.getElapsedTime();
     // console.log(elapsedTime);
-    perspectiveCamera.position.z += elapsedTime / 6;
-    perspectiveCamera.position.x += elapsedTime / 8;
-    perspectiveCamera.position.y += elapsedTime / 8;
+    perspectiveCamera.position.z += elapsedTime / 10;
+    perspectiveCamera.position.x += elapsedTime / 12;
+    perspectiveCamera.position.y += elapsedTime / 12;
     // perspectiveCamera.position.z += 0.45;
     // perspectiveCamera.position.x += 0.05;
     // perspectiveCamera.position.y += 0.05;
     controls.rotateSpeed = 1;
-    controls.zoomSpeed = 1;
-    controls.maxDistance = 375;
-    controls.minDistance = 0;
+    controls.zoomSpeed = 0.03;
+    controls.maxDistance = 350;
+    controls.minDistance = 30;
   } else {
     requestRotate = true;
     requestIntroZoomIn = false;
@@ -945,7 +956,7 @@ jQuery(function () {
 
   function exploreWorld() {
     controls.rotateSpeed = 3;
-    controls.zoomSpeed = 0.8;
+    controls.zoomSpeed = 0.03;
     controls.maxDistance = 375;
     requestRotate = false;
     requestSlowRotate = true;
