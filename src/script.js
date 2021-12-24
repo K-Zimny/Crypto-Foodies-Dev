@@ -41,6 +41,7 @@ function init() {
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color("#1f1f1f");
+  // scene.fog = new THREE.FogExp2("#009999", 0.01);
   scene.fog = new THREE.FogExp2("#1f1f1f", 0.0005);
 
   // pano scene
@@ -681,7 +682,7 @@ function init() {
   const particlesMaterialAlt = new THREE.PointsMaterial({
     size: 0.25,
     sizeAttenuation: true,
-    color: "#009999",
+    color: "white",
     transparent: true,
     opacity: 0.25,
   });
