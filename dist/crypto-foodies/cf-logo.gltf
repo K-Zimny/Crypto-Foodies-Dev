@@ -1,0 +1,117 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v1.6.16",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0, 1, 2]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Text.001",
+      "rotation": [0.7071068286895752, 0, 0, 0.7071068286895752],
+      "translation": [-0.5, 0, 0]
+    },
+    {
+      "name": "Light",
+      "rotation": [
+        0.16907575726509094, 0.7558803558349609, -0.27217137813568115,
+        0.570947527885437
+      ],
+      "translation": [0, 0, 0]
+    },
+    {
+      "name": "Camera",
+      "rotation": [
+        0.483536034822464, 0.33687159419059753, -0.20870360732078552,
+        0.7804827094078064
+      ],
+      "translation": [0, 0, 0]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [1, 1, 1],
+      "name": "Material.001",
+      "pbrMetallicRoughness": {}
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Text.006",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 2222,
+      "max": [1.0096527338027954, 0.01000356674194336, 0.013968611136078835],
+      "min": [0.11513657122850418, -0.010001476854085922, -0.884894609451294],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 2222,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 2222,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 11586,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 26664,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 26664,
+      "byteOffset": 26664
+    },
+    {
+      "buffer": 0,
+      "byteLength": 17776,
+      "byteOffset": 53328
+    },
+    {
+      "buffer": 0,
+      "byteLength": 23172,
+      "byteOffset": 71104
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "cf-logo_data.bin",
+      "byteLength": 94276
+    }
+  ]
+}
