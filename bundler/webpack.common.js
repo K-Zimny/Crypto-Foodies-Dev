@@ -31,8 +31,23 @@ module.exports = {
       minify: true,
     }),
     new HtmlWebpackPlugin({
-      filename: "partners.html",
-      template: path.resolve(__dirname, "../src/partners.html"),
+      filename: "partners/index.html",
+      template: path.resolve(__dirname, "../src/partners/index.html"),
+      chunks: ["pages"],
+      minify: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "partners/state/index.html",
+      template: path.resolve(__dirname, "../src/partners/state/index.html"),
+      chunks: ["pages"],
+      minify: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "partners/state/california/index.html",
+      template: path.resolve(
+        __dirname,
+        "../src/partners/state/california/index.html"
+      ),
       chunks: ["pages"],
       minify: true,
     }),
