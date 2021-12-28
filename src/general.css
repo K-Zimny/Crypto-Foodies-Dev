@@ -33,6 +33,14 @@ body {
   font-weight: 300;
   font-style: normal;
   line-height: 30px;
+  margin: 0;
+}
+
+body.inner-page {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  background-color: #dedede;
 }
 
 body.body-100vh {

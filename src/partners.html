@@ -13,14 +13,120 @@
     />
     <link rel="stylesheet" href="https://use.typekit.net/gsm0hxi.css" />
   </head>
-  <body>
-    <h2>Design of Partners page</h2>
-    <figure>
-      <img src="../static/svg/partners-directory.svg" alt="" />
-    </figure>
-    <h2>Filtered section of Partners Page, Only by States</h2>
-    <figure>
-      <img src="../static/svg/partners-directory-subfilter.svg" alt="" />
-    </figure>
+  <body class="inner-page texture-2">
+    <header id="pageHeader">
+      <div class="container">
+        <div>
+          <a href="#">Crypto Foodies</a>
+        </div>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <a href="#">Partners</a>
+              </li>
+              <li>
+                <a href="#">Discord</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Order Now!</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Partners</h1>
+        <p>
+          View our Crypto Foodie Partners! You can filter by state, virtual
+          restaurant, or host restaurant.
+        </p>
+      </div>
+      <div class="container">
+        <ul class="orb-container">
+          <li>
+            <a href="#">
+              <figure>
+                <img src="/static/svg/ellipse.svg" />
+              </figure>
+              <p>State</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <figure>
+                <img src="/static/svg/ellipse.svg" />
+              </figure>
+              <p>Virtual<br />Restaurant<br /><span>(VR)</span></p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <figure>
+                <img src="/static/svg/ellipse.svg" />
+              </figure>
+              <p>Host<br />Restaurant<br /><span>(HR)</span></p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="partnersBubble" class="bg-bubble"></div>
+    </main>
+    <footer>
+      <div class="texture-1">
+        <div class="container">
+          <div>
+            <p>© <span id="copyrightFooterYear"></span> Crypto Foodies</p>
+          </div>
+          <ul>
+            <li>
+              <a href="#">
+                <figure>
+                  <img src="../static/svg/discord.svg" alt="Discord Logo." />
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <img src="../static/svg/twitter.svg" alt="Twitter Logo." />
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <img
+                    id="tiktokLogo"
+                    src="../static/svg/tiktok-logo-thin-svgrepo-com.svg"
+                    alt="Tiktok Logo."
+                  />
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="subFooter">
+        <div class="container">
+          <ul>
+            <li>
+              <a href="#">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#">Terms & Conditions</a>
+            </li>
+            <li>
+              <a href="#">Design + Development by Tractatus Design Studio</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
