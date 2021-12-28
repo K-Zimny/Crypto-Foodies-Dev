@@ -23,7 +23,7 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
   // perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
-  perspectiveCamera = new THREE.PerspectiveCamera(21, aspect, 1, 1700);
+  perspectiveCamera = new THREE.PerspectiveCamera(35, aspect, 1, 1700);
   perspectiveCamera.position.z = 100;
   perspectiveCamera.position.x = -40;
   perspectiveCamera.position.y = -25;
@@ -71,11 +71,11 @@ function init() {
   // CF Center Building Logo Above building Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
-  buildingLogo.load("crypto-foodies/cf-logo-3.gltf", function (gltf) {
-    gltf.scene.position.y = 25;
-    gltf.scene.position.x = -20;
+  buildingLogo.load("crypto-foodies/crypto-logo-word.gltf", function (gltf) {
+    gltf.scene.position.y = 0;
+    gltf.scene.position.x = 25;
     gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(35, 35, 35);
+    gltf.scene.scale.set(30, 30, 30);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
@@ -84,43 +84,43 @@ function init() {
     rotate();
   });
 
-  // CF Center Building Logo Above building Asset
-  const centerLogo = new GLTFLoader();
-  centerLogo.setDRACOLoader(dracoLoader);
-  centerLogo.load("crypto-foodies/building-glass.glb", function (gltf) {
-    // gltf.scene.position.y = 19;
-    // gltf.scene.position.x = -20;
-    gltf.scene.position.y = -0.15;
-    gltf.scene.position.x = 0.15;
-    gltf.scene.position.z = 750;
-    gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(0.01, 0.01, 0.01);
-    scene.add(gltf.scene);
-    function rotate() {
-      requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.02;
-    }
-    rotate();
-  });
+  // // CF Center Building Logo Above building Asset
+  // const centerLogo = new GLTFLoader();
+  // centerLogo.setDRACOLoader(dracoLoader);
+  // centerLogo.load("crypto-foodies/building-glass.glb", function (gltf) {
+  //   // gltf.scene.position.y = 19;
+  //   // gltf.scene.position.x = -20;
+  //   gltf.scene.position.y = -0.15;
+  //   gltf.scene.position.x = 0.15;
+  //   gltf.scene.position.z = 750;
+  //   gltf.scene.rotation.y = 76.8;
+  //   gltf.scene.scale.set(0.01, 0.01, 0.01);
+  //   scene.add(gltf.scene);
+  //   function rotate() {
+  //     requestAnimationFrame(rotate);
+  //     gltf.scene.rotation.y -= 0.02;
+  //   }
+  //   rotate();
+  // });
 
-  // CF Center Building Logo Above building Asset
-  const buildingLogoSmall = new GLTFLoader();
-  buildingLogoSmall.setDRACOLoader(dracoLoader);
-  buildingLogoSmall.load("crypto-foodies/cf-logo-3.gltf", function (gltf) {
-    // gltf.scene.position.y = 19.2;
-    // gltf.scene.position.x = -20;
-    gltf.scene.position.y = 0.03;
-    gltf.scene.position.x = 0.15;
-    gltf.scene.position.z = 750;
-    gltf.scene.rotation.y = 0;
-    gltf.scene.scale.set(0.045, 0.045, 0.045);
-    scene.add(gltf.scene);
-    function rotate() {
-      requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.05;
-    }
-    rotate();
-  });
+  // // CF Center Building Logo Above building Asset
+  // const buildingLogoSmall = new GLTFLoader();
+  // buildingLogoSmall.setDRACOLoader(dracoLoader);
+  // buildingLogoSmall.load("crypto-foodies/cf-logo-3.gltf", function (gltf) {
+  //   // gltf.scene.position.y = 19.2;
+  //   // gltf.scene.position.x = -20;
+  //   gltf.scene.position.y = 0.03;
+  //   gltf.scene.position.x = 0.15;
+  //   gltf.scene.position.z = 750;
+  //   gltf.scene.rotation.y = 0;
+  //   gltf.scene.scale.set(0.045, 0.045, 0.045);
+  //   scene.add(gltf.scene);
+  //   function rotate() {
+  //     requestAnimationFrame(rotate);
+  //     gltf.scene.rotation.y -= 0.05;
+  //   }
+  //   rotate();
+  // });
 
   // // CF Center Building Logo Above building Asset
   // const pickupLogoSmall = new GLTFLoader();
@@ -268,32 +268,32 @@ function init() {
   //   rotate();
   // });
 
-  //texas asset
-  const texasLoader = new GLTFLoader();
-  texasLoader.setDRACOLoader(dracoLoader);
-  texasLoader.load("locations/u-of-texas.gltf", function (gltf) {
-    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-    gltf.scene.position.x = 0;
-    gltf.scene.position.y = -85;
-    gltf.scene.scale.set(10, 10, 10);
-    scene.add(gltf.scene);
-    let x = -2.09;
-    let y = -2.09;
-    let z = 0;
-    function rotate() {
-      requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.00075;
-      gltf.scene.rotation.x -= 0.00075;
-      gltf.scene.rotation.z -= 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 150;
-      gltf.scene.position.y = Math.cos(y) * 150;
-      gltf.scene.position.z = Math.cos(z) * 150;
-      x += 0.001;
-      y += 0.001;
-      z += 0.001;
-    }
-    rotate();
-  });
+  // //texas asset
+  // const texasLoader = new GLTFLoader();
+  // texasLoader.setDRACOLoader(dracoLoader);
+  // texasLoader.load("locations/u-of-texas.gltf", function (gltf) {
+  //   // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+  //   gltf.scene.position.x = 0;
+  //   gltf.scene.position.y = -85;
+  //   gltf.scene.scale.set(10, 10, 10);
+  //   scene.add(gltf.scene);
+  //   let x = -2.09;
+  //   let y = -2.09;
+  //   let z = 0;
+  //   function rotate() {
+  //     requestAnimationFrame(rotate);
+  //     gltf.scene.rotation.y += 0.00075;
+  //     gltf.scene.rotation.x -= 0.00075;
+  //     gltf.scene.rotation.z -= 0.00075;
+  //     gltf.scene.position.x = Math.sin(x) * 150;
+  //     gltf.scene.position.y = Math.cos(y) * 150;
+  //     gltf.scene.position.z = Math.cos(z) * 150;
+  //     x += 0.001;
+  //     y += 0.001;
+  //     z += 0.001;
+  //   }
+  //   rotate();
+  // });
 
   //Tejis asset
   const tejiLoader = new GLTFLoader();
@@ -322,35 +322,35 @@ function init() {
     rotate();
   });
 
-  //Ghost Kitchen asset
-  const ghostKitchenLoader = new GLTFLoader();
-  ghostKitchenLoader.setDRACOLoader(dracoLoader);
-  ghostKitchenLoader.load(
-    "locations/ghostline-planet-test.gltf",
-    function (gltf) {
-      // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-      gltf.scene.position.x = 0;
-      gltf.scene.position.y = 85;
-      gltf.scene.scale.set(10, 10, 10);
-      scene.add(gltf.scene);
-      let x = 0;
-      let y = Math.PI;
-      let z = 0;
-      function rotate() {
-        requestAnimationFrame(rotate);
-        gltf.scene.rotation.y -= 0.00075;
-        gltf.scene.rotation.x += 0.00075;
-        gltf.scene.rotation.z += 0.00075;
-        gltf.scene.position.x = Math.sin(x) * 100;
-        gltf.scene.position.y = Math.cos(y) * 100;
-        gltf.scene.position.z = Math.cos(z) * 100;
-        x -= 0.001;
-        y -= 0.001;
-        z += 0.001;
-      }
-      rotate();
-    }
-  );
+  // //Ghost Kitchen asset
+  // const ghostKitchenLoader = new GLTFLoader();
+  // ghostKitchenLoader.setDRACOLoader(dracoLoader);
+  // ghostKitchenLoader.load(
+  //   "locations/ghostline-planet-test.gltf",
+  //   function (gltf) {
+  //     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+  //     gltf.scene.position.x = 0;
+  //     gltf.scene.position.y = 85;
+  //     gltf.scene.scale.set(10, 10, 10);
+  //     scene.add(gltf.scene);
+  //     let x = 0;
+  //     let y = Math.PI;
+  //     let z = 0;
+  //     function rotate() {
+  //       requestAnimationFrame(rotate);
+  //       gltf.scene.rotation.y -= 0.00075;
+  //       gltf.scene.rotation.x += 0.00075;
+  //       gltf.scene.rotation.z += 0.00075;
+  //       gltf.scene.position.x = Math.sin(x) * 100;
+  //       gltf.scene.position.y = Math.cos(y) * 100;
+  //       gltf.scene.position.z = Math.cos(z) * 100;
+  //       x -= 0.001;
+  //       y -= 0.001;
+  //       z += 0.001;
+  //     }
+  //     rotate();
+  //   }
+  // );
 
   //ND chinese Asset
   const ndChinese = new GLTFLoader();
@@ -401,9 +401,9 @@ function init() {
         gltf.scene.rotation.y -= 0.00075;
         gltf.scene.rotation.x += 0.00075;
         gltf.scene.rotation.z -= 0.00075;
-        gltf.scene.position.x = Math.sin(x) * 125;
-        gltf.scene.position.y = Math.cos(y) * 125;
-        gltf.scene.position.z = Math.cos(z) * 125;
+        gltf.scene.position.x = Math.sin(x) * 120;
+        gltf.scene.position.y = Math.cos(y) * 120;
+        gltf.scene.position.z = Math.cos(z) * 120;
         x -= 0.0005;
         y -= 0.0005;
         z += 0.0005;
@@ -430,9 +430,9 @@ function init() {
       gltf.scene.rotation.y -= 0.00075;
       gltf.scene.rotation.x -= 0.00075;
       gltf.scene.rotation.z += 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 115;
-      gltf.scene.position.y = Math.cos(y) * 115;
-      gltf.scene.position.z = Math.cos(z) * 115;
+      gltf.scene.position.x = Math.sin(x) * 120;
+      gltf.scene.position.y = Math.cos(y) * 120;
+      gltf.scene.position.z = Math.cos(z) * 120;
       x -= 0.0005;
       y -= 0.0005;
       z += 0.0005;
@@ -763,17 +763,17 @@ function render() {
     perspectiveCamera.position.z = 751.5;
     perspectiveCamera.position.x = 0;
     perspectiveCamera.position.y = 0;
-    camera.lookAt(new THREE.Vector3(0, 0, 750));
+    // camera.lookAt(new THREE.Vector3(0, 0, 750));
   } else {
     // Create a media condition that targets viewports at least 768px wide
     const mediaQuery = window.matchMedia("(min-width: 768px)");
     // Check if the media query is true
     if (mediaQuery.matches) {
       // Then trigger an alert
-      camera.lookAt(new THREE.Vector3(-20, 25, 0));
+      // camera.lookAt(new THREE.Vector3(-20, 25, 0));
     } else {
       // camera.lookAt(new THREE.Vector3(0, 35, 50));
-      camera.lookAt(new THREE.Vector3(-20, 10, 0));
+      // camera.lookAt(new THREE.Vector3(-20, 10, 0));
     }
   }
   renderer.render(scene, camera);
