@@ -40,8 +40,6 @@ h1 {
 
 #headerBtnMenu #headerBtn {
   display: none;
-  height: 50px;
-  width: 100px;
 }
 
 header h1 {
@@ -196,14 +194,16 @@ header figure img {
 @media only screen and (max-width: 767px) {
   header {
     position: fixed;
-    width: 95%;
+    width: 100%;
     margin: auto;
-    left: 2.5%;
+    /* left: 2.5%; */
     top: unset;
-    bottom: 10px;
+    bottom: 0px;
+    left: 0;
     /* width: 100%; */
     max-width: none;
     transform: none;
+    background: #212121;
   }
 
   #headerBtnMenu {
@@ -212,13 +212,26 @@ header figure img {
     flex-flow: row nowrap;
     justify-content: space-between;
   }
+
   #headerBtnMenu #headerBtn {
     display: block;
+    height: 50px;
+    width: 100px;
+    font-size: 2rem;
+    transform: rotate(90deg) scaleY(2.5) scaleX(1.5);
+    transition: all ease 0.3s;
+  }
+
+  #headerBtnMenu #headerBtn:hover,
+  #headerBtnMenu #headerBtn:active,
+  #headerBtnMenu #headerBtn:focus {
+    border-color: transparent;
+    transform: rotate(90deg) scaleY(2.75) scaleX(1.75);
   }
 
   header h1 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 0px;
     /* overflow: hidden; */
   }
 
@@ -227,8 +240,14 @@ header figure img {
     font-size: 1rem;
   }
 
+  header a {
+    font-size: 6rem;
+    line-height: 6rem;
+    -webkit-text-stroke-width: 0.1rem;
+  }
+
   header hr {
-    display: none;
+    /* display: none; */
   }
 
   nav {
@@ -239,6 +258,12 @@ header figure img {
     padding: 10px 0;
     width: 100%;
   }
+
+  header #homeSocial li {
+    margin: 10px 10px 0 0;
+    width: 75px;
+    padding: 0;
+  }
 }
 
 #pickupDelivery {
@@ -246,8 +271,8 @@ header figure img {
   opacity: 0;
   bottom: 50px;
   right: 60px;
-  font-size: 10vh;
-  line-height: 10vh;
+  /* font-size: 10vh;
+  line-height: 10vh; */
 }
 
 #pickupDelivery a {
@@ -266,6 +291,46 @@ header figure img {
   mix-blend-mode: exclusion;
 }
 
+#pickupDeliveryMobile {
+  display: none;
+}
+
+@media only screen and (max-width: 1199px) {
+  #pickupDelivery a {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #pickupDelivery {
+    display: none !important;
+  }
+
+  #pickupDeliveryMobile {
+    display: block;
+    margin: 0;
+    position: relative;
+    font-size: 2rem;
+    line-height: normal;
+    text-align: left;
+    width: auto;
+    color: White;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 0;
+    -webkit-text-stroke-color: white;
+    padding: 0;
+    margin: 10px 0 0;
+    display: inline-block;
+  }
+
+  #pickupDeliveryMobile:hover,
+  #pickupDeliveryMobile:active,
+  #pickupDeliveryMobile:focus {
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+}
 /* #pickupDelivery a::before {
   position: relative;
 } */
