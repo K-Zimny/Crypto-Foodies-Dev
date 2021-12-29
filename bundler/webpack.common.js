@@ -25,8 +25,8 @@ module.exports = {
       minify: true,
     }),
     new HtmlWebpackPlugin({
-      filename: "about.html",
-      template: path.resolve(__dirname, "../src/about.html"),
+      filename: "about/index.html",
+      template: path.resolve(__dirname, "../src/about/index.html"),
       chunks: ["pages"],
       minify: true,
     }),

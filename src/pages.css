@@ -61,8 +61,17 @@ img {
 
 /* header */
 
+.inner-page main {
+  margin-top: 5rem !important;
+}
+
 #pageHeader {
-  background-color: var(--main-bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: transparent;
 }
 
 #pageHeader .container {
@@ -87,7 +96,8 @@ img {
 }
 
 #pageHeader a {
-  font-size: 1.25rem;
+  font-size: 2.25rem;
+  color: var(--dark);
 }
 
 /* footer */
@@ -132,7 +142,7 @@ footer figure #tiktokLogo {
 }
 
 #subFooter {
-  background-color: var(--light-bg-color);
+  background-color: #cacaca;
 }
 
 #subFooter .container {
@@ -194,6 +204,7 @@ footer figure #tiktokLogo {
   line-height: 3vw;
   text-align: center;
   color: var(--white);
+  padding: 0 !important;
 }
 
 .orb-container span {
@@ -252,6 +263,20 @@ footer figure #tiktokLogo {
   left: 50%;
 }
 
+.inner-page #virtualBubble::before {
+  width: 58%;
+  background-color: rgb(170, 219, 180);
+  top: -80%;
+  left: 20%;
+}
+
+.inner-page .sm-container {
+  max-width: 1000px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .inner-page h1 {
   font-size: 8rem;
   margin: 6rem 0 4rem;
@@ -261,11 +286,41 @@ footer figure #tiktokLogo {
   letter-spacing: 6px;
 }
 
+.inner-page h2 {
+  padding-left: 15px;
+  color: var(--dark);
+  margin: 3rem 0 2rem;
+}
+
 .inner-page .sub-text {
   padding-left: 30px;
   color: var(--dark);
 }
 
+.inner-page p {
+  padding-left: 15px;
+  color: #000000;
+  /* font-size: 1.5rem; */
+  letter-spacing: 0rem;
+  line-height: 3rem;
+}
+
 .inner-page .orb-container p {
   color: var(--white);
+}
+
+/* about page */
+
+.inner-page .about-slide-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.inner-page .about-slide {
+  max-width: 375px;
+}
+
+.inner-page .about-slide img {
+  border-radius: 30px;
 }
