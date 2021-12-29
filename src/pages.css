@@ -6,6 +6,7 @@
   --white: #fff;
   --dark: #1f1f1f;
   --light-blue: #a3d9da;
+  --phone: 767px;
 }
 
 .container {
@@ -47,22 +48,10 @@ img {
   background-image: url(/static/imgs/felt.png);
 }
 
-/* .grit-1 {
-  position: relative;
-}
-
-.grit-1::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.25;
-  background-image: url(/static/imgs/black-orchid.png);
-} */
-
 /* header */
 
 .inner-page main {
-  margin-top: 5rem !important;
+  margin-top: 8rem !important;
 }
 
 #pageHeader {
@@ -72,6 +61,7 @@ img {
   right: 0;
   width: 100%;
   background-color: transparent;
+  z-index: 9999;
 }
 
 #pageHeader .container {
@@ -87,23 +77,85 @@ img {
 
 #pageHeader ul {
   display: flex;
+  align-items: center;
   margin: 0;
 }
 
 #pageHeader li {
   list-style: none;
-  margin: 0 1rem;
+  margin: 0 2rem;
+}
+
+#pageHeader li:last-of-type a {
+  border: 1px solid var(--dark);
+  border-radius: 5px;
+  padding: 1rem 1.5rem 0.1rem 0.1rem;
+}
+
+#pageHeader li:last-of-type a:hover,
+#pageHeader li:last-of-type a:active,
+#pageHeader li:last-of-type a:focus {
+  color: var(--white);
+  background-color: var(--dark);
 }
 
 #pageHeader a {
   font-size: 2.25rem;
   color: var(--dark);
+  transition: all ease 0.3s;
+  display: inline-block;
+}
+
+#pageHeader a:hover,
+#pageHeader a:focus,
+#pageHeader a:active {
+  transform: scale(1.05);
+}
+
+@media only screen and (max-width: 767px) {
+  #pageHeader {
+    position: static;
+  }
+
+  .inner-page main {
+    margin-top: 0rem !important;
+  }
+
+  #pageHeader .container {
+    flex-flow: column;
+    align-items: flex-start;
+  }
+
+  #pageHeader a {
+    margin: 2rem 0;
+  }
+
+  #pageHeader ul {
+    padding: 0 !important;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+
+  #pageHeader li {
+    margin: 0.5rem 0;
+  }
+  #pageHeader li a {
+    margin: 0;
+    font-size: 2rem;
+  }
 }
 
 /* footer */
 
-footer {
-  /* margin-top: auto; */
+footer a {
+  display: inline-block;
+  transition: all ease 0.3s;
+}
+
+footer a:hover,
+footer a:focus,
+footer a:active {
+  transform: scale(1.05);
 }
 
 footer p {
@@ -164,6 +216,23 @@ footer figure #tiktokLogo {
   color: var(--dark);
 }
 
+@media only screen and (max-width: 767px) {
+  footer .container {
+    flex-flow: column;
+  }
+
+  footer figure {
+    width: 2.5rem;
+  }
+
+  footer p {
+    padding: 0 !important;
+  }
+
+  #subFooter .container ul {
+    flex-flow: column;
+  }
+}
 /* orb assets */
 
 .orb-container {
@@ -171,6 +240,7 @@ footer figure #tiktokLogo {
   justify-content: space-evenly;
   align-items: center;
   margin: 4rem 0;
+  padding: 0 !important;
 }
 
 .orb-container li {
@@ -211,6 +281,23 @@ footer figure #tiktokLogo {
   display: block;
   font-size: 2rem;
   line-height: 3rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .orb-container {
+    flex-flow: column;
+  }
+
+  .orb-container li {
+    width: 100%;
+  }
+
+  .orb-container p {
+    font-size: 2.5rem;
+  }
+  .orb-container span {
+    font-size: 1.5rem;
+  }
 }
 
 /* inner pages */
@@ -309,7 +396,17 @@ footer figure #tiktokLogo {
   color: var(--white);
 }
 
-/* about page */
+@media only screen and (max-width: 767px) {
+  .inner-page h1 {
+    font-size: 4rem;
+  }
+
+  .inner-page .sub-text {
+    padding-left: 15px;
+  }
+}
+
+/* about page slides */
 
 .inner-page .about-slide-container {
   display: flex;
