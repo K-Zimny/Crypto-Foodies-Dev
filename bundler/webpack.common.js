@@ -43,10 +43,28 @@ module.exports = {
       minify: true,
     }),
     new HtmlWebpackPlugin({
-      filename: "partners/state/california/index.html",
+      filename: "partners/state/texas/index.html",
       template: path.resolve(
         __dirname,
-        "../src/partners/state/california/index.html"
+        "../src/partners/state/texas/index.html"
+      ),
+      chunks: ["pages"],
+      minify: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "partners/host-restaurant/index.html",
+      template: path.resolve(
+        __dirname,
+        "../src/partners/host-restaurant/index.html"
+      ),
+      chunks: ["pages"],
+      minify: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "partners/virtual-restaurant/index.html",
+      template: path.resolve(
+        __dirname,
+        "../src/partners/virtual-restaurant/index.html"
       ),
       chunks: ["pages"],
       minify: true,

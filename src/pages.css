@@ -199,6 +199,7 @@ footer figure #tiktokLogo {
 .orb-container span {
   display: block;
   font-size: 2rem;
+  line-height: 3rem;
 }
 
 /* inner pages */
@@ -208,11 +209,17 @@ footer figure #tiktokLogo {
   /* position: relative; */
 }
 
-.inner-page #partnersBubble {
+.inner-page .backBtn {
+  padding-left: 30px;
+  color: var(--dark);
+  font-size: 1.5rem;
+}
+
+.inner-page .bg-bubble {
   position: relative;
 }
 
-.inner-page #partnersBubble::before {
+.inner-page .bg-bubble::before {
   position: fixed;
   content: "";
   width: 50%;
@@ -231,6 +238,20 @@ footer figure #tiktokLogo {
   left: -15%;
 }
 
+.inner-page #stateBubble::before {
+  width: 58%;
+  background-color: rgb(226, 174, 226);
+  top: 10%;
+  left: 65%;
+}
+
+.inner-page #hostBubble::before {
+  width: 58%;
+  background-color: rgb(226, 218, 174);
+  top: 50%;
+  left: 50%;
+}
+
 .inner-page h1 {
   font-size: 8rem;
   margin: 6rem 0 4rem;
@@ -240,7 +261,8 @@ footer figure #tiktokLogo {
   letter-spacing: 6px;
 }
 
-.inner-page p {
+.inner-page .sub-text {
+  padding-left: 30px;
   color: var(--dark);
 }
 
