@@ -67,7 +67,6 @@ body#homepage::after {
   /* background-image: url("https://www.transparenttextures.com/patterns/cartographer.png"); */
   /* background-image: url("https://www.transparenttextures.com/patterns/green-fibers.png"); */
   background-image: url("https://www.transparenttextures.com/patterns/iron-grip.png");
-
   filter: contrast(1);
 }
 
@@ -130,7 +129,7 @@ body.body-100vh {
   z-index: -2;
   /* cursor: none; */
   /* transform: scale(6); */
-  transform: scale(5);
+  /* transform: scale(5); */
   pointer-events: all;
 }
 
