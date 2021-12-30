@@ -71,21 +71,18 @@ function init() {
   // CF Center Building Logo Above building Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
-  buildingLogo.load(
-    "crypto-foodies/crypto-foodies-center-piece.gltf",
-    function (gltf) {
-      gltf.scene.position.y = 0;
-      gltf.scene.position.x = 25;
-      gltf.scene.rotation.y = 76.8;
-      gltf.scene.scale.set(30, 30, 30);
-      scene.add(gltf.scene);
-      function rotate() {
-        requestAnimationFrame(rotate);
-        gltf.scene.rotation.y -= 0.002;
-      }
-      rotate();
+  buildingLogo.load("crypto-foodies/building-black-2.gltf", function (gltf) {
+    gltf.scene.position.y = -50;
+    gltf.scene.position.x = 25;
+    gltf.scene.rotation.y = 76.8;
+    gltf.scene.scale.set(10, 10, 10);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.002;
     }
-  );
+    rotate();
+  });
 
   // // CF Center Building Logo Above building Asset
   // const centerLogo = new GLTFLoader();
@@ -985,15 +982,19 @@ jQuery(function () {
 
   function openHeaderMenu() {
     // FIXME:Change the value of fixed below back to static, this was only for testing
-    jQuery("header").css("position", "fixed");
+    // jQuery("header").css("position", "fixed");
+    jQuery("header").addClass("menu-open");
     jQuery("#header h2").removeClass("hidden-mobile");
     jQuery("#header nav").addClass("block-mobile");
+    jQuery(".marquee").addClass("large");
   }
 
   function closeHeaderMenu() {
-    jQuery("header").css("position", "fixed");
+    // jQuery("header").css("position", "fixed");
+    jQuery("header").removeClass("menu-open");
     jQuery("#header h2").addClass("hidden-mobile");
     jQuery("#header nav").removeClass("block-mobile");
+    jQuery(".marquee").removeClass("large");
   }
 
   function altLookAt() {
@@ -1115,11 +1116,11 @@ jQuery(function () {
     if (headerOpen == false) {
       openHeaderMenu();
       headerOpen = true;
-      // console.log(headerOpen);
+      console.log(headerOpen);
     } else {
       closeHeaderMenu();
       headerOpen = false;
-      // console.log(headerOpen);
+      console.log(headerOpen);
     }
   });
 });
