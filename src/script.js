@@ -23,10 +23,12 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
   // perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
-  perspectiveCamera = new THREE.PerspectiveCamera(90, aspect, 1, 1700);
-  perspectiveCamera.position.z = 100;
+  // perspectiveCamera = new THREE.PerspectiveCamera(90, aspect, 1, 1700);
+  perspectiveCamera = new THREE.PerspectiveCamera(50, aspect, 1, 1700);
+
+  perspectiveCamera.position.z = 10;
   perspectiveCamera.position.x = -40;
-  perspectiveCamera.position.y = -25;
+  perspectiveCamera.position.y = -40;
 
   //------------- world
 
@@ -75,7 +77,7 @@ function init() {
     gltf.scene.position.y = -5;
     gltf.scene.position.x = 0;
     gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(9, 9, 9);
+    gltf.scene.scale.set(10, 10, 10);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
@@ -824,25 +826,25 @@ function rotateWorld() {
   rotateWorldCount++;
   controls.rotateSpeed = 5;
   controls.zoomSpeed = 0.25;
-  controls.maxDistance = 350;
+  controls.maxDistance = 100;
 }
 
 // clock
 const clock = new THREE.Clock();
 
 function introZoomIn() {
-  if (perspectiveCamera.position.z < 225) {
+  if (perspectiveCamera.position.z < 50) {
     const elapsedTime = clock.getElapsedTime();
     // console.log(elapsedTime);
-    perspectiveCamera.position.z += elapsedTime / 10;
-    perspectiveCamera.position.x += elapsedTime / 12;
-    perspectiveCamera.position.y += elapsedTime / 12;
+    perspectiveCamera.position.z += elapsedTime / 20;
+    perspectiveCamera.position.x += elapsedTime / 22;
+    perspectiveCamera.position.y += elapsedTime / 22;
     // perspectiveCamera.position.z += 0.45;
     // perspectiveCamera.position.x += 0.05;
     // perspectiveCamera.position.y += 0.05;
     controls.rotateSpeed = 1;
     controls.zoomSpeed = 1;
-    controls.maxDistance = 350;
+    controls.maxDistance = 100;
     controls.minDistance = 0;
   } else {
     requestRotate = true;
