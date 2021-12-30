@@ -23,7 +23,7 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
   // perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
-  perspectiveCamera = new THREE.PerspectiveCamera(35, aspect, 1, 1700);
+  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
   perspectiveCamera.position.z = 100;
   perspectiveCamera.position.x = -40;
   perspectiveCamera.position.y = -25;
@@ -72,10 +72,10 @@ function init() {
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
   buildingLogo.load("crypto-foodies/building-black-2.gltf", function (gltf) {
-    gltf.scene.position.y = -50;
-    gltf.scene.position.x = 25;
+    gltf.scene.position.y = -5;
+    gltf.scene.position.x = 0;
     gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(10, 10, 10);
+    gltf.scene.scale.set(9, 9, 9);
     scene.add(gltf.scene);
     function rotate() {
       requestAnimationFrame(rotate);
@@ -302,7 +302,7 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = -85;
-    gltf.scene.scale.set(10, 10, 10);
+    gltf.scene.scale.set(7, 7, 7);
     scene.add(gltf.scene);
     let x = 0;
     let y = 0;
@@ -312,9 +312,9 @@ function init() {
       gltf.scene.rotation.y += 0.00075;
       gltf.scene.rotation.x -= 0.00075;
       gltf.scene.rotation.z -= 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 150;
-      gltf.scene.position.y = Math.cos(y) * 150;
-      gltf.scene.position.z = Math.cos(z) * 150;
+      gltf.scene.position.x = Math.sin(x) * 60;
+      gltf.scene.position.y = Math.cos(y) * 60;
+      gltf.scene.position.z = Math.cos(z) * 60;
       x += 0.001;
       y += 0.001;
       z += 0.001;
@@ -360,7 +360,7 @@ function init() {
     gltf.scene.position.x = 0;
     gltf.scene.position.y = 135;
     gltf.scene.rotation.x = 3;
-    gltf.scene.scale.set(25, 25, 25);
+    gltf.scene.scale.set(12, 12, 12);
     scene.add(gltf.scene);
     let x = -1;
     let y = 0;
@@ -370,9 +370,9 @@ function init() {
       gltf.scene.rotation.y += 0.00095;
       gltf.scene.rotation.x -= 0.00095;
       gltf.scene.rotation.z -= 0.00095;
-      gltf.scene.position.x = Math.sin(x) * 120;
-      gltf.scene.position.y = Math.cos(y) * 120;
-      gltf.scene.position.z = Math.cos(z) * 120;
+      gltf.scene.position.x = Math.sin(x) * 85;
+      gltf.scene.position.y = Math.cos(y) * 85;
+      gltf.scene.position.z = Math.cos(z) * 85;
       x -= 0.0005;
       y -= 0.0005;
       z += 0.0005;
@@ -391,7 +391,7 @@ function init() {
     function (gltf) {
       gltf.scene.position.x = 115;
       gltf.scene.position.y = -135;
-      gltf.scene.scale.set(15, 15, 15);
+      gltf.scene.scale.set(6, 6, 6);
       scene.add(gltf.scene);
       let x = -2.09;
       let y = -2.09;
@@ -401,9 +401,9 @@ function init() {
         gltf.scene.rotation.y -= 0.00075;
         gltf.scene.rotation.x += 0.00075;
         gltf.scene.rotation.z -= 0.00075;
-        gltf.scene.position.x = Math.sin(x) * 120;
-        gltf.scene.position.y = Math.cos(y) * 120;
-        gltf.scene.position.z = Math.cos(z) * 120;
+        gltf.scene.position.x = Math.sin(x) * 85;
+        gltf.scene.position.y = Math.cos(y) * 85;
+        gltf.scene.position.z = Math.cos(z) * 85;
         x -= 0.0005;
         y -= 0.0005;
         z += 0.0005;
@@ -420,7 +420,7 @@ function init() {
     gltf.scene.position.x = -140;
     gltf.scene.position.y = -20;
     gltf.scene.rotation.y = 2;
-    gltf.scene.scale.set(20, 20, 20);
+    gltf.scene.scale.set(7, 7, 7);
     scene.add(gltf.scene);
     let x = 2.09;
     let y = 2.09;
@@ -430,9 +430,9 @@ function init() {
       gltf.scene.rotation.y -= 0.00075;
       gltf.scene.rotation.x -= 0.00075;
       gltf.scene.rotation.z += 0.00075;
-      gltf.scene.position.x = Math.sin(x) * 120;
-      gltf.scene.position.y = Math.cos(y) * 120;
-      gltf.scene.position.z = Math.cos(z) * 120;
+      gltf.scene.position.x = Math.sin(x) * 85;
+      gltf.scene.position.y = Math.cos(y) * 85;
+      gltf.scene.position.z = Math.cos(z) * 85;
       x -= 0.0005;
       y -= 0.0005;
       z += 0.0005;
@@ -733,7 +733,7 @@ function init() {
 function createControls(camera) {
   controls = new TrackballControls(camera, renderer.domElement);
 
-  controls.rotateSpeed = 1.0;
+  controls.rotateSpeed = 10.0;
   controls.zoomSpeed = 0.8;
   controls.panSpeed = 0;
   // controls.maxDistance = 800;
@@ -822,7 +822,7 @@ function rotateWorld() {
     moveFactor = Math.random() * 2;
   }
   rotateWorldCount++;
-  controls.rotateSpeed = 0.35;
+  controls.rotateSpeed = 5;
   controls.zoomSpeed = 0.25;
   controls.maxDistance = 350;
 }

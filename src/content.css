@@ -23,6 +23,7 @@ header {
   /* border: 1px solid #ffffff38; */
   /* border-radius: 3px; */
   padding: 0 0.5rem;
+  pointer-events: all;
 }
 
 /* @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -287,6 +288,7 @@ header figure img {
   right: 60px;
   /* font-size: 10vh;
   line-height: 10vh; */
+  pointer-events: all;
 }
 
 #pickupDelivery a {

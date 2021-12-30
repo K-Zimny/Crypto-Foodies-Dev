@@ -36,6 +36,69 @@ body {
   margin: 0;
 }
 
+body#homepage {
+  pointer-events: none;
+  min-height: 100vh;
+  position: relative;
+}
+
+body#homepage::after {
+  /* filter: blur(5px); */
+  position: absolute;
+  content: "";
+  inset: 0;
+  /* background: #ffffff8c; */
+  /* background: #ffeed980; */
+  background: #f4b56780;
+  z-index: -2;
+  /* opacity: 0.3; */
+  /* background-image: repeating-conic-gradient(white, black 0.00085%); */
+  /* background-image: repeating-radial-gradient( circle at 17% 32%, white, black 0.00085px ); */
+  height: 300%;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  top: -110%;
+  width: 300%;
+  animation: grain 1s steps(100) infinite;
+  background-image: url(https://www.transparenttextures.com/patterns/black-orchid.png);
+  filter: contrast(1);
+}
+
+@keyframes grain {
+  from,
+  to {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
 body.inner-page {
   display: flex;
   flex-flow: column;
@@ -60,6 +123,9 @@ body.body-100vh {
   inset: 0;
   z-index: -2;
   /* cursor: none; */
+  /* transform: scale(6); */
+  transform: scale(2);
+  pointer-events: all;
 }
 
 img {
