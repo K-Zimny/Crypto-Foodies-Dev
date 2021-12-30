@@ -49,7 +49,8 @@ body#homepage::after {
   inset: 0;
   /* background: #ffffff8c; */
   /* background: #ffeed980; */
-  background: #f4b56780;
+  /* background: #f4b56780; */
+  background: #f4b56759;
   z-index: -2;
   /* opacity: 0.3; */
   /* background-image: repeating-conic-gradient(white, black 0.00085%); */
@@ -61,7 +62,12 @@ body#homepage::after {
   top: -110%;
   width: 300%;
   animation: grain 1s steps(100) infinite;
-  background-image: url(https://www.transparenttextures.com/patterns/black-orchid.png);
+  /* background-image: url(https://www.transparenttextures.com/patterns/black-orchid.png); */
+  /* background-image: url("https://www.transparenttextures.com/patterns/black-twill.png"); */
+  /* background-image: url("https://www.transparenttextures.com/patterns/cartographer.png"); */
+  /* background-image: url("https://www.transparenttextures.com/patterns/green-fibers.png"); */
+  background-image: url("https://www.transparenttextures.com/patterns/iron-grip.png");
+
   filter: contrast(1);
 }
 
@@ -124,7 +130,7 @@ body.body-100vh {
   z-index: -2;
   /* cursor: none; */
   /* transform: scale(6); */
-  transform: scale(2);
+  transform: scale(5);
   pointer-events: all;
 }
 

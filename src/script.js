@@ -23,7 +23,7 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
   // perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
-  perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
+  perspectiveCamera = new THREE.PerspectiveCamera(90, aspect, 1, 1700);
   perspectiveCamera.position.z = 100;
   perspectiveCamera.position.x = -40;
   perspectiveCamera.position.y = -25;
@@ -626,7 +626,7 @@ function init() {
    */
   // Geometry
   const particlesGeometry = new THREE.BufferGeometry();
-  const count = 500;
+  const count = 750;
   const positions = new Float32Array(count * 3);
 
   for (
@@ -639,7 +639,7 @@ function init() {
 
   // Material
   const particlesMaterial = new THREE.PointsMaterial({
-    size: 2,
+    size: 1,
     sizeAttenuation: true,
     color: "white",
     transparent: true,
