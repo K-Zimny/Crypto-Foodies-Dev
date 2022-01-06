@@ -69,20 +69,58 @@ function init() {
   // });
 
   // CF Center Building Logo Above building Asset
+  const TextureLoaderCenter = new GLTFLoader();
+  TextureLoaderCenter.setDRACOLoader(dracoLoader);
+  TextureLoaderCenter.load(
+    "crypto-foodies/crypto-foodies-center-piece.gltf",
+    function (gltf) {
+      gltf.scene.position.y = 0;
+      gltf.scene.position.x = 45;
+      gltf.scene.rotation.y = 76.8;
+      gltf.scene.scale.set(30, 30, 30);
+      scene.add(gltf.scene);
+      function rotate() {
+        requestAnimationFrame(rotate);
+        gltf.scene.rotation.y -= 0.002;
+      }
+      rotate();
+    }
+  );
+
+  // // CF Center Building Logo Above building Asset
+  // const buildingLogo = new GLTFLoader();
+  // buildingLogo.setDRACOLoader(dracoLoader);
+  // buildingLogo.load("crypto-foodies/building-black-2.gltf", function (gltf) {
+  //   gltf.scene.position.y = -50;
+  //   gltf.scene.position.x = 25;
+  //   gltf.scene.rotation.y = 76.8;
+  //   gltf.scene.scale.set(10, 10, 10);
+  //   scene.add(gltf.scene);
+  //   function rotate() {
+  //     requestAnimationFrame(rotate);
+  //     gltf.scene.rotation.y -= 0.002;
+  //   }
+  //   rotate();
+  // });
+
+  // CF Center Building Logo Above building Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
-  buildingLogo.load("crypto-foodies/building-black-2.gltf", function (gltf) {
-    gltf.scene.position.y = -50;
-    gltf.scene.position.x = 25;
-    gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(10, 10, 10);
-    scene.add(gltf.scene);
-    function rotate() {
-      requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.002;
+  buildingLogo.load(
+    "crypto-foodies/crypto-foodies-center-piece.gltf",
+    function (gltf) {
+      gltf.scene.position.y = 0;
+      gltf.scene.position.x = 0;
+      gltf.scene.rotation.y = 0;
+      gltf.scene.scale.set(0.075, 0.075, 0.075);
+      scene.add(gltf.scene);
+      function rotate() {
+        requestAnimationFrame(rotate);
+        gltf.scene.rotation.y -= 0.02;
+      }
+      rotate();
     }
-    rotate();
-  });
+  );
 
   // // CF Center Building Logo Above building Asset
   // const centerLogo = new GLTFLoader();
@@ -739,7 +777,7 @@ function createControls(camera) {
   // controls.maxDistance = 800;
   // controls.minDistance = 200;
   controls.maxDistance = 350;
-  controls.minDistance = 0;
+  controls.minDistance = 1.5;
   controls.dynamicDampingFactor = 0.025;
 
   controls.keys = ["KeyA", "KeyS", "KeyD"];
@@ -843,7 +881,7 @@ function introZoomIn() {
     controls.rotateSpeed = 1;
     controls.zoomSpeed = 1;
     controls.maxDistance = 350;
-    controls.minDistance = 0;
+    // controls.minDistance = 0;
   } else {
     requestRotate = true;
     requestIntroZoomIn = false;
