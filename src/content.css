@@ -192,6 +192,14 @@ header figure img {
   height: 100%;
 }
 
+@media only screen and (max-width: 1199px) {
+  header a {
+    font-size: 6rem;
+    line-height: 6rem;
+    -webkit-text-stroke-width: 0.1rem;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   header {
     position: fixed;
@@ -279,30 +287,58 @@ header figure img {
     padding: 0;
   }
 }
+@media only screen and (max-width: 899px) and (orientation: landscape) {
+  header {
+    position: static;
+    width: 100%;
+    margin: auto;
+    top: unset;
+    bottom: 0px;
+    left: 0;
+    max-width: none;
+    transform: none;
+    background: #212121;
+    mix-blend-mode: luminosity;
+  }
 
-#pickupDelivery {
+  header h1 {
+    font-size: 2rem;
+    line-height: 0vh;
+    padding: 2rem 0 0;
+  }
+}
+
+/* #pickupDelivery {
   position: absolute;
   opacity: 0;
   bottom: 50px;
   right: 60px;
   /* font-size: 10vh;
-  line-height: 10vh; */
+  line-height: 10vh; 
+} */
+
+#pickupDelivery {
+  position: absolute;
+  opacity: 0;
+  bottom: 70px;
+  right: 60px;
 }
 
-#pickupDelivery a {
+/* #pickupDelivery a {
   color: White;
-  /* -webkit-text-fill-color: rgba(
-    255,
-    255,
-    255,
-    0
-  ); 
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white; */
   font-size: 10vh;
   line-height: 10vh;
   margin: 0;
   mix-blend-mode: exclusion;
+} */
+
+#pickupDelivery a {
+  color: White;
+  font-size: 5vh;
+  line-height: 6vh;
+  margin: 0;
+  mix-blend-mode: exclusion;
+  text-transform: capitalize;
 }
 
 #pickupDeliveryMobile {
@@ -311,7 +347,8 @@ header figure img {
 
 @media only screen and (max-width: 1199px) {
   #pickupDelivery a {
-    font-size: 3rem;
+    /* font-size: 3rem; */
+    font-size: 2.5rem;
     line-height: 3rem;
   }
 }
@@ -325,7 +362,8 @@ header figure img {
     display: block;
     margin: 0;
     position: relative;
-    font-size: 2rem;
+    /* font-size: 2rem; */
+    font-size: 1.5rem;
     line-height: normal;
     text-align: left;
     width: auto;
@@ -354,16 +392,23 @@ header figure img {
   outline: none;
 }
 
-#pickupDelivery a:hover {
-  /* background-color: papayawhip; */
+/* #pickupDelivery a:hover {
+   background-color: papayawhip; 
   color: rgb(0, 0, 0);
   -webkit-text-fill-color: rgba(
     255,
     255,
     255,
     0
-  ); /* Will override color (regardless of order) */
+  ); 
   -webkit-text-stroke-width: 0.4vh;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+} */
+
+#pickupDelivery a:hover {
+  color: rgb(0, 0, 0);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  -webkit-text-stroke-width: 0.2vh;
   -webkit-text-stroke-color: rgb(0, 0, 0);
 }
 
