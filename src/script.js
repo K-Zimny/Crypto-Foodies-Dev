@@ -71,18 +71,23 @@ function init() {
   // CF Center Building Logo Above building Asset
   const TextureLoaderCenter = new GLTFLoader();
   TextureLoaderCenter.setDRACOLoader(dracoLoader);
-  TextureLoaderCenter.load("crypto-foodies/cafe-cf-8bit.gltf", function (gltf) {
-    gltf.scene.position.y = -25;
-    gltf.scene.position.x = 0;
-    gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(3, 3, 3);
-    scene.add(gltf.scene);
-    function rotate() {
-      requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.002;
+  // TextureLoaderCenter.load("crypto-foodies/cafe-cf-8bit.gltf", function (gltf) {
+  TextureLoaderCenter.load(
+    "crypto-foodies/building-model-black-orange-delivery-pickup.gltf",
+    function (gltf) {
+      gltf.scene.position.y = -25;
+      gltf.scene.position.x = 0;
+      gltf.scene.rotation.y = 112.75;
+      // gltf.scene.scale.set(3, 3, 3);
+      gltf.scene.scale.set(1, 1, 1);
+      scene.add(gltf.scene);
+      function rotate() {
+        requestAnimationFrame(rotate);
+        gltf.scene.rotation.y -= 0.002;
+      }
+      rotate();
     }
-    rotate();
-  });
+  );
 
   // // CF Center Building Logo Above building Asset
   // const buildingLogo = new GLTFLoader();
