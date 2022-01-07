@@ -23,7 +23,7 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
 
-  perspectiveCamera = new THREE.PerspectiveCamera(18.5, aspect, 1, 1700);
+  perspectiveCamera = new THREE.PerspectiveCamera(18.5, aspect, 1, 7000);
   perspectiveCamera.position.z = 150;
   perspectiveCamera.position.x = -25;
   perspectiveCamera.position.y = -25;
@@ -32,7 +32,12 @@ function init() {
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color("#1f1f1f");
-  scene.fog = new THREE.FogExp2("#1f1f1f", 0.0005);
+  scene.fog = new THREE.FogExp2("#1f1f1f", 0.00015);
+
+  //axis helper
+
+  const axesHelper = new THREE.AxesHelper(500);
+  scene.add(axesHelper);
 
   // pano scene
 
@@ -99,21 +104,21 @@ function init() {
     }
   );
 
-  // // CF Center Building Logo Above building Asset
-  // const buildingLogo = new GLTFLoader();
-  // buildingLogo.setDRACOLoader(dracoLoader);
-  // buildingLogo.load("crypto-foodies/building-black-2.gltf", function (gltf) {
-  //   gltf.scene.position.y = -50;
-  //   gltf.scene.position.x = 25;
-  //   gltf.scene.rotation.y = 76.8;
-  //   gltf.scene.scale.set(10, 10, 10);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.002;
-  //   }
-  //   rotate();
-  // });
+  // CF Center Building Logo Above building Asset
+  const buildingLogo = new GLTFLoader();
+  buildingLogo.setDRACOLoader(dracoLoader);
+  buildingLogo.load("crypto-foodies/cryptofoodies8bit.gltf", function (gltf) {
+    gltf.scene.position.y = 450;
+    gltf.scene.position.x = 0;
+    gltf.scene.rotation.y = 76.8;
+    gltf.scene.scale.set(100, 100, 100);
+    scene.add(gltf.scene);
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.002;
+    }
+    rotate();
+  });
 
   // // CF Center Building Logo Above building Asset
   // const buildingLogo = new GLTFLoader();
@@ -784,12 +789,12 @@ function init() {
 function createControls(camera) {
   controls = new TrackballControls(camera, renderer.domElement);
 
-  controls.rotateSpeed = 1.0;
+  controls.rotateSpeed = 2.0;
   controls.zoomSpeed = 0.8;
   controls.panSpeed = 0;
   // controls.maxDistance = 800;
   // controls.minDistance = 200;
-  controls.maxDistance = 350;
+  controls.maxDistance = 5000;
   controls.minDistance = 100;
   controls.dynamicDampingFactor = 0.025;
 
@@ -875,7 +880,7 @@ function rotateWorld() {
   rotateWorldCount++;
   controls.rotateSpeed = 0.35;
   controls.zoomSpeed = 0.25;
-  controls.maxDistance = 350;
+  // controls.maxDistance = 350;
 }
 
 // clock
@@ -893,7 +898,7 @@ function introZoomIn() {
     // perspectiveCamera.position.y += 0.05;
     controls.rotateSpeed = 1;
     controls.zoomSpeed = 1;
-    controls.maxDistance = 350;
+    // controls.maxDistance = 350;
     // controls.minDistance = 0;
   } else {
     requestRotate = true;
@@ -998,7 +1003,7 @@ jQuery(function () {
   function exploreWorld() {
     controls.rotateSpeed = 3;
     controls.zoomSpeed = 0.8;
-    controls.maxDistance = 375;
+    // controls.maxDistance = 375;
     requestRotate = false;
     requestSlowRotate = true;
     jQuery("header").addClass("btn-no-click");
@@ -1017,7 +1022,7 @@ jQuery(function () {
   function endExploreWorld() {
     requestSlowRotate = false;
     requestRotate = true;
-    controls.maxDistance = 375;
+    // controls.maxDistance = 375;
     jQuery("#endExplore").addClass("btn-no-click");
     jQuery("#endExplore").fadeTo(1000, 0, function () {
       jQuery("#endExplore").removeClass("block");
