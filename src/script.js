@@ -22,10 +22,10 @@ init();
 
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
-  // perspectiveCamera = new THREE.PerspectiveCamera(25, aspect, 1, 1700);
-  perspectiveCamera = new THREE.PerspectiveCamera(35, aspect, 1, 1700);
-  perspectiveCamera.position.z = 100;
-  perspectiveCamera.position.x = -40;
+
+  perspectiveCamera = new THREE.PerspectiveCamera(18.5, aspect, 1, 1700);
+  perspectiveCamera.position.z = 150;
+  perspectiveCamera.position.x = -25;
   perspectiveCamera.position.y = -25;
 
   //------------- world
@@ -73,17 +73,27 @@ function init() {
   TextureLoaderCenter.setDRACOLoader(dracoLoader);
   // TextureLoaderCenter.load("crypto-foodies/cafe-cf-8bit.gltf", function (gltf) {
   TextureLoaderCenter.load(
-    "crypto-foodies/building-model-black-orange-delivery-pickup.gltf",
+    "crypto-foodies/buildingmodel-orange-sign-black-boom-boom-thickened-up.gltf",
     function (gltf) {
       gltf.scene.position.y = -25;
-      gltf.scene.position.x = 0;
-      gltf.scene.rotation.y = 112.75;
+      gltf.scene.position.x = 12.5;
+      gltf.scene.rotation.y = 113.0;
+      gltf.scene.rotation.z = 0.1;
+      gltf.scene.rotation.x = -0.1;
       // gltf.scene.scale.set(3, 3, 3);
       gltf.scene.scale.set(1, 1, 1);
+      const mediaQuery = window.matchMedia("(max-width: 767px)");
+      if (mediaQuery.matches) {
+        gltf.scene.scale.set(0.5, 0.5, 0.5);
+        gltf.scene.position.y = -10;
+        gltf.scene.position.x = 0;
+      }
       scene.add(gltf.scene);
       function rotate() {
         requestAnimationFrame(rotate);
-        gltf.scene.rotation.y -= 0.002;
+        gltf.scene.rotation.y -= 0.0015;
+        gltf.scene.rotation.z += 0.00015;
+        gltf.scene.rotation.x += 0.00015;
       }
       rotate();
     }
@@ -356,9 +366,9 @@ function init() {
       gltf.scene.position.x = Math.sin(x) * 150;
       gltf.scene.position.y = Math.cos(y) * 150;
       gltf.scene.position.z = Math.cos(z) * 150;
-      x += 0.001;
-      y += 0.001;
-      z += 0.001;
+      x += 0.0015;
+      y += 0.0015;
+      z += 0.0015;
     }
     rotate();
   });
@@ -461,7 +471,7 @@ function init() {
     gltf.scene.position.x = -140;
     gltf.scene.position.y = -20;
     gltf.scene.rotation.y = 2;
-    gltf.scene.scale.set(20, 20, 20);
+    gltf.scene.scale.set(15, 15, 15);
     scene.add(gltf.scene);
     let x = 2.09;
     let y = 2.09;
@@ -825,29 +835,29 @@ let radius = 600;
 
 // Animate
 let rotateWorldCount = 0;
-let moveFactor = Math.random() * 4;
+let moveFactor = 4;
 
 function rotateWorld() {
-  // console.log(rotateWorldCount);
+  console.log(rotateWorldCount);
   // perspectiveCamera.position.x += 0.051 * moveFactor;
   // perspectiveCamera.position.z += 0.051 * moveFactor;
   // perspectiveCamera.position.y += 0.05 * moveFactor;
-  if (rotateWorldCount < 1500) {
+  if (rotateWorldCount < 1200) {
     perspectiveCamera.position.x += 0.1 * 1;
     perspectiveCamera.position.z += 0.05 * 1;
     perspectiveCamera.position.y += 0.05 * 1;
-  } else if (rotateWorldCount < 2000) {
-    perspectiveCamera.position.x += 0.5 * moveFactor;
-    perspectiveCamera.position.z -= 0.5 * moveFactor;
-    perspectiveCamera.position.y -= 0.25 * moveFactor;
-  } else if (rotateWorldCount < 3250) {
+  } else if (rotateWorldCount < 1750) {
+    perspectiveCamera.position.x += 0.45 * moveFactor;
+    perspectiveCamera.position.z -= 0.45 * moveFactor;
+    perspectiveCamera.position.y += 0.2 * moveFactor;
+  } else if (rotateWorldCount < 4000) {
     perspectiveCamera.position.x -= 0.025 * moveFactor;
     perspectiveCamera.position.z -= 0.025 * moveFactor;
-    perspectiveCamera.position.y += 0.025 * moveFactor;
-  } else if (rotateWorldCount < 4500) {
-    perspectiveCamera.position.x -= 0.05 * moveFactor;
-    perspectiveCamera.position.z += 1 * moveFactor;
-    perspectiveCamera.position.y += 0.25 * moveFactor;
+    perspectiveCamera.position.y += 0.05 * moveFactor;
+  } else if (rotateWorldCount < 6000) {
+    perspectiveCamera.position.x += 0.05 * moveFactor;
+    perspectiveCamera.position.z -= 0.51 * moveFactor;
+    perspectiveCamera.position.y -= 0.25 * moveFactor;
   }
   // else if (rotateWorldCount < 6000) {
   //   perspectiveCamera.position.x -= 0.05 * moveFactor;
@@ -858,9 +868,9 @@ function rotateWorld() {
   //   perspectiveCamera.position.z += 0.05 * moveFactor;
   //   perspectiveCamera.position.y -= 0.05 * moveFactor;
   // }
-  else if (rotateWorldCount < 4501) {
+  else if (rotateWorldCount < 6001) {
     rotateWorldCount = 0;
-    moveFactor = Math.random() * 2;
+    moveFactor = 2;
   }
   rotateWorldCount++;
   controls.rotateSpeed = 0.35;
@@ -877,7 +887,7 @@ function introZoomIn() {
     // console.log(elapsedTime);
     perspectiveCamera.position.z += elapsedTime / 10;
     perspectiveCamera.position.x += elapsedTime / 12;
-    perspectiveCamera.position.y += elapsedTime / 12;
+    perspectiveCamera.position.y += elapsedTime / 32;
     // perspectiveCamera.position.z += 0.45;
     // perspectiveCamera.position.x += 0.05;
     // perspectiveCamera.position.y += 0.05;
