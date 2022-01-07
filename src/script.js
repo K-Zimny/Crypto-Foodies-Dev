@@ -838,7 +838,7 @@ let rotateWorldCount = 0;
 let moveFactor = 4;
 
 function rotateWorld() {
-  console.log(rotateWorldCount);
+  // console.log(rotateWorldCount);
   // perspectiveCamera.position.x += 0.051 * moveFactor;
   // perspectiveCamera.position.z += 0.051 * moveFactor;
   // perspectiveCamera.position.y += 0.05 * moveFactor;
@@ -854,23 +854,23 @@ function rotateWorld() {
     perspectiveCamera.position.x -= 0.025 * moveFactor;
     perspectiveCamera.position.z -= 0.025 * moveFactor;
     perspectiveCamera.position.y += 0.05 * moveFactor;
-  } else if (rotateWorldCount < 6000) {
+  } else if (rotateWorldCount < 4750) {
     perspectiveCamera.position.x += 0.05 * moveFactor;
     perspectiveCamera.position.z -= 0.51 * moveFactor;
     perspectiveCamera.position.y -= 0.25 * moveFactor;
+  } else if (rotateWorldCount < 6000) {
+    perspectiveCamera.position.x -= 0.05 * moveFactor;
+    perspectiveCamera.position.z += 0.025 * moveFactor;
+    perspectiveCamera.position.y += 0.05 * moveFactor;
   }
-  // else if (rotateWorldCount < 6000) {
-  //   perspectiveCamera.position.x -= 0.05 * moveFactor;
-  //   perspectiveCamera.position.z += 0.05 * moveFactor;
-  //   perspectiveCamera.position.y += 0.05 * moveFactor;
-  // } else if (rotateWorldCount < 8000) {
+  // else if (rotateWorldCount < 8000) {
   //   perspectiveCamera.position.x += 0.05 * moveFactor;
   //   perspectiveCamera.position.z += 0.05 * moveFactor;
   //   perspectiveCamera.position.y -= 0.05 * moveFactor;
   // }
   else if (rotateWorldCount < 6001) {
     rotateWorldCount = 0;
-    moveFactor = 2;
+    moveFactor = 4;
   }
   rotateWorldCount++;
   controls.rotateSpeed = 0.35;
