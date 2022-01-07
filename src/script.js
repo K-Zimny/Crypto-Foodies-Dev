@@ -36,8 +36,8 @@ function init() {
 
   //axis helper
 
-  const axesHelper = new THREE.AxesHelper(500);
-  scene.add(axesHelper);
+  // const axesHelper = new THREE.AxesHelper(500);
+  // scene.add(axesHelper);
 
   // pano scene
 
@@ -107,18 +107,21 @@ function init() {
   // CF Center Building Logo Above building Asset
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
-  buildingLogo.load("crypto-foodies/cryptofoodies8bit.gltf", function (gltf) {
-    gltf.scene.position.y = 450;
-    gltf.scene.position.x = 0;
-    gltf.scene.rotation.y = 76.8;
-    gltf.scene.scale.set(100, 100, 100);
-    scene.add(gltf.scene);
-    function rotate() {
-      requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.002;
+  buildingLogo.load(
+    "crypto-foodies/orange-crypto-set-origin.gltf",
+    function (gltf) {
+      gltf.scene.position.y = 525;
+      gltf.scene.position.x = 0;
+      gltf.scene.rotation.y = 76.8;
+      gltf.scene.scale.set(20, 20, 20);
+      scene.add(gltf.scene);
+      function rotate() {
+        requestAnimationFrame(rotate);
+        gltf.scene.rotation.y -= 0.0075;
+      }
+      rotate();
     }
-    rotate();
-  });
+  );
 
   // // CF Center Building Logo Above building Asset
   // const buildingLogo = new GLTFLoader();
