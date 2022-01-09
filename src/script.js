@@ -72,12 +72,12 @@ function init() {
   const TextureLoaderCenter = new GLTFLoader();
   TextureLoaderCenter.setDRACOLoader(dracoLoader);
   TextureLoaderCenter.load(
-    "crypto-foodies/crypto-foodies-center-piece.gltf",
+    "crypto-foodies/orange-crypto-set-origin.gltf",
     function (gltf) {
       gltf.scene.position.y = 0;
-      gltf.scene.position.x = 45;
-      gltf.scene.rotation.y = 76.8;
-      gltf.scene.scale.set(30, 30, 30);
+      gltf.scene.position.x = 15;
+      gltf.scene.rotation.y = 0;
+      gltf.scene.scale.set(3, 3, 3);
       scene.add(gltf.scene);
       function rotate() {
         requestAnimationFrame(rotate);
@@ -107,12 +107,12 @@ function init() {
   const buildingLogo = new GLTFLoader();
   buildingLogo.setDRACOLoader(dracoLoader);
   buildingLogo.load(
-    "crypto-foodies/crypto-foodies-center-piece.gltf",
+    "crypto-foodies/orange-crypto-set-origin.gltf",
     function (gltf) {
       gltf.scene.position.y = 0;
       gltf.scene.position.x = 0;
       gltf.scene.rotation.y = 0;
-      gltf.scene.scale.set(0.075, 0.075, 0.075);
+      gltf.scene.scale.set(0.003, 0.003, 0.003);
       scene.add(gltf.scene);
       function rotate() {
         requestAnimationFrame(rotate);
