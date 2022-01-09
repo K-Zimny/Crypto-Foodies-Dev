@@ -32,7 +32,7 @@ function init() {
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color("#1f1f1f");
-  scene.fog = new THREE.FogExp2("#1f1f1f", 0.00015);
+  scene.fog = new THREE.FogExp2("#1f1f1f", 0.0001);
 
   //axis helper
 
