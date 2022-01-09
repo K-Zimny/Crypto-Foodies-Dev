@@ -260,7 +260,7 @@ img {
 
 #pageHeader ul {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   margin: 0;
 }
 
@@ -287,6 +287,17 @@ img {
   color: var(--dark);
   transition: all ease 0.3s;
   display: inline-block;
+  position: relative;
+}
+
+#pageHeader > .container > div:first-of-type a::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  height: 1px;
+  width: 125%;
+  background-color: var(--dark);
 }
 
 #pageHeader a:hover,
@@ -315,17 +326,22 @@ img {
 
   #pageHeader ul {
     padding: 0 !important;
-    flex-flow: column;
-    align-items: flex-start;
+    flex-flow: row wrap;
+    justify-content: flex-start;
   }
 
   #pageHeader li {
     margin: 0.5rem 0;
   }
   #pageHeader li a {
-    margin: 0;
+    margin: 0 2rem 0 0;
     font-size: 2rem;
   }
+
+  /* #pageHeader li:first-of-type a {
+    margin-left: 0;
+    font-size: 2rem;
+  } */
 }
 
 /* footer */
@@ -549,7 +565,7 @@ footer figure #tiktokLogo {
 
 .inner-page h1 {
   font-size: 8rem;
-  margin: 6rem 0 4rem;
+  margin: 4rem 0 6rem;
   -webkit-text-stroke-width: 0.1px;
   -webkit-text-stroke-color: #000000;
   filter: drop-shadow(6px 6px black);
