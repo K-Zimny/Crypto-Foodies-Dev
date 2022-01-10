@@ -69,6 +69,18 @@ module.exports = {
       chunks: ["pages"],
       minify: true,
     }),
+    new HtmlWebpackPlugin({
+      filename: "privacy-policy/index.html",
+      template: path.resolve(__dirname, "../src/privacy-policy/index.html"),
+      chunks: ["pages"],
+      minify: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "terms-conditions/index.html",
+      template: path.resolve(__dirname, "../src/terms-conditions/index.html"),
+      chunks: ["pages"],
+      minify: true,
+    }),
 
     new MiniCSSExtractPlugin(),
   ],
