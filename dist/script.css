@@ -54,11 +54,13 @@ body.body-100vh {
   }
 }
 
+/* canvas */
+
 #mainCanvas {
   position: fixed;
   inset: 0;
   z-index: -2;
-  /* cursor: none; */
+  cursor: all-scroll;
 }
 
 img {
@@ -354,10 +356,13 @@ header #homeSocial li a {
   font-size: 0;
   line-height: 0;
   margin: 0;
+  transition: all ease 0.3s;
 }
 
-header #homeSocial li a:hover {
-  transform: scale(1.01);
+header #homeSocial li a:hover,
+header #homeSocial li a:active,
+header #homeSocial li a:focus {
+  transform: scale(1.05);
 }
 
 header #homeSocial li a::before {
@@ -431,6 +436,17 @@ header figure img {
   #headerBtnMenu #headerBtn:focus {
     border-color: transparent;
     transform: rotate(90deg) scaleY(2.75) scaleX(1.75);
+  }
+
+  #headerBtnMenu #headerBtn.arrow-flipped {
+    transform: rotate(-90deg) scaleY(2.5) scaleX(1.5);
+  }
+
+  #headerBtnMenu #headerBtn.arrow-flipped:hover,
+  #headerBtnMenu #headerBtn.arrow-flipped:active,
+  #headerBtnMenu #headerBtn.arrow-flipped :focus {
+    border-color: transparent;
+    transform: rotate(-90deg) scaleY(2.75) scaleX(1.75);
   }
 
   header h1 {
@@ -588,7 +604,8 @@ header figure img {
   -webkit-text-stroke-color: rgb(0, 0, 0);
 } */
 
-#pickupDelivery a:hover {
+#pickupDelivery a:hover,
+#pickupDelivery a:focus {
   color: rgb(0, 0, 0);
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
   -webkit-text-stroke-width: 0.2vh;
@@ -866,6 +883,7 @@ header figure img {
 
 #enterScreen {
   display: flex;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -874,10 +892,52 @@ header figure img {
   background: rgb(204, 204, 204);
 }
 
-#enterScreen p {
+#enterScreen #loadingPageHeader {
   position: relative;
+  width: 90%;
+  max-width: 1920px;
   z-index: 1000;
   color: #1f1f1f;
+  font-size: 5rem;
+  line-height: 5rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+#enterScreen p {
+  position: relative;
+  width: 90%;
+  max-width: 1920px;
+  z-index: 1000;
+  color: #1f1f1f;
+  text-align: center;
+}
+
+#enterScreen #loadingThreeJsStatus {
+  margin: 3rem 0;
+  position: relative;
+  width: 90%;
+  max-width: 1920px;
+}
+
+#enterScreen #loadingThreeJsStatus p {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 900px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  #enterScreen #loadingThreeJsStatus p {
+    font-size: 1rem;
+  }
 }
 
 #introSceneText {
@@ -909,6 +969,43 @@ header figure img {
   font-size: 4rem;
   letter-spacing: 5px;
   /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+/* ============================================ */
+/* Loading Spinner */
+/* ============================================ */
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 767px) {
+  .lds-dual-ring {
+    margin-top: 5px;
+    margin-bottom: -25px;
+  }
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: var(--dark) transparent var(--dark) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 
