@@ -55,11 +55,13 @@ body.body-100vh {
   }
 }
 
+/* canvas */
+
 #mainCanvas {
   position: fixed;
   inset: 0;
   z-index: -2;
-  /* cursor: none; */
+  cursor: all-scroll;
 }
 
 img {

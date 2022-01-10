@@ -1038,6 +1038,7 @@ jQuery(function () {
     jQuery("#header h2").removeClass("hidden-mobile");
     jQuery("#header nav").addClass("block-mobile");
     jQuery(".marquee").addClass("large");
+    jQuery("#headerBtn").addClass("arrow-flipped");
   }
 
   function closeHeaderMenu() {
@@ -1046,6 +1047,7 @@ jQuery(function () {
     jQuery("#header h2").addClass("hidden-mobile");
     jQuery("#header nav").removeClass("block-mobile");
     jQuery(".marquee").removeClass("large");
+    jQuery("#headerBtn").removeClass("arrow-flipped");
   }
 
   function altLookAt() {
@@ -1176,11 +1178,11 @@ jQuery(function () {
     if (headerOpen == false) {
       openHeaderMenu();
       headerOpen = true;
-      console.log(headerOpen);
+      // console.log(headerOpen);
     } else {
       closeHeaderMenu();
       headerOpen = false;
-      console.log(headerOpen);
+      // console.log(headerOpen);
     }
   });
 });
