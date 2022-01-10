@@ -1112,15 +1112,24 @@ jQuery(function () {
     itemsLoaded,
     itemsTotal
   ) {
-    // console.log(
-    //   "Loading file: " +
-    //     url +
-    //     ".\nLoaded " +
-    //     itemsLoaded +
-    //     " of " +
-    //     itemsTotal +
-    //     " files."
-    // );
+    console.log(
+      "Loading file: " +
+        url +
+        ".\nLoaded " +
+        itemsLoaded +
+        " of " +
+        itemsTotal +
+        " files."
+    );
+    jQuery("#loadingThreeJsStatus p").text(
+      "Loading file: " +
+        url +
+        ".\nLoaded " +
+        itemsLoaded +
+        " of " +
+        itemsTotal +
+        " files."
+    );
   };
 
   THREE.DefaultLoadingManager.onError = function (url) {
