@@ -73,7 +73,7 @@ function init() {
   TextureLoaderCenter.setDRACOLoader(dracoLoader);
   // TextureLoaderCenter.load("crypto-foodies/cafe-cf-8bit.gltf", function (gltf) {
   TextureLoaderCenter.load(
-    "crypto-foodies/buildingmodel-orange-sign-black-boom-boom-thickened-up.gltf",
+    "crypto-foodies/buildingmodel-meal-outpost-not-pickup.gltf",
     function (gltf) {
       gltf.scene.position.y = -25;
       gltf.scene.position.x = 12.5;
