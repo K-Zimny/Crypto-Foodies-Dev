@@ -23,16 +23,19 @@ init();
 function init() {
   const aspect = window.innerWidth / window.innerHeight;
 
-  perspectiveCamera = new THREE.PerspectiveCamera(18.5, aspect, 1, 1700);
-  perspectiveCamera.position.z = 150;
-  perspectiveCamera.position.x = -25;
-  perspectiveCamera.position.y = -25;
+  perspectiveCamera = new THREE.PerspectiveCamera(18.5, aspect, 1, 2000);
+  perspectiveCamera.position.z = 1250;
+  perspectiveCamera.position.x = -550;
+  perspectiveCamera.position.y = 1250;
 
   //------------- world
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color("#1f1f1f");
   scene.fog = new THREE.FogExp2("#1f1f1f", 0.0005);
+
+  // const axesHelper = new THREE.AxesHelper(105);
+  // scene.add(axesHelper);
 
   // pano scene
 
@@ -76,12 +79,12 @@ function init() {
     "crypto-foodies/meal-outpost-logo-metal-smaller.gltf",
     function (gltf) {
       gltf.scene.position.y = -25;
-      gltf.scene.position.x = 12.5;
-      gltf.scene.rotation.y = 113.0;
-      gltf.scene.rotation.z = 0.1;
-      gltf.scene.rotation.x = -0.1;
+      // gltf.scene.position.x = 12.5;
+      gltf.scene.rotation.y = -(Math.PI / 2);
+      // gltf.scene.rotation.z = 0.1;
+      gltf.scene.rotation.x = -0.5;
       // gltf.scene.scale.set(3, 3, 3);
-      gltf.scene.scale.set(1, 1, 1);
+      gltf.scene.scale.set(1.25, 1.25, 1.25);
       const mediaQuery = window.matchMedia("(max-width: 767px)");
       if (mediaQuery.matches) {
         gltf.scene.scale.set(0.5, 0.5, 0.5);
@@ -91,11 +94,11 @@ function init() {
       scene.add(gltf.scene);
       function rotate() {
         requestAnimationFrame(rotate);
-        gltf.scene.rotation.y -= 0.0015;
-        gltf.scene.rotation.z += 0.00015;
-        gltf.scene.rotation.x += 0.00015;
+        // gltf.scene.rotation.y -= 0.0015;
+        // gltf.scene.rotation.z += 0.00015;
+        // gltf.scene.rotation.x += 0.00015;
       }
-      rotate();
+      // rotate();
     }
   );
 
@@ -755,7 +758,7 @@ function init() {
 
   // building lighting
   const light = new THREE.PointLight("hsl(10,100%,50%)", 27, 100);
-  light.position.set(-20, 25, 0);
+  light.position.set(0, 50, 100);
   scene.add(light);
 
   // // stan lighting
@@ -787,9 +790,7 @@ function createControls(camera) {
   controls.rotateSpeed = 1.0;
   controls.zoomSpeed = 0.8;
   controls.panSpeed = 0;
-  // controls.maxDistance = 800;
-  // controls.minDistance = 200;
-  controls.maxDistance = 350;
+  // controls.maxDistance = 500;
   controls.minDistance = 100;
   controls.dynamicDampingFactor = 0.025;
 
@@ -838,62 +839,73 @@ let rotateWorldCount = 0;
 let moveFactor = 4;
 
 function rotateWorld() {
+  const elapsedTime = clock.getElapsedTime();
   // console.log(rotateWorldCount);
   // perspectiveCamera.position.x += 0.051 * moveFactor;
   // perspectiveCamera.position.z += 0.051 * moveFactor;
   // perspectiveCamera.position.y += 0.05 * moveFactor;
-  if (rotateWorldCount < 1200) {
-    perspectiveCamera.position.x += 0.1 * 1;
-    perspectiveCamera.position.z += 0.05 * 1;
-    perspectiveCamera.position.y += 0.05 * 1;
-  } else if (rotateWorldCount < 1750) {
-    perspectiveCamera.position.x += 0.45 * moveFactor;
-    perspectiveCamera.position.z -= 0.45 * moveFactor;
-    perspectiveCamera.position.y += 0.2 * moveFactor;
-  } else if (rotateWorldCount < 4000) {
-    perspectiveCamera.position.x -= 0.025 * moveFactor;
-    perspectiveCamera.position.z -= 0.025 * moveFactor;
-    perspectiveCamera.position.y += 0.05 * moveFactor;
-  } else if (rotateWorldCount < 4750) {
-    perspectiveCamera.position.x += 0.05 * moveFactor;
-    perspectiveCamera.position.z -= 0.51 * moveFactor;
-    perspectiveCamera.position.y -= 0.25 * moveFactor;
-  } else if (rotateWorldCount < 6000) {
-    perspectiveCamera.position.x -= 0.05 * moveFactor;
-    perspectiveCamera.position.z += 0.025 * moveFactor;
-    perspectiveCamera.position.y += 0.05 * moveFactor;
-  }
-  // else if (rotateWorldCount < 8000) {
-  //   perspectiveCamera.position.x += 0.05 * moveFactor;
-  //   perspectiveCamera.position.z += 0.05 * moveFactor;
-  //   perspectiveCamera.position.y -= 0.05 * moveFactor;
+  // perspectiveCamera.position.x += 0.051 * moveFactor;
+  // perspectiveCamera.position.z += 0.051 * moveFactor;
+
+  // perspectiveCamera.position.x += 0.015;
+
+  // if (perspectiveCamera.position.x < 200) {
+  //   perspectiveCamera.position.x += 0.001;
   // }
-  else if (rotateWorldCount < 6001) {
+  // perspectiveCamera.position.z = Math.sin(Math.PI * (elapsedTime / 4)) * 100;
+
+  // perspectiveCamera.position.y = Math.cos(Math.PI * (elapsedTime / 4)) * 100;
+  if (rotateWorldCount < 12000) {
+    perspectiveCamera.position.x += 0.015;
+  } else if (rotateWorldCount < 12200) {
+    perspectiveCamera.position.x -= 1;
+  }
+  //  else if (rotateWorldCount < 4000) {
+  //   perspectiveCamera.position.x -= 0.025 * moveFactor;
+  //   perspectiveCamera.position.z -= 0.025 * moveFactor;
+  //   perspectiveCamera.position.y += 0.05 * moveFactor;
+  // } else if (rotateWorldCount < 4750) {
+  //   perspectiveCamera.position.x += 0.05 * moveFactor;
+  //   perspectiveCamera.position.z -= 0.51 * moveFactor;
+  //   perspectiveCamera.position.y -= 0.25 * moveFactor;
+  // } else if (rotateWorldCount < 6000) {
+  //   perspectiveCamera.position.x -= 0.05 * moveFactor;
+  //   perspectiveCamera.position.z += 0.025 * moveFactor;
+  //   perspectiveCamera.position.y += 0.05 * moveFactor;
+  // }
+  // // else if (rotateWorldCount < 8000) {
+  // //   perspectiveCamera.position.x += 0.05 * moveFactor;
+  // //   perspectiveCamera.position.z += 0.05 * moveFactor;
+  // //   perspectiveCamera.position.y -= 0.05 * moveFactor;
+  // // }
+  else if (rotateWorldCount < 12201) {
     rotateWorldCount = 0;
-    moveFactor = 4;
+    // moveFactor = 4;
   }
   rotateWorldCount++;
   controls.rotateSpeed = 0.35;
   controls.zoomSpeed = 0.25;
-  controls.maxDistance = 350;
+  // controls.maxDistance = 500;
 }
 
 // clock
 const clock = new THREE.Clock();
 
 function introZoomIn() {
-  if (perspectiveCamera.position.z < 225) {
+  if (perspectiveCamera.position.z > 250) {
     const elapsedTime = clock.getElapsedTime();
     // console.log(elapsedTime);
-    perspectiveCamera.position.z += elapsedTime / 10;
-    perspectiveCamera.position.x += elapsedTime / 12;
-    perspectiveCamera.position.y += elapsedTime / 32;
+    // perspectiveCamera.position.z -= 1;
+
+    perspectiveCamera.position.z -= elapsedTime / 4;
+    perspectiveCamera.position.x += elapsedTime / 7;
+    perspectiveCamera.position.y -= elapsedTime / 3.5;
     // perspectiveCamera.position.z += 0.45;
     // perspectiveCamera.position.x += 0.05;
     // perspectiveCamera.position.y += 0.05;
-    controls.rotateSpeed = 1;
-    controls.zoomSpeed = 1;
-    controls.maxDistance = 350;
+    controls.rotateSpeed = 0.5;
+    controls.zoomSpeed = 0.25;
+    controls.maxDistance = 1200;
     // controls.minDistance = 0;
   } else {
     requestRotate = true;
@@ -995,41 +1007,41 @@ jQuery(function () {
     });
   }
 
-  function exploreWorld() {
-    controls.rotateSpeed = 3;
-    controls.zoomSpeed = 0.8;
-    controls.maxDistance = 375;
-    requestRotate = false;
-    requestSlowRotate = true;
-    jQuery("header").addClass("btn-no-click");
-    jQuery("header").fadeTo(1000, 0, function () {
-      jQuery("header").removeClass("block");
-      jQuery("header").addClass("hidden");
-      jQuery("#endExplore").addClass("btn-no-click");
-      jQuery("#endExplore").removeClass("hidden");
-      jQuery("#endExplore").addClass("block");
-      jQuery("#endExplore").fadeTo(1000, 1, function () {
-        jQuery("#endExplore").removeClass("btn-no-click");
-      });
-    });
-  }
+  // function exploreWorld() {
+  //   controls.rotateSpeed = 3;
+  //   controls.zoomSpeed = 0.8;
+  //   controls.maxDistance = 375;
+  //   requestRotate = false;
+  //   requestSlowRotate = true;
+  //   jQuery("header").addClass("btn-no-click");
+  //   jQuery("header").fadeTo(1000, 0, function () {
+  //     jQuery("header").removeClass("block");
+  //     jQuery("header").addClass("hidden");
+  //     jQuery("#endExplore").addClass("btn-no-click");
+  //     jQuery("#endExplore").removeClass("hidden");
+  //     jQuery("#endExplore").addClass("block");
+  //     jQuery("#endExplore").fadeTo(1000, 1, function () {
+  //       jQuery("#endExplore").removeClass("btn-no-click");
+  //     });
+  //   });
+  // }
 
-  function endExploreWorld() {
-    requestSlowRotate = false;
-    requestRotate = true;
-    controls.maxDistance = 375;
-    jQuery("#endExplore").addClass("btn-no-click");
-    jQuery("#endExplore").fadeTo(1000, 0, function () {
-      jQuery("#endExplore").removeClass("block");
-      jQuery("#endExplore").addClass("hidden");
-      jQuery("header").addClass("btn-no-click");
-      jQuery("header").removeClass("hidden");
-      jQuery("header").addClass("block");
-      jQuery("header").fadeTo(1000, 1, function () {
-        jQuery("header").removeClass("btn-no-click");
-      });
-    });
-  }
+  // function endExploreWorld() {
+  //   requestSlowRotate = false;
+  //   requestRotate = true;
+  //   controls.maxDistance = 375;
+  //   jQuery("#endExplore").addClass("btn-no-click");
+  //   jQuery("#endExplore").fadeTo(1000, 0, function () {
+  //     jQuery("#endExplore").removeClass("block");
+  //     jQuery("#endExplore").addClass("hidden");
+  //     jQuery("header").addClass("btn-no-click");
+  //     jQuery("header").removeClass("hidden");
+  //     jQuery("header").addClass("block");
+  //     jQuery("header").fadeTo(1000, 1, function () {
+  //       jQuery("header").removeClass("btn-no-click");
+  //     });
+  //   });
+  // }
 
   function openHeaderMenu() {
     // FIXME:Change the value of fixed below back to static, this was only for testing
@@ -1065,9 +1077,9 @@ jQuery(function () {
     jQuery("#introSceneText").addClass("flex");
     jQuery("#introSceneText")
       .delay(1500)
-      .fadeTo(1500, 1, function () {
+      .fadeTo(3000, 1, function () {
         jQuery("#introSceneText")
-          .delay(1500)
+          .delay(3000)
           .fadeTo(1500, 0, function () {
             jQuery("#introSceneText").remove();
             setTimeout(showHeader, 0);
