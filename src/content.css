@@ -444,9 +444,10 @@ header figure img {
 
 #audioIcon {
   position: absolute;
-  opacity: 0;
+  opacity: 0 !important;
   top: 15px;
   right: 25px;
+  cursor: pointer;
 }
 
 #audioIcon figure {

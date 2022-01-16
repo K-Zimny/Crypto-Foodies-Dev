@@ -62,6 +62,9 @@ body.body-100vh {
   inset: 0;
   z-index: -2;
   cursor: all-scroll;
+  filter: contrast(2.5);
+  mix-blend-mode: color-burn;
+  opacity: 0;
 }
 
 img {
@@ -145,6 +148,10 @@ hr {
   flex: block !important;
 }
 
+.min-height-100vh {
+  min-height: 100vh;
+}
+
 @media only screen and (max-width: 767px) {
   .hidden-mobile {
     display: none !important;
@@ -183,3 +190,17 @@ hr {
   mix-blend-mode: difference;
   transition: transform 0.2s;
 } */
+
+/* ============================================================================================= */
+/* accessibility */
+/* ============================================================================================= */
+
+.accessibility h1,
+.accessibility p {
+  filter: blur(0) !important;
+}
+
+.accessibility p,
+.accessibility li {
+  font-family: "Source Serif Pro", serif !important;
+}

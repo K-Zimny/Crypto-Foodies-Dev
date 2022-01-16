@@ -52,11 +52,8 @@ module.exports = {
       minify: true,
     }),
     new HtmlWebpackPlugin({
-      filename: "partners/host-restaurant/index.html",
-      template: path.resolve(
-        __dirname,
-        "../src/partners/host-restaurant/index.html"
-      ),
+      filename: "partners/outposts/index.html",
+      template: path.resolve(__dirname, "../src/partners/outposts/index.html"),
       chunks: ["pages"],
       minify: true,
     }),

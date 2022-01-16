@@ -50,7 +50,7 @@ function init() {
 
   const material = new THREE.MeshBasicMaterial({ map: texture });
   material.transparent = true;
-  material.opacity = 0.5;
+  material.opacity = 0.75;
 
   const mesh = new THREE.Mesh(geometry, material);
 
@@ -788,7 +788,7 @@ function createControls(camera) {
   controls = new TrackballControls(camera, renderer.domElement);
 
   controls.rotateSpeed = 1.0;
-  controls.zoomSpeed = 0.8;
+  controls.zoomSpeed = 0.05;
   controls.panSpeed = 0;
   // controls.maxDistance = 500;
   controls.minDistance = 100;
@@ -884,7 +884,7 @@ function rotateWorld() {
   }
   rotateWorldCount++;
   controls.rotateSpeed = 0.35;
-  controls.zoomSpeed = 0.25;
+  controls.zoomSpeed = 0.05;
   // controls.maxDistance = 500;
 }
 
@@ -904,7 +904,7 @@ function introZoomIn() {
     // perspectiveCamera.position.x += 0.05;
     // perspectiveCamera.position.y += 0.05;
     controls.rotateSpeed = 0.5;
-    controls.zoomSpeed = 0.25;
+    controls.zoomSpeed = 0.05;
     controls.maxDistance = 1200;
     // controls.minDistance = 0;
   } else {
@@ -945,7 +945,8 @@ import jQuery from "jquery";
 jQuery(function () {
   // ---------------------------  functions  --------------------------- //
   function pageFadeIn() {
-    jQuery("body").fadeTo(5000, 1, function () {});
+    jQuery("body").fadeTo(1, 1, function () {});
+    jQuery("canvas").fadeTo(4000, 1, function () {});
   }
 
   function showHeader() {
@@ -1197,9 +1198,8 @@ jQuery(function () {
       // console.log(headerOpen);
     }
   });
+  const mediaQuery = window.matchMedia("(max-width: 767px)");
+  if (mediaQuery.matches) {
+    jQuery(".marquee").insertAfter("#hrHeaderTag");
+  }
 });
-
-const mediaQuery = window.matchMedia("(max-width: 767px)");
-if (mediaQuery.matches) {
-  jQuery(".marquee").insertAfter("#hrHeaderTag");
-}
