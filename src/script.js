@@ -63,18 +63,9 @@ function init() {
   const dracoLoader = new DRACOLoader();
   dracoLoader.setDecoderPath("draco/");
 
-  // // CF Center Building Asset
-  // new GLTFLoader().load("crypto-foodies/building-glass.glb", function (gltf) {
-  //   // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-  //   gltf.scene.position.y = -25;
-  //   gltf.scene.scale.set(4, 4, 4);
-  //   scene.add(gltf.scene);
-  // });
-
   // CF Center Building Logo Above building Asset
   const TextureLoaderCenter = new GLTFLoader();
   TextureLoaderCenter.setDRACOLoader(dracoLoader);
-  // TextureLoaderCenter.load("crypto-foodies/cafe-cf-8bit.gltf", function (gltf) {
   TextureLoaderCenter.load(
     "crypto-foodies/meal-outpost-logo-metal-smaller.gltf",
     function (gltf) {
@@ -102,253 +93,6 @@ function init() {
     }
   );
 
-  // // CF Center Building Logo Above building Asset
-  // const buildingLogo = new GLTFLoader();
-  // buildingLogo.setDRACOLoader(dracoLoader);
-  // buildingLogo.load("crypto-foodies/building-black-2.gltf", function (gltf) {
-  //   gltf.scene.position.y = -50;
-  //   gltf.scene.position.x = 25;
-  //   gltf.scene.rotation.y = 76.8;
-  //   gltf.scene.scale.set(10, 10, 10);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.002;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Above building Asset
-  // const buildingLogo = new GLTFLoader();
-  // buildingLogo.setDRACOLoader(dracoLoader);
-  // buildingLogo.load(
-  //   "crypto-foodies/crypto-foodies-center-piece.gltf",
-  //   function (gltf) {
-  //     gltf.scene.position.y = 0;
-  //     gltf.scene.position.x = 50;
-  //     gltf.scene.position.z = 50;
-  //     gltf.scene.rotation.y = 0;
-  //     gltf.scene.scale.set(5, 5, 5);
-  //     scene.add(gltf.scene);
-  //     function rotate() {
-  //       requestAnimationFrame(rotate);
-  //       gltf.scene.rotation.y -= 0.02;
-  //     }
-  //     // rotate();
-  //   }
-  // );
-
-  // // CF Center Building Logo Above building Asset
-  // const centerLogo = new GLTFLoader();
-  // centerLogo.setDRACOLoader(dracoLoader);
-  // centerLogo.load("crypto-foodies/building-glass.glb", function (gltf) {
-  //   // gltf.scene.position.y = 19;
-  //   // gltf.scene.position.x = -20;
-  //   gltf.scene.position.y = -0.15;
-  //   gltf.scene.position.x = 0.15;
-  //   gltf.scene.position.z = 750;
-  //   gltf.scene.rotation.y = 76.8;
-  //   gltf.scene.scale.set(0.01, 0.01, 0.01);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.02;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Above building Asset
-  // const buildingLogoSmall = new GLTFLoader();
-  // buildingLogoSmall.setDRACOLoader(dracoLoader);
-  // buildingLogoSmall.load("crypto-foodies/cf-logo-3.gltf", function (gltf) {
-  //   // gltf.scene.position.y = 19.2;
-  //   // gltf.scene.position.x = -20;
-  //   gltf.scene.position.y = 0.03;
-  //   gltf.scene.position.x = 0.15;
-  //   gltf.scene.position.z = 750;
-  //   gltf.scene.rotation.y = 0;
-  //   gltf.scene.scale.set(0.045, 0.045, 0.045);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.05;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Above building Asset
-  // const pickupLogoSmall = new GLTFLoader();
-  // pickupLogoSmall.setDRACOLoader(dracoLoader);
-  // pickupLogoSmall.load("crypto-foodies/pickup.gltf", function (gltf) {
-  //   // gltf.scene.position.y = 18.8;
-  //   // gltf.scene.position.x = -20;
-  //   gltf.scene.position.y = 0.15;
-  //   gltf.scene.position.x = 0.15;
-  //   gltf.scene.position.z = 750;
-  //   gltf.scene.rotation.y = 76.8;
-  //   gltf.scene.scale.set(0.1, 0.1, 0.1);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.02;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Above building Asset
-  // const deliveryLogoSmall = new GLTFLoader();
-  // deliveryLogoSmall.setDRACOLoader(dracoLoader);
-  // deliveryLogoSmall.load("crypto-foodies/delivery.gltf", function (gltf) {
-  //   // gltf.scene.position.y = 19.4;
-  //   // gltf.scene.position.x = -20;
-  //   gltf.scene.position.y = -0.2;
-  //   gltf.scene.position.x = 0.15;
-  //   gltf.scene.position.z = 750;
-  //   gltf.scene.rotation.y = 76.8;
-  //   gltf.scene.scale.set(0.1, 0.1, 0.1);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.02;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Above building Asset
-  // const pickupLogo = new GLTFLoader();
-  // pickupLogo.setDRACOLoader(dracoLoader);
-  // pickupLogo.load("crypto-foodies/pickup.gltf", function (gltf) {
-  //   gltf.scene.position.y = -20;
-  //   gltf.scene.position.x = -20;
-  //   gltf.scene.rotation.y = Math.PI;
-  //   gltf.scene.scale.set(15, 15, 15);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.02;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Above building Asset
-  // const deliveryLogo = new GLTFLoader();
-  // deliveryLogo.setDRACOLoader(dracoLoader);
-  // deliveryLogo.load("crypto-foodies/delivery.gltf", function (gltf) {
-  //   gltf.scene.position.y = 70;
-  //   gltf.scene.position.x = -20;
-  //   gltf.scene.rotation.y = 0;
-  //   gltf.scene.scale.set(15, 15, 15);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.02;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Above building Asset
-  // const buildingLogo = new GLTFLoader();
-  // buildingLogo.setDRACOLoader(dracoLoader);
-  // buildingLogo.load("crypto-foodies/cf-logo-3.gltf", function (gltf) {
-  //   gltf.scene.position.y = 15;
-  //   gltf.scene.position.x = -20;
-  //   gltf.scene.rotation.y = 76.8;
-  //   gltf.scene.scale.set(30, 30, 30);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.002;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Above building Asset
-  // const pickupLogo = new GLTFLoader();
-  // pickupLogo.setDRACOLoader(dracoLoader);
-  // pickupLogo.load("crypto-foodies/pickup.gltf", function (gltf) {
-  //   gltf.scene.position.y = 45;
-  //   gltf.scene.position.x = -65;
-  //   gltf.scene.rotation.y = 76.8;
-  //   gltf.scene.scale.set(15, 15, 15);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.02;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Above building Asset
-  // const deliveryLogo = new GLTFLoader();
-  // deliveryLogo.setDRACOLoader(dracoLoader);
-  // deliveryLogo.load("crypto-foodies/delivery.gltf", function (gltf) {
-  //   gltf.scene.position.y = 65;
-  //   gltf.scene.position.x = -5;
-  //   gltf.scene.rotation.y = 76.8;
-  //   gltf.scene.scale.set(15, 15, 15);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.01;
-  //   }
-  //   rotate();
-  // });
-
-  // // CF Center Building Logo Asset
-  // const coinLogo = new GLTFLoader();
-  // coinLogo.setDRACOLoader(dracoLoader);
-  // coinLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
-  //   gltf.scene.position.x = -30;
-  //   gltf.scene.position.y = -5;
-  //   gltf.scene.position.z = 5;
-  //   gltf.scene.scale.set(10, 10, 10);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y += 0.025;
-  //   }
-  //   rotate();
-  // });
-  // coinLogo.load("crypto-foodies/cf-logo.gltf", function (gltf) {
-  //   gltf.scene.position.x = 30;
-  //   gltf.scene.position.y = -5;
-  //   gltf.scene.position.z = 5;
-  //   gltf.scene.scale.set(10, 10, 10);
-  //   scene.add(gltf.scene);
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y -= 0.025;
-  //   }
-  //   rotate();
-  // });
-
-  // //texas asset
-  // const texasLoader = new GLTFLoader();
-  // texasLoader.setDRACOLoader(dracoLoader);
-  // texasLoader.load("locations/u-of-texas.gltf", function (gltf) {
-  //   // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-  //   gltf.scene.position.x = 0;
-  //   gltf.scene.position.y = -85;
-  //   gltf.scene.scale.set(10, 10, 10);
-  //   scene.add(gltf.scene);
-  //   let x = -2.09;
-  //   let y = -2.09;
-  //   let z = 0;
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     gltf.scene.rotation.y += 0.00075;
-  //     gltf.scene.rotation.x -= 0.00075;
-  //     gltf.scene.rotation.z -= 0.00075;
-  //     gltf.scene.position.x = Math.sin(x) * 150;
-  //     gltf.scene.position.y = Math.cos(y) * 150;
-  //     gltf.scene.position.z = Math.cos(z) * 150;
-  //     x += 0.001;
-  //     y += 0.001;
-  //     z += 0.001;
-  //   }
-  //   rotate();
-  // });
-
   //Tejis asset
   const tejiLoader = new GLTFLoader();
   tejiLoader.setDRACOLoader(dracoLoader);
@@ -375,36 +119,6 @@ function init() {
     }
     rotate();
   });
-
-  // //Ghost Kitchen asset
-  // const ghostKitchenLoader = new GLTFLoader();
-  // ghostKitchenLoader.setDRACOLoader(dracoLoader);
-  // ghostKitchenLoader.load(
-  //   "locations/ghostline-planet-test.gltf",
-  //   function (gltf) {
-  //     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-  //     gltf.scene.position.x = 0;
-  //     gltf.scene.position.y = 85;
-  //     gltf.scene.scale.set(10, 10, 10);
-  //     scene.add(gltf.scene);
-  //     let x = 0;
-  //     let y = Math.PI;
-  //     let z = 0;
-  //     function rotate() {
-  //       requestAnimationFrame(rotate);
-  //       gltf.scene.rotation.y -= 0.00075;
-  //       gltf.scene.rotation.x += 0.00075;
-  //       gltf.scene.rotation.z += 0.00075;
-  //       gltf.scene.position.x = Math.sin(x) * 100;
-  //       gltf.scene.position.y = Math.cos(y) * 100;
-  //       gltf.scene.position.z = Math.cos(z) * 100;
-  //       x -= 0.001;
-  //       y -= 0.001;
-  //       z += 0.001;
-  //     }
-  //     rotate();
-  //   }
-  // );
 
   //ND chinese Asset
   const ndChinese = new GLTFLoader();
@@ -493,85 +207,6 @@ function init() {
     }
     rotate();
   });
-
-  // //ND chinese Asset
-  // const ndChinese = new GLTFLoader();
-  // ndChinese.setDRACOLoader(dracoLoader);
-  // ndChinese.load("brands/nice-day-chinese-test.gltf", function (gltf) {
-  //   // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-  //   gltf.scene.position.x = 0;
-  //   gltf.scene.position.y = 135;
-  //   gltf.scene.scale.set(28, 28, 28);
-  //   scene.add(gltf.scene);
-  //   let x = 0;
-  //   let y = 0;
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     // gltf.scene.rotation.y -= 0.005;
-  //     gltf.scene.position.x = Math.sin(x) * 150;
-  //     gltf.scene.position.y = Math.cos(y) * 150;
-  //     x -= 0.0025;
-  //     y -= 0.0025;
-  //   }
-  //   rotate();
-  // });
-
-  // //Budlong Asset
-
-  // const budLoader = new GLTFLoader();
-  // budLoader.setDRACOLoader(dracoLoader);
-  // budLoader.load(
-  //   // resource URL
-  //   "brands/budlong-compressed.glb",
-  //   // called when the resource is loaded
-  //   function (gltf) {
-  //     gltf.scene.position.x = 115;
-  //     gltf.scene.position.y = -135;
-  //     gltf.scene.scale.set(15, 15, 15);
-  //     scene.add(gltf.scene);
-  //     let x = 360;
-  //     let y = 360;
-  //     function rotate() {
-  //       requestAnimationFrame(rotate);
-  //       // gltf.scene.rotation.y -= 0.005;
-  //       gltf.scene.position.x = Math.sin(x) * 150;
-  //       gltf.scene.position.y = Math.cos(y) * 150;
-  //       x -= 0.0025;
-  //       y -= 0.0025;
-  //     }
-  //     rotate();
-  //   }
-  // );
-
-  // //HB stan Asset
-  // const stanLoader = new GLTFLoader();
-  // stanLoader.setDRACOLoader(dracoLoader);
-  // stanLoader.load("brands/hamburger-stand-no-backboard.gltf", function (gltf) {
-  //   // gltf.scene.rotation.y = 3 * (Math.PI / 2);
-  //   gltf.scene.position.x = -140;
-  //   gltf.scene.position.y = -20;
-  //   gltf.scene.scale.set(22, 22, 22);
-  //   scene.add(gltf.scene);
-  //   let x = -360;
-  //   let y = -360;
-  //   function rotate() {
-  //     requestAnimationFrame(rotate);
-  //     // gltf.scene.rotation.y -= 0.005;
-  //     gltf.scene.position.x = Math.sin(x) * 150;
-  //     gltf.scene.position.y = Math.cos(y) * 150;
-  //     x -= 0.0025;
-  //     y -= 0.0025;
-  //   }
-  //   rotate();
-  // });
-
-  // // Galaxy Particle Blast Asset
-  // const particleAsset = new GLTFLoader();
-  // particleAsset.setDRACOLoader(dracoLoader);
-  // particleAsset.load("/bg-assets/blasted-galaxy-3.gltf", function (gltf) {
-  //   gltf.scene.scale.set(13, 13, 13);
-  //   scene.add(gltf.scene);
-  // });
 
   const protectedArea = 100;
   const worldScaleDispersionFactor = 1000;
@@ -707,39 +342,6 @@ function init() {
   );
   scene.add(particles);
 
-  // // alt
-  // // Geometry
-  // const particlesGeometryAlt = new THREE.BufferGeometry();
-  // const countAlt = 1000;
-  // const positionsAlt = new Float32Array(count * 3);
-
-  // for (
-  //   let i = 0;
-  //   i < count * 3;
-  //   i++ // Multiply by 3 for same reason
-  // ) {
-  //   positionsAlt[i] = (Math.random() - 0.5) * 500;
-  // }
-
-  // // Material
-  // const particlesMaterialAlt = new THREE.PointsMaterial({
-  //   size: 2,
-  //   sizeAttenuation: true,
-  //   color: "#96178a",
-  //   transparent: true,
-  //   opacity: 0.75,
-  // });
-  // // particlesMaterial.vertexColors = true;
-  // const particlesAlt = new THREE.Points(
-  //   particlesGeometryAlt,
-  //   particlesMaterialAlt
-  // );
-  // particlesGeometryAlt.setAttribute(
-  //   "position",
-  //   new THREE.BufferAttribute(positionsAlt, 3)
-  // );
-  // scene.add(particlesAlt);
-
   //-------------  lights
 
   const dirLight1 = new THREE.DirectionalLight(0xffffff);
@@ -761,10 +363,6 @@ function init() {
   light.position.set(0, 50, 100);
   scene.add(light);
 
-  // // stan lighting
-  // const light1 = new THREE.PointLight("hsl(100,100%,50%)", 27, 100);
-  // light1.position.set(6, 135, -50);
-  // scene.add(light1);
   //------------- renderer
 
   renderer = new THREE.WebGLRenderer({
@@ -776,8 +374,8 @@ function init() {
   document.body.appendChild(renderer.domElement);
   renderer.domElement.id = "mainCanvas";
 
-  stats = new Stats();
-  document.body.appendChild(stats.dom);
+  // stats = new Stats();
+  // document.body.appendChild(stats.dom);
 
   window.addEventListener("resize", onWindowResize);
 
@@ -932,7 +530,7 @@ function animate() {
   }
   requestAnimationFrame(animate);
   controls.update();
-  stats.update();
+  // stats.update();
   render();
 }
 
@@ -1007,42 +605,6 @@ jQuery(function () {
       });
     });
   }
-
-  // function exploreWorld() {
-  //   controls.rotateSpeed = 3;
-  //   controls.zoomSpeed = 0.8;
-  //   controls.maxDistance = 375;
-  //   requestRotate = false;
-  //   requestSlowRotate = true;
-  //   jQuery("header").addClass("btn-no-click");
-  //   jQuery("header").fadeTo(1000, 0, function () {
-  //     jQuery("header").removeClass("block");
-  //     jQuery("header").addClass("hidden");
-  //     jQuery("#endExplore").addClass("btn-no-click");
-  //     jQuery("#endExplore").removeClass("hidden");
-  //     jQuery("#endExplore").addClass("block");
-  //     jQuery("#endExplore").fadeTo(1000, 1, function () {
-  //       jQuery("#endExplore").removeClass("btn-no-click");
-  //     });
-  //   });
-  // }
-
-  // function endExploreWorld() {
-  //   requestSlowRotate = false;
-  //   requestRotate = true;
-  //   controls.maxDistance = 375;
-  //   jQuery("#endExplore").addClass("btn-no-click");
-  //   jQuery("#endExplore").fadeTo(1000, 0, function () {
-  //     jQuery("#endExplore").removeClass("block");
-  //     jQuery("#endExplore").addClass("hidden");
-  //     jQuery("header").addClass("btn-no-click");
-  //     jQuery("header").removeClass("hidden");
-  //     jQuery("header").addClass("block");
-  //     jQuery("header").fadeTo(1000, 1, function () {
-  //       jQuery("header").removeClass("btn-no-click");
-  //     });
-  //   });
-  // }
 
   function openHeaderMenu() {
     // FIXME:Change the value of fixed below back to static, this was only for testing

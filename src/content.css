@@ -446,8 +446,9 @@ header figure img {
   position: absolute;
   opacity: 0 !important;
   top: 15px;
-  right: 25px;
+  left: 25px;
   cursor: pointer;
+  z-index: -1;
 }
 
 #audioIcon figure {
