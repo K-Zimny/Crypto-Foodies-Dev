@@ -78,7 +78,7 @@ function init() {
       gltf.scene.scale.set(1.25, 1.25, 1.25);
       const mediaQuery = window.matchMedia("(max-width: 767px)");
       if (mediaQuery.matches) {
-        gltf.scene.scale.set(0.5, 0.5, 0.5);
+        gltf.scene.scale.set(0.6, 0.6, 0.6);
         gltf.scene.position.y = -10;
         gltf.scene.position.x = 0;
       }
