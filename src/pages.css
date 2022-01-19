@@ -604,10 +604,16 @@ hr.innerpage-divider {
 @media only screen and (max-width: 767px) {
   #roadmapBlock p {
     filter: blur(2px);
+    font-size: 10rem;
+    line-height: 10rem;
   }
 }
 
 /* nft membership blocks */
+
+#nftMember {
+  line-height: 6rem;
+}
 
 .nft-memberblock-container {
   display: flex;
@@ -618,7 +624,8 @@ hr.innerpage-divider {
 }
 
 .nft-memberblock {
-  width: 30%;
+  width: 50%;
+  max-width: 500px;
   padding: 5%;
   border: 1px solid #fff;
   background: #f5f5dc1c;

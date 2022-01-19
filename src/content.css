@@ -3,7 +3,7 @@
 header {
   opacity: 0;
   position: absolute;
-  mix-blend-mode: exclusion;
+  /* mix-blend-mode: exclusion; */
   width: 85%;
   max-width: 300px;
   top: 50%;

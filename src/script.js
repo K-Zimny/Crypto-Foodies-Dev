@@ -67,7 +67,7 @@ function init() {
   const TextureLoaderCenter = new GLTFLoader();
   TextureLoaderCenter.setDRACOLoader(dracoLoader);
   TextureLoaderCenter.load(
-    "crypto-foodies/meal-outpost-logo-metal-smaller.gltf",
+    "crypto-foodies/buildingmodel-no-awning.gltf",
     function (gltf) {
       gltf.scene.position.y = -25;
       // gltf.scene.position.x = 12.5;
@@ -76,7 +76,7 @@ function init() {
       gltf.scene.rotation.x = -0.5;
       // gltf.scene.scale.set(3, 3, 3);
       gltf.scene.scale.set(1.25, 1.25, 1.25);
-      const mediaQuery = window.matchMedia("(max-width: 767px)");
+      const mediaQuery = window.matchMedia("(max-width: 1199px)");
       if (mediaQuery.matches) {
         gltf.scene.scale.set(0.6, 0.6, 0.6);
         gltf.scene.position.y = -10;
