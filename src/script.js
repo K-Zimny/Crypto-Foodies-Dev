@@ -352,16 +352,16 @@ function init() {
   dirLight2.position.set(-1, -1, -1);
   scene.add(dirLight2);
 
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  scene.add(directionalLight);
+  // const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  // scene.add(directionalLight);
 
-  const ambientLight = new THREE.AmbientLight(0x222222);
-  scene.add(ambientLight);
+  // const ambientLight = new THREE.AmbientLight(0x222222);
+  // scene.add(ambientLight);
 
-  // building lighting
-  const light = new THREE.PointLight("hsl(10,100%,50%)", 27, 100);
-  light.position.set(0, 50, 100);
-  scene.add(light);
+  // // building lighting
+  // const light = new THREE.PointLight("hsl(4,99%,66%)", 7, 40);
+  // light.position.set(0, 15, 20);
+  // scene.add(light);
 
   //------------- renderer
 
