@@ -41,6 +41,8 @@ body.inner-page {
   flex-flow: column;
   min-height: 100vh;
   background-color: #dedede;
+  overflow-x: hidden;
+  /* background-image: url("/static/imgs/space-bg-1.webp"); */
 }
 
 body.body-100vh {

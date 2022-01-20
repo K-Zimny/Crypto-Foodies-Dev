@@ -30,42 +30,42 @@ module.exports = {
       chunks: ["pages"],
       minify: true,
     }),
-    new HtmlWebpackPlugin({
-      filename: "partners/index.html",
-      template: path.resolve(__dirname, "../src/partners/index.html"),
-      chunks: ["pages"],
-      minify: true,
-    }),
-    new HtmlWebpackPlugin({
-      filename: "partners/state/index.html",
-      template: path.resolve(__dirname, "../src/partners/state/index.html"),
-      chunks: ["pages"],
-      minify: true,
-    }),
-    new HtmlWebpackPlugin({
-      filename: "partners/state/texas/index.html",
-      template: path.resolve(
-        __dirname,
-        "../src/partners/state/texas/index.html"
-      ),
-      chunks: ["pages"],
-      minify: true,
-    }),
-    new HtmlWebpackPlugin({
-      filename: "partners/outposts/index.html",
-      template: path.resolve(__dirname, "../src/partners/outposts/index.html"),
-      chunks: ["pages"],
-      minify: true,
-    }),
-    new HtmlWebpackPlugin({
-      filename: "partners/virtual-restaurant/index.html",
-      template: path.resolve(
-        __dirname,
-        "../src/partners/virtual-restaurant/index.html"
-      ),
-      chunks: ["pages"],
-      minify: true,
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: "partners/index.html",
+    //   template: path.resolve(__dirname, "../src/partners/index.html"),
+    //   chunks: ["pages"],
+    //   minify: true,
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: "partners/state/index.html",
+    //   template: path.resolve(__dirname, "../src/partners/state/index.html"),
+    //   chunks: ["pages"],
+    //   minify: true,
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: "partners/state/texas/index.html",
+    //   template: path.resolve(
+    //     __dirname,
+    //     "../src/partners/state/texas/index.html"
+    //   ),
+    //   chunks: ["pages"],
+    //   minify: true,
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: "partners/outposts/index.html",
+    //   template: path.resolve(__dirname, "../src/partners/outposts/index.html"),
+    //   chunks: ["pages"],
+    //   minify: true,
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: "partners/virtual-restaurant/index.html",
+    //   template: path.resolve(
+    //     __dirname,
+    //     "../src/partners/virtual-restaurant/index.html"
+    //   ),
+    //   chunks: ["pages"],
+    //   minify: true,
+    // }),
     new HtmlWebpackPlugin({
       filename: "privacy-policy/index.html",
       template: path.resolve(__dirname, "../src/privacy-policy/index.html"),

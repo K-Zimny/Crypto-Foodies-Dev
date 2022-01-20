@@ -40,6 +40,7 @@ body.inner-page {
   flex-flow: column;
   min-height: 100vh;
   background-color: #dedede;
+  /* background-image: url("/static/imgs/space-bg-1.webp"); */
 }
 
 body.body-100vh {
@@ -313,6 +314,7 @@ img {
   display: inline-block;
   position: relative;
   margin: 0.5rem 0 0;
+  font-family: "itc-avant-garde-gothic-pro" !important;
 }
 
 #pageHeader > .container > div:first-of-type a {
@@ -723,7 +725,7 @@ hr.innerpage-divider {
 }
 
 #aboutPage #pageHeader {
-  mix-blend-mode: color-burn;
+  /* mix-blend-mode: color-burn; */
   background: #000;
 }
 
@@ -745,7 +747,7 @@ hr.innerpage-divider {
 }
 
 #aboutPage .solid-bg {
-  background: #1f1f1f;
+  background: #090909;
   width: 100vw;
   transform: translateX(-50%);
   position: relative;
@@ -768,7 +770,7 @@ hr.innerpage-divider {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin: 0rem 0rem 200vh;
+  margin: 0rem 0rem 85vh;
   background: linear-gradient(#000 10%, #d13131) !important;
 }
 
@@ -810,10 +812,16 @@ hr.innerpage-divider {
 @media only screen and (max-width: 767px) {
   #roadmapBlock p {
     filter: blur(2px);
+    font-size: 10rem;
+    line-height: 10rem;
   }
 }
 
 /* nft membership blocks */
+
+#nftMember {
+  line-height: 6rem;
+}
 
 .nft-memberblock-container {
   display: flex;
@@ -824,7 +832,8 @@ hr.innerpage-divider {
 }
 
 .nft-memberblock {
-  width: 30%;
+  width: 50%;
+  max-width: 500px;
   padding: 5%;
   border: 1px solid #fff;
   background: #f5f5dc1c;
@@ -874,6 +883,66 @@ hr.innerpage-divider {
     width: 70px;
     z-index: 999;
   }
+}
+
+/* ================================================================================= */
+/* join link button - Used for Discord */
+/* ================================================================================= */
+
+.join-link-btn {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem auto;
+  /* border: 2px solid var(--dark); */
+  padding: 1rem;
+  /* background: var(--dark); */
+  max-width: 350px;
+  font-size: 2rem;
+  /* padding: 3rem; */
+  transition: all ease 0.65s;
+}
+
+.join-link-btn a {
+  z-index: 2;
+  transition: all ease 0.65s;
+  padding: 1rem;
+}
+
+.join-link-btn a:hover {
+  transform: scale(1.75);
+  color: #000 !important;
+  background: #d2d2d2e8;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.join-link-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background: #c91919;
+  z-index: 1;
+  transition: all ease 0.65s;
+  border-radius: 3px;
+}
+
+.join-link-btn:hover::before,
+.join-link-btn:active::before,
+.join-link-btn:focus::before {
+  transform: scaleX(2) scaleY(0.05);
+}
+
+/* ================================================================================= */
+/* Roadmap Timeline */
+/* ================================================================================= */
+#roadmapTimeline {
+  max-width: 800px;
+  margin: 0 auto;
+  filter: invert(1);
 }
 
 

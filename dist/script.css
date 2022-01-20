@@ -40,6 +40,7 @@ body.inner-page {
   flex-flow: column;
   min-height: 100vh;
   background-color: #dedede;
+  /* background-image: url("/static/imgs/space-bg-1.webp"); */
 }
 
 body.body-100vh {
@@ -209,7 +210,7 @@ hr {
 header {
   opacity: 0;
   position: absolute;
-  mix-blend-mode: exclusion;
+  /* mix-blend-mode: exclusion; */
   width: 85%;
   max-width: 300px;
   top: 50%;
@@ -557,7 +558,7 @@ header figure img {
   font-size: 5vh;
   line-height: 6vh;
   margin: 0;
-  mix-blend-mode: exclusion;
+  /* mix-blend-mode: exclusion; */
   text-transform: capitalize;
 }
 

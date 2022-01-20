@@ -67,7 +67,7 @@ function init() {
   const TextureLoaderCenter = new GLTFLoader();
   TextureLoaderCenter.setDRACOLoader(dracoLoader);
   TextureLoaderCenter.load(
-    "crypto-foodies/buildingmodel-no-awning.gltf",
+    "crypto-foodies/buildingmodel-color-correction.gltf",
     function (gltf) {
       gltf.scene.position.y = -25;
       // gltf.scene.position.x = 12.5;
