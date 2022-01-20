@@ -568,6 +568,12 @@ hr.innerpage-divider {
   background: linear-gradient(#000 10%, #d13131) !important;
 }
 
+@media only screen and (max-width: 767px) {
+  #aboutBlock {
+    margin: 0rem 0rem 8rem;
+  }
+}
+
 #aboutBlock h1 {
   font-size: 25vw;
   text-align: center;
@@ -741,7 +747,17 @@ hr.innerpage-divider {
 /* Roadmap Timeline */
 /* ================================================================================= */
 #roadmapTimeline {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   filter: invert(1);
+}
+
+#roadmapTimeline img {
+  border: 35px solid #3117e5;
+}
+
+@media only screen and (max-width: 767px) {
+  #roadmapTimeline img {
+    border-width: 15px;
+  }
 }

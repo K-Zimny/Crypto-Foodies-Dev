@@ -40,6 +40,7 @@ body.inner-page {
   flex-flow: column;
   min-height: 100vh;
   background-color: #dedede;
+  overflow-x: hidden;
   /* background-image: url("/static/imgs/space-bg-1.webp"); */
 }
 
@@ -212,7 +213,7 @@ header {
   position: absolute;
   /* mix-blend-mode: exclusion; */
   width: 85%;
-  max-width: 300px;
+  max-width: 750px;
   top: 50%;
   /* left: 10px; */
   transform: translateY(-50%);
@@ -230,6 +231,17 @@ header {
   /* border: 1px solid #ffffff38; */
   /* border-radius: 3px; */
   padding: 0 0.5rem;
+}
+
+#hrHeaderTag {
+  max-width: 300px;
+  margin: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  #hrHeaderTag {
+    max-width: 100%;
+  }
 }
 
 /* @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
