@@ -127,7 +127,7 @@ function init() {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = 0;
     gltf.scene.position.y = 135;
-    gltf.scene.rotation.x = 3;
+    gltf.scene.rotation.x = 0;
     gltf.scene.scale.set(25, 25, 25);
     scene.add(gltf.scene);
     let x = -1;
@@ -135,9 +135,9 @@ function init() {
     let z = 1;
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.00095;
-      gltf.scene.rotation.x -= 0.00095;
-      gltf.scene.rotation.z -= 0.00095;
+      gltf.scene.rotation.y += 0.0005;
+      gltf.scene.rotation.x -= 0.0005;
+      gltf.scene.rotation.z -= 0.0005;
       gltf.scene.position.x = Math.sin(x) * 120;
       gltf.scene.position.y = Math.cos(y) * 120;
       gltf.scene.position.z = Math.cos(z) * 120;
@@ -148,27 +148,27 @@ function init() {
     rotate();
   });
 
-  //Budlong Asset
+  //taquerillo Asset
 
   const budLoader = new GLTFLoader();
   budLoader.setDRACOLoader(dracoLoader);
   budLoader.load(
     // resource URL
-    "brands/budlong-compressed.glb",
+    "brands/taquerillo.gltf",
     // called when the resource is loaded
     function (gltf) {
       gltf.scene.position.x = 115;
       gltf.scene.position.y = -135;
-      gltf.scene.scale.set(15, 15, 15);
+      gltf.scene.scale.set(5, 5, 5);
       scene.add(gltf.scene);
-      let x = -2.09;
-      let y = -2.09;
-      let z = 0;
+      let x = -0.59;
+      let y = -3.09;
+      let z = -10;
       function rotate() {
         requestAnimationFrame(rotate);
-        gltf.scene.rotation.y -= 0.00075;
-        gltf.scene.rotation.x += 0.00075;
-        gltf.scene.rotation.z -= 0.00075;
+        gltf.scene.rotation.y += 0.0005;
+        gltf.scene.rotation.x += 0.0005;
+        gltf.scene.rotation.z -= 0.0005;
         gltf.scene.position.x = Math.sin(x) * 120;
         gltf.scene.position.y = Math.cos(y) * 120;
         gltf.scene.position.z = Math.cos(z) * 120;
@@ -180,27 +180,84 @@ function init() {
     }
   );
 
-  //HB stan Asset
+  //kalamata Asset
   const stanLoader = new GLTFLoader();
   stanLoader.setDRACOLoader(dracoLoader);
-  stanLoader.load("brands/hamburger-stand-no-backboard.gltf", function (gltf) {
+  stanLoader.load("brands/kalamata.gltf", function (gltf) {
     // gltf.scene.rotation.y = 3 * (Math.PI / 2);
     gltf.scene.position.x = -140;
     gltf.scene.position.y = -20;
-    gltf.scene.rotation.y = 2;
-    gltf.scene.scale.set(15, 15, 15);
+    gltf.scene.rotation.y = 0;
+    gltf.scene.scale.set(5, 5, 5);
     scene.add(gltf.scene);
-    let x = 2.09;
-    let y = 2.09;
+    let x = 13.09;
+    let y = -1.59;
     let z = 0;
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y -= 0.00075;
-      gltf.scene.rotation.x -= 0.00075;
-      gltf.scene.rotation.z += 0.00075;
+      gltf.scene.rotation.y += 0.0005;
+      gltf.scene.rotation.x += 0.0005;
+      gltf.scene.rotation.z -= 0.0005;
       gltf.scene.position.x = Math.sin(x) * 120;
       gltf.scene.position.y = Math.cos(y) * 120;
       gltf.scene.position.z = Math.cos(z) * 120;
+      x -= 0.0005;
+      y -= 0.0005;
+      z += 0.0005;
+    }
+    rotate();
+  });
+
+  //proper-diner Asset
+  const properLoader = new GLTFLoader();
+  properLoader.setDRACOLoader(dracoLoader);
+  properLoader.load("brands/proper-diner.gltf", function (gltf) {
+    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+    gltf.scene.position.x = -140;
+    gltf.scene.position.y = -20;
+    gltf.scene.rotation.y = -6;
+    gltf.scene.scale.set(5, 5, 5);
+    scene.add(gltf.scene);
+    let x = 1.99;
+    let y = -1.59;
+    let z = -10;
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y -= 0.0005;
+      gltf.scene.rotation.x -= 0.0005;
+      gltf.scene.rotation.z += 0.0005;
+      gltf.scene.position.x = Math.sin(x) * 90;
+      gltf.scene.position.y = Math.cos(y) * 90;
+      gltf.scene.position.z = Math.cos(z) * 120;
+      x -= 0.0005;
+      y -= 0.0005;
+      z += 0.0005;
+    }
+    rotate();
+  });
+
+  //aaandiamo Asset
+  const aaandiamoLoader = new GLTFLoader();
+  aaandiamoLoader.setDRACOLoader(dracoLoader);
+  aaandiamoLoader.load("brands/aaandiamo.gltf", function (gltf) {
+    // gltf.scene.rotation.y = 3 * (Math.PI / 2);
+    gltf.scene.position.x = -140;
+    gltf.scene.position.y = -20;
+    gltf.scene.rotation.y = -6;
+    gltf.scene.rotation.x = 0;
+    gltf.scene.scale.set(5, 5, 5);
+    scene.add(gltf.scene);
+    let x = -1.29;
+    let y = -2.09;
+    let z = 1;
+    function rotate() {
+      requestAnimationFrame(rotate);
+      gltf.scene.rotation.y += 0.0005;
+      gltf.scene.rotation.x -= 0.0005;
+      gltf.scene.rotation.z += 0.0005;
+      gltf.scene.position.x = Math.sin(x) * 90;
+      gltf.scene.position.y = Math.cos(y) * 90;
+      gltf.scene.position.z = Math.cos(z) * 90;
       x -= 0.0005;
       y -= 0.0005;
       z += 0.0005;
@@ -352,6 +409,10 @@ function init() {
   dirLight2.position.set(-1, -1, -1);
   scene.add(dirLight2);
 
+  const dirLight3 = new THREE.DirectionalLight(0xffffff, 0.5);
+  dirLight3.position.set(1, 1, 100);
+  scene.add(dirLight3);
+
   // const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
   // scene.add(directionalLight);
 
@@ -374,8 +435,8 @@ function init() {
   document.body.appendChild(renderer.domElement);
   renderer.domElement.id = "mainCanvas";
 
-  // stats = new Stats();
-  // document.body.appendChild(stats.dom);
+  stats = new Stats();
+  document.body.appendChild(stats.dom);
 
   window.addEventListener("resize", onWindowResize);
 
@@ -530,7 +591,7 @@ function animate() {
   }
   requestAnimationFrame(animate);
   controls.update();
-  // stats.update();
+  stats.update();
   render();
 }
 
