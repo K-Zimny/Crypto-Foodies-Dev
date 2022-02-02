@@ -195,9 +195,9 @@ function init() {
     let z = 0;
     function rotate() {
       requestAnimationFrame(rotate);
-      gltf.scene.rotation.y += 0.0005;
-      gltf.scene.rotation.x += 0.0005;
-      gltf.scene.rotation.z -= 0.0005;
+      gltf.scene.rotation.y += 0.0004;
+      gltf.scene.rotation.x += 0.0004;
+      gltf.scene.rotation.z += 0.0004;
       gltf.scene.position.x = Math.sin(x) * 120;
       gltf.scene.position.y = Math.cos(y) * 120;
       gltf.scene.position.z = Math.cos(z) * 120;
