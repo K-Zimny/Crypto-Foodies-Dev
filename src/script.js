@@ -435,8 +435,8 @@ function init() {
   document.body.appendChild(renderer.domElement);
   renderer.domElement.id = "mainCanvas";
 
-  stats = new Stats();
-  document.body.appendChild(stats.dom);
+  // stats = new Stats();
+  // document.body.appendChild(stats.dom);
 
   window.addEventListener("resize", onWindowResize);
 
@@ -591,7 +591,7 @@ function animate() {
   }
   requestAnimationFrame(animate);
   controls.update();
-  stats.update();
+  // stats.update();
   render();
 }
 
