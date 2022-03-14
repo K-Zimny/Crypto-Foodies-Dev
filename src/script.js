@@ -556,9 +556,9 @@ function introZoomIn() {
     // console.log(elapsedTime);
     // perspectiveCamera.position.z -= 1;
 
-    perspectiveCamera.position.z -= elapsedTime / 4;
-    perspectiveCamera.position.x += elapsedTime / 7;
-    perspectiveCamera.position.y -= elapsedTime / 3.5;
+    perspectiveCamera.position.z -= elapsedTime / 6;
+    perspectiveCamera.position.x += elapsedTime / 9;
+    perspectiveCamera.position.y -= elapsedTime / 5.5;
     // perspectiveCamera.position.z += 0.45;
     // perspectiveCamera.position.x += 0.05;
     // perspectiveCamera.position.y += 0.05;
@@ -703,7 +703,7 @@ jQuery(function () {
       .delay(1500)
       .fadeTo(3000, 1, function () {
         jQuery("#introSceneText")
-          .delay(3000)
+          .delay(5000)
           .fadeTo(1500, 0, function () {
             jQuery("#introSceneText").remove();
             setTimeout(showHeader, 0);
