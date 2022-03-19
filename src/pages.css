@@ -575,9 +575,9 @@ hr.innerpage-divider {
 }
 
 #aboutBlock h1 {
-  font-size: 25vw;
+  font-size: 10vw;
   text-align: center;
-  filter: blur(5px);
+  filter: blur(2.5px);
   position: sticky;
   top: 60%;
 }
@@ -603,7 +603,7 @@ hr.innerpage-divider {
 #roadmapBlock p {
   font-size: 10vw;
   text-align: center;
-  filter: blur(5px);
+  filter: blur(2.5px);
   position: sticky;
   top: 50%;
   font-family: itc-avant-garde-gothic-pro, sans-serif !important;
@@ -821,4 +821,19 @@ hr.innerpage-divider {
   #roadmapTimeline img {
     border-width: 15px;
   }
+}
+
+/* ================================================================================= */
+/* How it works video */
+/* ================================================================================= */
+
+#howItWorksVideo {
+  width: 100%;
+}
+
+#howItWorksVideo video {
+  display: block;
+  width: 90%;
+  max-width: 1200px;
+  margin: 5rem auto 2rem;
 }

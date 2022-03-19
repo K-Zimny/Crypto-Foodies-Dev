@@ -703,7 +703,7 @@ jQuery(function () {
       .delay(1500)
       .fadeTo(3000, 1, function () {
         jQuery("#introSceneText")
-          .delay(5000)
+          .delay(3000)
           .fadeTo(1500, 0, function () {
             jQuery("#introSceneText").remove();
             setTimeout(showHeader, 0);
@@ -740,10 +740,20 @@ jQuery(function () {
 
   THREE.DefaultLoadingManager.onLoad = function () {
     console.log("Loading Complete!");
+    // jQuery("body").css("opacity", "0");
+    // jQuery("#enterScreen").remove();
+    // introScene();
+    jQuery("#loadingThreeJsEnter").css("display", "block");
+    jQuery("#loadingRing").css("display", "none");
+    jQuery("#loadingText").css("display", "none");
+    jQuery("#loadingThreeJsStatus").css("display", "none");
+  };
+
+  jQuery("#loadingThreeJsEnter").on("click", function () {
     jQuery("body").css("opacity", "0");
     jQuery("#enterScreen").remove();
     introScene();
-  };
+  });
 
   THREE.DefaultLoadingManager.onProgress = function (
     url,
