@@ -783,9 +783,9 @@ hr.innerpage-divider {
 }
 
 #aboutBlock h1 {
-  font-size: 25vw;
+  font-size: 10vw;
   text-align: center;
-  filter: blur(5px);
+  filter: blur(2.5px);
   position: sticky;
   top: 60%;
 }
@@ -811,16 +811,17 @@ hr.innerpage-divider {
 #roadmapBlock p {
   font-size: 10vw;
   text-align: center;
-  filter: blur(5px);
+  filter: blur(2.5px);
   position: sticky;
   top: 50%;
   font-family: itc-avant-garde-gothic-pro, sans-serif !important;
+  line-height: 250px;
 }
 
 @media only screen and (max-width: 767px) {
   #roadmapBlock p {
     filter: blur(2px);
-    font-size: 10rem;
+    font-size: 4rem;
     line-height: 10rem;
   }
 }
@@ -920,7 +921,7 @@ hr.innerpage-divider {
 }
 
 .join-link-btn a:hover {
-  transform: scale(1.75);
+  transform: scale(1.5);
   color: #000 !important;
   background: #d2d2d2e8;
   padding: 1rem;
@@ -952,6 +953,66 @@ hr.innerpage-divider {
 }
 
 /* ================================================================================= */
+/* typeform how it works */
+/* ================================================================================= */
+
+#howItWorksTypeform {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem auto;
+  /* border: 2px solid var(--dark); */
+  padding: 1rem;
+  /* background: var(--dark); */
+  max-width: 1000px;
+  font-size: 2rem;
+  /* padding: 3rem; */
+  transition: all ease 0.65s;
+  text-align: center;
+  cursor: pointer;
+}
+
+#howItWorksTypeform a {
+  z-index: 2;
+  transition: all ease 0.65s;
+  padding: 1rem 10%;
+}
+
+#howItWorksTypeform a:hover {
+  transform: scale(1.5);
+  color: #000 !important;
+  background: #d2d2d2e8;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+  #howItWorksTypeform a:hover {
+    transform: scale(1.05);
+  }
+}
+
+#howItWorksTypeform::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background: #c91919;
+  z-index: 1;
+  transition: all ease 0.65s;
+  border-radius: 3px;
+  z-index: -1;
+}
+
+#howItWorksTypeform:hover::before,
+#howItWorksTypeform:active::before,
+#howItWorksTypeform:focus::before {
+  transform: scaleX(2) scaleY(0);
+}
+
+/* ================================================================================= */
 /* Roadmap Timeline */
 /* ================================================================================= */
 #roadmapTimeline {
@@ -968,6 +1029,21 @@ hr.innerpage-divider {
   #roadmapTimeline img {
     border-width: 15px;
   }
+}
+
+/* ================================================================================= */
+/* How it works video */
+/* ================================================================================= */
+
+#howItWorksVideo {
+  width: 100%;
+}
+
+#howItWorksVideo video {
+  display: block;
+  width: 90%;
+  max-width: 1200px;
+  margin: 5rem auto 2rem;
 }
 
 

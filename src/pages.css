@@ -613,7 +613,7 @@ hr.innerpage-divider {
 @media only screen and (max-width: 767px) {
   #roadmapBlock p {
     filter: blur(2px);
-    font-size: 10rem;
+    font-size: 4rem;
     line-height: 10rem;
   }
 }

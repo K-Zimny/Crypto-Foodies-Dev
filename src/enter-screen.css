@@ -45,6 +45,12 @@
   margin-top: auto;
 }
 
+@media only screen and (max-width: 375px) {
+  #enterScreenHeader figure {
+    width: 50%;
+  }
+}
+
 #enterScreenHeader figure img {
   width: 100%;
   height: 100%;
@@ -60,7 +66,7 @@
   justify-content: center;
   align-items: center;
   height: 90vh;
-  margin-bottom: 25vh;
+  margin-bottom: 5vh;
 }
 
 @media only screen and (max-width: 767px) {
@@ -77,11 +83,17 @@
   z-index: 1000;
   color: #ffffff;
   font-size: 10rem;
-  line-height: 5rem;
+  line-height: 8rem;
   text-align: center;
   margin: 1rem 0;
   font-weight: bold;
   filter: drop-shadow(2px 3px 2px black);
+}
+
+@media only screen and (max-width: 767px) {
+  #enterScreen #loadingPageTitle {
+    font-size: 6rem;
+  }
 }
 
 #enterScreen p {
@@ -200,6 +212,14 @@
   color: #fff !important;
   filter: drop-shadow(2px 3px 2px black);
   margin-bottom: 5rem;
+  padding: 0 2rem;
+}
+
+@media only screen and (max-width: 767px) {
+  #enterSlogan {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
 }
 
 /* ============================================ */
@@ -212,6 +232,13 @@
   padding: 20px 30px;
   font-size: 2rem;
   transition: all ease 0.3s;
+}
+
+@media only screen and (max-width: 767px) {
+  #enterScreen #enterOrderOnline {
+    padding: 1rem;
+    font-size: 1rem;
+  }
 }
 
 #enterScreen #enterOrderOnline:hover,
