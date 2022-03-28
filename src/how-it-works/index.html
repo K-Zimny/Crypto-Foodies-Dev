@@ -26,7 +26,11 @@
     <header id="pageHeader">
       <div class="container">
         <div>
-          <a href="/">Meal Outpost</a>
+          <a href="/">
+            <figure id="moLogoHeader">
+              <img src="../../static/svg/mo-logo.svg" alt="Meal Outpost Logo" />
+            </figure>
+          </a>
         </div>
         <div>
           <nav>
@@ -38,16 +42,16 @@
                 <a href="/how-it-works/index.html">How It Works</a>
               </li>
               <li>
-                <a href="/how-it-works/index.html#roadmapBlock"
+                <a href="/how-it-works/index.html#anchorAlpha"
                   >For Restaurant & Brands</a
                 >
               </li>
               <li>
                 <a href="https://discord.gg/HNPHTWgpXM">Discord</a>
               </li>
-              <!-- <li>
-                <a href="#">Order Now!</a>
-              </li> -->
+              <li>
+                <a href="https://meal-outpost.square.site/">Order Online!</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -56,13 +60,19 @@
     <main>
       <div class="container">
         <div class="sm-container" style="margin-bottom: 10rem">
-          <section id="aboutBlock" class="solid-bg">
+          <!-- <section id="aboutBlock" class="solid-bg">
             <h1>How It Works</h1>
-          </section>
+          </section> -->
 
           <section class="solid-bg">
-            <div class="sm-container">
-              <h2 class="large">How It Works</h2>
+            <div class="sm-container border">
+              <h1 class="large">How It Works</h1>
+              <figure id="howItWorksGif">
+                <img
+                  src="../../static/imgs/how-it-works.gif"
+                  alt="How it Works"
+                />
+              </figure>
               <p class="serif">
                 Our platform allows you to run multiple restaurant brands
                 directly from your restaurant for in-house dining, catering, and
@@ -98,74 +108,20 @@
                   </ul>
                 </li>
               </ul>
+              <button
+                id="howItWorksTypeform"
+                data-tf-popup="sHZZEsqc"
+                data-tf-iframe-props="title=Welcome to Meal Outpost!"
+                data-tf-medium="snippet"
+              >
+                Wanna Learn More? Fill out this form it takes 2 min.
+              </button>
             </div>
-            <div id="howItWorksVideo">
-              <video controls>
-                <source
-                  src="/static/video/how-it-works-video.mp4"
-                  type="video/mp4"
-                />
-              </video>
-            </div>
-            <button
-              id="howItWorksTypeform"
-              data-tf-popup="sHZZEsqc"
-              data-tf-iframe-props="title=Welcome to Meal Outpost!"
-              data-tf-medium="snippet"
-            >
-              Wanna Learn More? Fill out this form it takes 2 min.
-            </button>
             <script src="//embed.typeform.com/next/embed.js"></script>
           </section>
           <hr class="innerpage-divider" />
           <section class="solid-bg">
-            <div class="sm-container">
-              <h2 class="large">Who We Are</h2>
-              <p class="serif">
-                Meal Outpost is a restaurant DAO (decentralized autonomous
-                organization) that incubates, licenses, and operates virtual
-                restaurants. Meal Outpost harnesses the creativity and talent of
-                food entrepreneurs and combines it with the working power of
-                independent restaurant owners. Restaurant owners (Outposts)
-                select and operate virtual brands at their restaurants from our
-                catalog of brands, and then remit a royalty fee to Meal Outpost
-                based on sales. We use this royalty to:
-              </p>
-              <ul>
-                <li class="serif">Pay our licensed brand partners</li>
-                <li class="serif">
-                  Burn the $Meal token to increase its value and to airdrop
-                  rewards to our NFT Holders and consumers
-                </li>
-                <li class="serif">
-                  Help food entrepreneurs and influencers create new brands
-                </li>
-                <li class="serif">
-                  Purchase traditional brick-and-mortar restaurant brands to add
-                  to our catalog
-                </li>
-              </ul>
-              <p class="serif">
-                Think of Meal Outpost and its $Meal token as a restaurant ETF;
-                instead of investing in one particular brand, you are investing
-                in the constellation of brands that operate on our platform. A
-                percentage of profits from every purchase goes directly to
-                purchasing the $Meal token, increasing its value. As consumers
-                purchase, we send the owners of the brand royalties and also
-                $Meal tokens as rewards. As an Outpost works to prepare food and
-                serve the chosen brands' offerings, we remit instant payment and
-                $Meal tokens as rewards. As consumers purchase and write reviews
-                for brands, they also receive $Meal tokens.
-              </p>
-              <p class="serif">
-                It's all about reciprocity. Each participant is incentivized to
-                act in their own interests, which positively affects the group.
-              </p>
-            </div>
-          </section>
-          <hr class="innerpage-divider" />
-          <section class="solid-bg">
-            <div class="sm-container">
+            <div class="sm-container border">
               <h2 class="large">Why</h2>
               <p class="serif">
                 If you want to start a restaurant you have two choices: start it
@@ -224,69 +180,40 @@
               </p>
             </div>
           </section>
-          <section id="roadmapBlock" class="solid-bg">
-            <p>For Restaurant & Brands</p>
-          </section>
-          <section class="solid-bg">
-            <div class="sm-container">
-              <figure id="roadmapTimeline">
+          <hr class="innerpage-divider" />
+          <section id="anchorAlpha" class="solid-bg">
+            <div class="sm-container border">
+              <h2 class="large">For Restaurant and Brands</h2>
+              <figure>
                 <img
                   src="../../static/imgs/how-it-works.gif"
-                  alt="Roadmap timeline."
+                  alt="How it Works"
                 />
               </figure>
+
+              <figure>
+                <img
+                  src="../../static/imgs/how-it-works.gif"
+                  alt="How it Works"
+                />
+              </figure>
+
+              <button
+                id="howItWorksTypeform"
+                data-tf-popup="sHZZEsqc"
+                data-tf-iframe-props="title=Welcome to Meal Outpost!"
+                data-tf-medium="snippet"
+              >
+                Wanna Learn More? Fill out this form it takes 2 min.
+              </button>
             </div>
+            <script src="//embed.typeform.com/next/embed.js"></script>
           </section>
+
           <hr class="innerpage-divider" />
+
           <section class="solid-bg">
-            <div class="sm-container">
-              <h2 id="nftMember" class="large">NFT Membership Levels</h2>
-              <p class="serif">
-                To fund our operations, we are launching the Meal Outpost
-                Loyalty NFT Card. One loyalty card to access all of the
-                discounts, airdrops, and rewards from all of our restaurant
-                partners. Check out the benefits and join the discord to be the
-                first to gain access to the drop on OpenSea.
-              </p>
-              <div class="nft-memberblock-container">
-                <div class="nft-memberblock">
-                  <h3>Mis-en-Place</h3>
-                  <ul>
-                    <li class="serif">
-                      Right to purchase the $Meal coin in the pre-sell round.
-                    </li>
-                    <li class="serif">Governance rights via Membership NFT</li>
-                    <li class="serif">
-                      Access and discounts for all restaurants on the platform
-                    </li>
-                    <li class="serif">More to come!</li>
-                  </ul>
-                </div>
-                <div class="nft-memberblock">
-                  <h3>Chef’s Table</h3>
-                  <ul>
-                    <li class="serif">All of the Mis-en-Place benefits</li>
-                    <li class="serif">
-                      4x governance rights via Membership NFT
-                    </li>
-                    <li class="serif">
-                      Exclusive access to celebrity chef events across the world
-                    </li>
-                    <li class="serif">
-                      The right to open an Outpost “franchise” in your city
-                      using our licensed brands.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div>
-                <p class="serif">(More to come!)</p>
-              </div>
-            </div>
-          </section>
-          <hr class="innerpage-divider" />
-          <section class="solid-bg">
-            <div class="sm-container">
+            <div class="sm-container border">
               <h2 class="large">FAQ</h2>
               <div>
                 <p class="serif">
@@ -331,30 +258,6 @@
           </section>
         </div>
       </div>
-      <video autoplay loop muted playsinline id="aboutPageVideo">
-        <source src="../../static/video/about-3_1.mp4" />
-      </video>
-      <section id="accessibility">
-        <div>
-          <button>
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="far"
-              data-icon="eye-slash"
-              class="svg-inline--fa fa-eye-slash fa-w-20"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 512"
-            >
-              <path
-                fill="currentColor"
-                d="M634 471L36 3.51A16 16 0 0 0 13.51 6l-10 12.49A16 16 0 0 0 6 41l598 467.49a16 16 0 0 0 22.49-2.49l10-12.49A16 16 0 0 0 634 471zM296.79 146.47l134.79 105.38C429.36 191.91 380.48 144 320 144a112.26 112.26 0 0 0-23.21 2.47zm46.42 219.07L208.42 260.16C210.65 320.09 259.53 368 320 368a113 113 0 0 0 23.21-2.46zM320 112c98.65 0 189.09 55 237.93 144a285.53 285.53 0 0 1-44 60.2l37.74 29.5a333.7 333.7 0 0 0 52.9-75.11 32.35 32.35 0 0 0 0-29.19C550.29 135.59 442.93 64 320 64c-36.7 0-71.71 7-104.63 18.81l46.41 36.29c18.94-4.3 38.34-7.1 58.22-7.1zm0 288c-98.65 0-189.08-55-237.93-144a285.47 285.47 0 0 1 44.05-60.19l-37.74-29.5a333.6 333.6 0 0 0-52.89 75.1 32.35 32.35 0 0 0 0 29.19C89.72 376.41 197.08 448 320 448c36.7 0 71.71-7.05 104.63-18.81l-46.41-36.28C359.28 397.2 339.89 400 320 400z"
-              ></path>
-            </svg>
-          </button>
-        </div>
-      </section>
     </main>
     <footer>
       <div class="texture-1">
@@ -370,14 +273,24 @@
                 </figure>
               </a>
             </li>
-            <!-- <li>
-              <a href="#">
+            <li>
+              <a href="https://twitter.com/MealOutpost">
                 <figure>
                   <img src="../../static/svg/twitter.svg" alt="Twitter Logo." />
                 </figure>
               </a>
             </li>
             <li>
+              <a href="https://www.instagram.com/mealoutpost/?hl=en">
+                <figure>
+                  <img
+                    src="../../static/svg/instagram.svg"
+                    alt="Instagram Logo."
+                  />
+                </figure>
+              </a>
+            </li>
+            <!-- <li>
               <a href="#">
                 <figure>
                   <img
@@ -387,7 +300,7 @@
                   />
                 </figure>
               </a>
-            </li> -->
+            </li>  -->
           </ul>
         </div>
       </div>
