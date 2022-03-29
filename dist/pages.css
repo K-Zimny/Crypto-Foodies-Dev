@@ -15,6 +15,7 @@
 
 html {
   font-size: 14px;
+  overflow-x: hidden;
 }
 
 @media only screen and (max-width: 767px) {
@@ -41,7 +42,7 @@ body.inner-page {
   min-height: 100vh;
   background-color: #dedede;
   overflow-x: hidden;
-  /* background-image: url("/static/imgs/space-bg-1.webp"); */
+  background-image: url(bc21b5b6f395f1fe.webp);
 }
 
 body.body-100vh {
@@ -296,7 +297,7 @@ img {
 }
 
 #pageHeader li:last-of-type a {
-  border: 1px solid var(--dark);
+  border: 1px solid #fe5f55;
   border-radius: 5px;
   padding: 1rem 1.5rem 0.1rem 0.1rem;
 }
@@ -305,7 +306,7 @@ img {
 #pageHeader li:last-of-type a:active,
 #pageHeader li:last-of-type a:focus {
   color: var(--white);
-  background-color: var(--dark);
+  background-color: #fe5f55;
 }
 
 #pageHeader a {
@@ -322,7 +323,7 @@ img {
   padding-right: 4rem;
 }
 
-#pageHeader > .container > div:first-of-type a::after {
+/* #pageHeader > .container > div:first-of-type a::after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -330,7 +331,7 @@ img {
   height: 1px;
   width: 100%;
   background-color: var(--dark);
-}
+} */
 
 #pageHeader a:hover,
 #pageHeader a:focus,
@@ -359,8 +360,9 @@ img {
 
   #pageHeader ul {
     padding: 0 !important;
-    flex-flow: row wrap;
-    justify-content: flex-start;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
   }
 
   #pageHeader li {
@@ -450,7 +452,7 @@ footer figure #tiktokLogo {
 
 @media only screen and (max-width: 767px) {
   footer .container {
-    flex-flow: column;
+    flex-flow: column-reverse;
   }
 
   footer ul {
@@ -464,9 +466,9 @@ footer figure #tiktokLogo {
     justify-content: center;
   }
 
-  footer figure {
+  /* footer figure {
     width: 2.5rem;
-  }
+  } */
 
   footer p {
     padding: 0 !important;
@@ -616,6 +618,12 @@ footer figure #tiktokLogo {
   margin-left: auto;
 }
 
+.inner-page .sm-container.border {
+  border: 1px solid #fe5f55;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
 .inner-page h1 {
   font-size: 8rem;
   margin: 4rem 0 6rem;
@@ -633,9 +641,17 @@ footer figure #tiktokLogo {
 }
 
 .inner-page h2.large {
-  font-size: 6rem;
-  margin-bottom: 6rem;
-  line-height: 6rem;
+  font-size: 5rem;
+  margin: 2rem 0;
+  line-height: 5rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .inner-page h2.large {
+    font-size: 3.5rem;
+    margin: 2rem 0;
+    line-height: 3.5rem;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -682,14 +698,41 @@ footer figure #tiktokLogo {
 
 hr.innerpage-divider {
   background-color: #89898900;
-  margin: 4rem 0;
+  margin: 0;
+  height: 100vh;
+  width: 101vw;
+  transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+@media only screen and (max-width: 767px) {
+  hr.innerpage-divider {
+    height: 50vh;
+  }
+}
+/* ---------------------------------------------- */
+/* Page dividers */
+/* ---------------------------------------------- */
+hr.innerpage-divider:first-of-type {
+  background-image: url(1518cd68612d5fde.webp);
+}
+
+hr.innerpage-divider:nth-of-type(2) {
+  background-image: url(73e7f1f7a479dc28.webp);
+}
+
+hr.innerpage-divider:nth-of-type(3) {
+  background-image: url(5e8d39bb1f09b68f.webp);
 }
 
 @media only screen and (max-width: 767px) {
   .inner-page h1 {
-    font-size: clamp(3rem, 13vw, 6rem);
+    font-size: clamp(6rem, 13vw, 6rem);
     line-height: 6rem;
-    margin-bottom: 4rem;
+    margin: 2rem 0;
   }
 
   .inner-page .sub-text {
@@ -728,7 +771,9 @@ hr.innerpage-divider {
 
 #aboutPage #pageHeader {
   /* mix-blend-mode: color-burn; */
-  background: #000;
+  background: #090909;
+  border-bottom: 3px solid #fe5f55;
+  width: 101vw;
 }
 
 #aboutPage #pageHeader * {
@@ -750,12 +795,12 @@ hr.innerpage-divider {
 
 #aboutPage .solid-bg {
   background: #090909;
-  width: 100vw;
+  width: 101vw;
   transform: translateX(-50%);
   position: relative;
   left: 50%;
   padding: 10rem;
-  mix-blend-mode: hard-light;
+  /* mix-blend-mode: hard-light; */
 }
 
 @media only screen and (max-width: 767px) {
@@ -796,19 +841,19 @@ hr.innerpage-divider {
   }
 }
 
-/* Roadmap */
+/* #anchorAlpha  */
 
-#roadmapBlock {
+/* #anchorAlpha {
   mix-blend-mode: color-burn !important;
   min-height: 150vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 8rem 0rem;
-  background: linear-gradient(#000 10%, #d13131) !important;
-}
+  /* margin: 8rem 0rem; */
+/* background: linear-gradient(rgb(245, 245, 245) 1%, #ff5151 90%) !important; */
+/* }  */
 
-#roadmapBlock p {
+/* #anchorAlpha p {
   font-size: 10vw;
   text-align: center;
   filter: blur(2.5px);
@@ -816,14 +861,18 @@ hr.innerpage-divider {
   top: 50%;
   font-family: itc-avant-garde-gothic-pro, sans-serif !important;
   line-height: 250px;
-}
+} */
 
-@media only screen and (max-width: 767px) {
-  #roadmapBlock p {
+/* @media only screen and (max-width: 767px) {
+  #anchorAlpha p {
     filter: blur(2px);
     font-size: 4rem;
     line-height: 10rem;
   }
+} */
+
+#anchorAlpha figure {
+  margin: 0;
 }
 
 /* nft membership blocks */
@@ -952,6 +1001,10 @@ hr.innerpage-divider {
   transform: scaleX(2) scaleY(0.05);
 }
 
+/* #joinDiscordPageEnd {
+  background: url("../static/imgs/fadya-azhary-xXOcdw54sks-unsplash.webp");
+} */
+
 /* ================================================================================= */
 /* typeform how it works */
 /* ================================================================================= */
@@ -971,6 +1024,13 @@ hr.innerpage-divider {
   transition: all ease 0.65s;
   text-align: center;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+  #howItWorksTypeform {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
 }
 
 #howItWorksTypeform a {
@@ -1015,18 +1075,18 @@ hr.innerpage-divider {
 /* ================================================================================= */
 /* Roadmap Timeline */
 /* ================================================================================= */
-#roadmapTimeline {
-  max-width: 1200px;
-  margin: 0 auto;
+#howItWorksGif {
+  /* max-width: 1200px; */
+  margin: 0 auto 4rem;
   filter: invert(1);
 }
 
-#roadmapTimeline img {
+#howItWorksGif img {
   border: 35px solid #3117e5;
 }
 
 @media only screen and (max-width: 767px) {
-  #roadmapTimeline img {
+  #howItWorksGif img {
     border-width: 15px;
   }
 }
@@ -1044,6 +1104,15 @@ hr.innerpage-divider {
   width: 90%;
   max-width: 1200px;
   margin: 5rem auto 2rem;
+}
+
+/* ================================================================================= */
+/* Page MO Logo in Header */
+/* ================================================================================= */
+
+#moLogoHeader {
+  margin: 0;
+  width: 150px;
 }
 
 

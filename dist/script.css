@@ -15,6 +15,7 @@
 
 html {
   font-size: 14px;
+  overflow-x: hidden;
 }
 
 @media only screen and (max-width: 767px) {
@@ -41,7 +42,7 @@ body.inner-page {
   min-height: 100vh;
   background-color: #dedede;
   overflow-x: hidden;
-  /* background-image: url("/static/imgs/space-bg-1.webp"); */
+  background-image: url(bc21b5b6f395f1fe.webp);
 }
 
 body.body-100vh {
@@ -517,7 +518,7 @@ header figure img {
   }
 
   nav li {
-    padding: 10px 0;
+    padding: 0px 0;
     width: 100%;
   }
 
@@ -950,7 +951,7 @@ header figure img {
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: url(684bde814c8a4f37.webp);
+  background: url(2bbea1cb0b1ea1bb.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 40%;
@@ -970,11 +971,12 @@ header figure img {
 #enterScreenHeader {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   max-width: 1920px;
   margin: auto;
   width: 90%;
   height: 10vh;
+  margin-top: 1rem;
 }
 
 @media only screen and (max-width: 375px) {
@@ -1180,7 +1182,7 @@ header figure img {
 
 @media only screen and (max-width: 767px) {
   #enterScreen #enterOrderOnline {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
   }
 }
@@ -1210,6 +1212,7 @@ header figure img {
 #loadingThreeJsEnter p {
   color: #fff;
   font-size: 2.5rem;
+  line-height: 2.5rem;
   margin: 0;
 }
 
