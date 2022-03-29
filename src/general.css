@@ -43,7 +43,7 @@ body.inner-page {
   min-height: 100vh;
   background-color: #dedede;
   overflow-x: hidden;
-  /* background-image: url("/static/imgs/space-bg-1.webp"); */
+  background-image: url("/static/imgs/space-bg-1.webp");
 }
 
 body.body-100vh {

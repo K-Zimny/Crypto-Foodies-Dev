@@ -243,7 +243,7 @@ footer figure #tiktokLogo {
 
 @media only screen and (max-width: 767px) {
   footer .container {
-    flex-flow: column;
+    flex-flow: column-reverse;
   }
 
   footer ul {
@@ -257,9 +257,9 @@ footer figure #tiktokLogo {
     justify-content: center;
   }
 
-  footer figure {
+  /* footer figure {
     width: 2.5rem;
-  }
+  } */
 
   footer p {
     padding: 0 !important;
@@ -791,6 +791,10 @@ hr.innerpage-divider:nth-of-type(3) {
 .join-link-btn:focus::before {
   transform: scaleX(2) scaleY(0.05);
 }
+
+/* #joinDiscordPageEnd {
+  background: url("../static/imgs/fadya-azhary-xXOcdw54sks-unsplash.webp");
+} */
 
 /* ================================================================================= */
 /* typeform how it works */

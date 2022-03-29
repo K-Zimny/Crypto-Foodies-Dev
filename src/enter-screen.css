@@ -6,7 +6,7 @@
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: url("../static/imgs/peter-pham-v5yVy3IhSRU-unsplash.webp");
+  background: url("../static/imgs/wings-opacity.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 40%;
@@ -26,11 +26,12 @@
 #enterScreenHeader {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   max-width: 1920px;
   margin: auto;
   width: 90%;
   height: 10vh;
+  margin-top: 1rem;
 }
 
 @media only screen and (max-width: 375px) {
@@ -236,7 +237,7 @@
 
 @media only screen and (max-width: 767px) {
   #enterScreen #enterOrderOnline {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
   }
 }
@@ -266,6 +267,7 @@
 #loadingThreeJsEnter p {
   color: #fff;
   font-size: 2.5rem;
+  line-height: 2.5rem;
   margin: 0;
 }
 
