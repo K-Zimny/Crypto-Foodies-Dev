@@ -87,16 +87,18 @@ img {
   margin: 0 2rem;
 }
 
-#pageHeader li:last-of-type a {
+#aboutPage #pageHeader li:last-of-type a {
   border: 1px solid #fe5f55;
   border-radius: 5px;
   padding: 1rem 1.5rem 0.1rem 0.1rem;
+  color: var(--white) !important;
+  background-color: #fe5f55;
 }
 
-#pageHeader li:last-of-type a:hover,
-#pageHeader li:last-of-type a:active,
-#pageHeader li:last-of-type a:focus {
-  color: var(--white);
+#aboutPage #pageHeader li:last-of-type a:hover,
+#aboutPage #pageHeader li:last-of-type a:active,
+#aboutPage #pageHeader li:last-of-type a:focus {
+  color: var(--white) !important;
   background-color: #fe5f55;
 }
 
@@ -219,7 +221,7 @@ footer figure #tiktokLogo {
 }
 
 #subFooter {
-  background-color: #cacaca;
+  background-color: #edf5dc;
 }
 
 #subFooter .container {
@@ -403,7 +405,7 @@ footer figure #tiktokLogo {
 }
 
 .inner-page .sm-container {
-  max-width: 1440px;
+  max-width: 1920px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -413,14 +415,15 @@ footer figure #tiktokLogo {
   border: 1px solid #fe5f55;
   padding: 2rem;
   border-radius: 2rem;
+  background: #fe5f55;
 }
 
 .inner-page h1 {
   font-size: 8rem;
   margin: 4rem 0 6rem;
   /* -webkit-text-stroke-width: 0.1px; */
-  -webkit-text-stroke-color: #000000;
-  filter: drop-shadow(6px 6px black);
+  /* -webkit-text-stroke-color: #000000; */
+  /* filter: drop-shadow(6px 6px black); */
   letter-spacing: 6px;
   line-height: 8rem;
 }
@@ -508,15 +511,17 @@ hr.innerpage-divider {
 /* Page dividers */
 /* ---------------------------------------------- */
 hr.innerpage-divider:first-of-type {
-  background-image: url(../static/imgs/victoria-shes-Qa29U4Crvn4-unsplash.webp);
+  background-image: url(../static/imgs/rotisserie.webp);
+  /* background-position: 30%; */
 }
 
 hr.innerpage-divider:nth-of-type(2) {
-  background-image: url(../static/imgs/jo-sonn-M-tzZD5z720-unsplash.webp);
+  background-image: url(../static/imgs/chicken-bowl-tikka.webp);
 }
 
 hr.innerpage-divider:nth-of-type(3) {
-  background-image: url(../static/imgs/edgar-castrejon-J04BD4ysoh8-unsplash.webp);
+  background-image: url(../static/imgs/salads-alt-edited.webp);
+  background-position: 20%;
 }
 
 @media only screen and (max-width: 767px) {
@@ -550,7 +555,7 @@ hr.innerpage-divider:nth-of-type(3) {
 /* About page */
 
 #aboutPage * {
-  color: #fff;
+  color: #edf5dc;
 }
 
 #aboutPage strong {
@@ -562,13 +567,13 @@ hr.innerpage-divider:nth-of-type(3) {
 
 #aboutPage #pageHeader {
   /* mix-blend-mode: color-burn; */
-  background: #090909;
+  background: #edf5dc;
   border-bottom: 3px solid #fe5f55;
   width: 101vw;
 }
 
 #aboutPage #pageHeader * {
-  color: #fff !important;
+  color: #fe5f55 !important;
 }
 
 #aboutPage #pageHeader > .container > div:first-of-type a::after {
@@ -585,12 +590,12 @@ hr.innerpage-divider:nth-of-type(3) {
 }
 
 #aboutPage .solid-bg {
-  background: #090909;
+  background: #edf5dc;
   width: 101vw;
   transform: translateX(-50%);
   position: relative;
   left: 50%;
-  padding: 10rem;
+  padding: 4rem 2rem;
   /* mix-blend-mode: hard-light; */
 }
 
@@ -815,12 +820,19 @@ hr.innerpage-divider:nth-of-type(3) {
   transition: all ease 0.65s;
   text-align: center;
   cursor: pointer;
+  border: none;
+}
+
+#howItWorksTypeform:hover {
+  border: none;
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 767px) {
   #howItWorksTypeform {
-    font-size: 1.25rem;
-    line-height: 1.5rem;
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.1rem;
   }
 }
 
@@ -868,12 +880,17 @@ hr.innerpage-divider:nth-of-type(3) {
 /* ================================================================================= */
 #howItWorksGif {
   /* max-width: 1200px; */
-  margin: 0 auto 4rem;
-  filter: invert(1);
+  margin: 0 auto 8rem;
+  /* filter: invert(1); */
+  background-color: #edf5dc;
+  filter: drop-shadow(2px 4px 6px #454545);
+  border-radius: 25px;
 }
 
 #howItWorksGif img {
-  border: 35px solid #3117e5;
+  max-width: 1200px;
+  margin: auto;
+  display: block;
 }
 
 @media only screen and (max-width: 767px) {
@@ -904,4 +921,52 @@ hr.innerpage-divider:nth-of-type(3) {
 #moLogoHeader {
   margin: 0;
   width: 150px;
+}
+
+/* ---------------------------------------------- */
+/* Flex-Container for How it works section */
+/* ---------------------------------------------- */
+
+.text-align-center {
+  text-align: center;
+}
+
+.flex-container--row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 4rem;
+  margin: 4rem 0;
+}
+
+.flex-container__item {
+  width: 33%;
+}
+
+.flex-container__img {
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.flex-container__text {
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .flex-container--row {
+    flex-flow: column;
+  }
+
+  .flex-container__item {
+    width: 100%;
+  }
+
+  .flex-container__img {
+    max-width: 200px;
+  }
+
+  /* .flex-container__text {
+    font-size: 1.5rem;
+  } */
 }
