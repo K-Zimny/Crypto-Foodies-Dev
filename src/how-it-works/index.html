@@ -28,8 +28,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-17N203366M"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-17N203366M");
+    </script>
   </head>
-  <body id="aboutPage" class="inner-page texture-2">
+  <body id="aboutPage" class="inner-page">
     <header id="pageHeader">
       <div class="container">
         <div>
@@ -128,7 +142,7 @@
                 data-tf-iframe-props="title=Welcome to Meal Outpost!"
                 data-tf-medium="snippet"
               >
-                Wanna Learn More? Fill out this form, it takes 2 min.
+                Wanna Learn More? Fill out this form, it takes 90 seconds.
               </button>
             </div>
             <script src="//embed.typeform.com/next/embed.js"></script>
@@ -147,8 +161,7 @@
                 stark reality: nearly 90% of restaurants fail. Getting a
                 franchise is safer, but also means most of your revenue is split
                 between middlemen and corporations, leaving the franchisee not
-                as an owner but an employee of the brand. (On average, making
-                $82,000 a year.)
+                as an owner but an employee of the brand.
               </p>
               <div>
                 <p class="serif">
@@ -181,12 +194,12 @@
                       A path to scale without having to pay the costs to
                       franchise.
                     </li>
-                    <li class="serif">Stability in Labor</li>
+                    <li class="serif">Labor economies of scale</li>
                     <li class="serif">Marketing support</li>
                   </ol>
                 </div>
               </div>
-              <p class="serif">
+              <!-- <p class="serif">
                 Meal Outpost DAO provides these tools for restaurants and brands
                 built collectively to ensure reciprocity. Learn more about the
                 economics for restaurants and brands in the
@@ -195,7 +208,7 @@
                   href="https://discord.gg/HNPHTWgpXM"
                   >Discord</a
                 >.
-              </p>
+              </p> -->
             </div>
           </section>
           <hr class="innerpage-divider" />
@@ -208,7 +221,7 @@
               <h2 class="large">For Restaurants and Brands</h2>
               <figure>
                 <img
-                  src="../../static/imgs/mo-pitchdeck-6.svg"
+                  src="../../static/imgs/mo-pitchdeck-6-updated.svg"
                   alt="The Problem"
                 />
               </figure>
@@ -226,7 +239,7 @@
                 data-tf-iframe-props="title=Welcome to Meal Outpost!"
                 data-tf-medium="snippet"
               >
-                Wanna Learn More? Fill out this form it takes 2 min.
+                Wanna Learn More? Fill out this form, it takes 90 seconds.
               </button>
             </div>
             <script src="//embed.typeform.com/next/embed.js"></script>
@@ -273,11 +286,8 @@
               </div>
             </div>
           </section>
-          <section
-            id="joinDiscordPageEnd"
-            class="join-link-btn"
-            style="margin-top: 12rem; margin-bottom: 12rem"
-          >
+
+          <section id="joinDiscordPageEnd" class="join-link-btn">
             <a href="https://discord.gg/HNPHTWgpXM"
               >Invest in the future of restaurants!<wbr /> Join our Discord</a
             >
@@ -286,7 +296,7 @@
       </div>
     </main>
     <footer>
-      <div class="texture-1">
+      <div class="">
         <div class="container">
           <div>
             <p>© <span id="copyrightFooterYear"></span> Meal Outpost</p>
