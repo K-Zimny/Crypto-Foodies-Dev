@@ -40,9 +40,10 @@ body.inner-page {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-  background-color: #dedede;
+  background-color: #edf5dc;
   overflow-x: hidden;
-  background-image: url(bc21b5b6f395f1fe.webp);
+  /* background-image: url("/static/imgs/space-bg-1.webp");
+  background-blend-mode: color-burn; */
 }
 
 body.body-100vh {
@@ -312,7 +313,7 @@ img {
 }
 
 #pageHeader a {
-  font-size: 2.25rem;
+  font-size: 2rem;
   color: var(--dark);
   transition: all ease 0.3s;
   display: inline-block;
@@ -383,6 +384,13 @@ img {
 
 /* footer */
 
+footer {
+  background-image: url(bc21b5b6f395f1fe.webp);
+  background-blend-mode: color-burn;
+  background-color: #b69e9d;
+  background-size: cover;
+}
+
 footer a {
   display: inline-block;
   transition: all ease 0.3s;
@@ -435,7 +443,8 @@ footer figure #tiktokLogo {
 
 #subFooter .container {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: flex-start;
   align-items: center;
   padding: 0;
 }
@@ -445,7 +454,7 @@ footer figure #tiktokLogo {
 }
 
 #subFooter li {
-  margin: 0 2rem;
+  /* margin: 0 2rem; */
 }
 
 #subFooter a {
@@ -482,7 +491,7 @@ footer figure #tiktokLogo {
 
   #subFooter .container ul li {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 0;
   }
 }
@@ -649,7 +658,7 @@ footer figure #tiktokLogo {
   line-height: 5rem;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 768px) {
   .inner-page h2.large {
     font-size: 3.5rem;
     margin: 2rem 0;
@@ -1014,7 +1023,7 @@ hr.innerpage-divider:nth-of-type(3) {
 /* typeform how it works */
 /* ================================================================================= */
 
-#howItWorksTypeform {
+.how-it-works-typeform {
   display: flex;
   position: relative;
   align-items: center;
@@ -1032,26 +1041,26 @@ hr.innerpage-divider:nth-of-type(3) {
   border: none;
 }
 
-#howItWorksTypeform:hover {
+.how-it-works-typeform:hover {
   border: none;
   transform: scale(1.1);
 }
 
 @media only screen and (max-width: 767px) {
-  #howItWorksTypeform {
+  .how-it-works-typeform {
     font-size: 1.75rem;
     line-height: 1.75rem;
     letter-spacing: 0.1rem;
   }
 }
 
-#howItWorksTypeform a {
+.how-it-works-typeform a {
   z-index: 2;
   transition: all ease 0.65s;
   padding: 1rem 10%;
 }
 
-#howItWorksTypeform a:hover {
+.how-it-works-typeform a:hover {
   transform: scale(1.5);
   color: #000 !important;
   background: #d2d2d2e8;
@@ -1060,12 +1069,12 @@ hr.innerpage-divider:nth-of-type(3) {
 }
 
 @media only screen and (max-width: 767px) {
-  #howItWorksTypeform a:hover {
+  .how-it-works-typeform a:hover {
     transform: scale(1.05);
   }
 }
 
-#howItWorksTypeform::before {
+.how-it-works-typeform::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1078,9 +1087,9 @@ hr.innerpage-divider:nth-of-type(3) {
   z-index: -1;
 }
 
-#howItWorksTypeform:hover::before,
-#howItWorksTypeform:active::before,
-#howItWorksTypeform:focus::before {
+.how-it-works-typeform:hover::before,
+.how-it-works-typeform:active::before,
+.how-it-works-typeform:focus::before {
   transform: scaleX(2) scaleY(0);
 }
 
@@ -1094,6 +1103,12 @@ hr.innerpage-divider:nth-of-type(3) {
   background-color: #edf5dc;
   filter: drop-shadow(2px 4px 6px #454545);
   border-radius: 25px;
+}
+
+@media only screen and (max-width: 767px) {
+  #howItWorksGif {
+    margin: 0 auto 4rem;
+  }
 }
 
 #howItWorksGif img {
